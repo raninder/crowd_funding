@@ -22,5 +22,5 @@
 - they can check disable person details and vrify
 - they can help to goods moving
 - they can take care donation person money
-- Manage O
+
 
