@@ -20,12 +20,12 @@ VALUES ('Therapy'),
   ('Food'),
    ('Education');
 
-INSERT INTO goods (user_id,good_cate_id,size,quantity,img,company,codition,description)
+INSERT INTO goods (user_id,good_cat_id,size,quantity,img,company,condition,description)
 VALUES(1,4,'medium',3,'https://www.istockphoto.com/photo/mom-and-son-laugh-together-while-playing-in-living-room-gm1165345367-320628958',null,'good','this toy is nice condition.'),
 (1,5,'medium',1,'https://www.istockphoto.com/photo/couple-hands-during-sunset-gm1053564580-281489787',null,'ok','chair is old but still nice working'),
 (1,4,'small',1,'https://www.istockphoto.com/photo/child-with-down-syndrome-enjoying-with-his-father-at-public-park-gm1185240681-333946796',null,'good','it is perfect for 2 to 9 old kids');
 
-INSERT INTO fundraising (user_id,fund_cate_id,title,img,story,goal)
+INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal)
 VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00),
 (3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00);
 

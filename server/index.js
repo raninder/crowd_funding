@@ -1,3 +1,5 @@
+
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -14,11 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use("/users", routes(db));
+app.use("/", routes(db));
 
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-module.exports = app;

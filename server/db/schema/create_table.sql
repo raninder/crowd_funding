@@ -25,19 +25,19 @@ DROP TABLE IF EXISTS goods CASCADE;
 CREATE TABLE goods (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  good_cate_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
+  good_cat_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
   size VARCHAR(255),
   quantity INT NOT NULL,
   img VARCHAR(255) NOT NULL,
   company VARCHAR(255),
-  codition VARCHAR(255) NOT NULL,
+  condition VARCHAR(255) NOT NULL,
   description VARCHAR(500) NOT NULL
 );
 DROP TABLE IF EXISTS fundraising CASCADE;
 CREATE TABLE fundraising (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  fund_cate_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
+  fund_cat_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
   img VARCHAR(255) NOT NULL,
   story VARCHAR(500) NOT NULL,
