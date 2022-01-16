@@ -7,8 +7,15 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 3001;
 
-// PG database client/connection setup
-const db = require('./database');
+
+
+// PG database setup
+const { Pool } = require("pg");
+const dbParams = require("./lib/db.js");
+const db = new Pool(dbParams);
+db.connect(() =>  console.log(`Connected to database`));
+
+
 const routes = require("./routes");
 
 app.use(morgan("dev"));

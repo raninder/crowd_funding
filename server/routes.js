@@ -1,10 +1,9 @@
 
-
 const express = require("express");
 const router = express.Router();
 //  const database = require("./database");
 
-module.exports = ({db}) => {
+module.exports = (db) => {
 	console.log(db);
   router.get('/', (req, res) => {
 		    db.query(`SELECT * FROM goods;`)
@@ -14,4 +13,6 @@ module.exports = ({db}) => {
 		  });
 	return router;
 };
+
+
 
