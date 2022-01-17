@@ -50,19 +50,19 @@ module.exports = (db) => {
 		// add donate goods data to goods table
 
 
-	router.post("/addNewGoods", (req, res) => {
+	router.post("/addnewgoods", (req, res) => {
 		const myJson = req.body;
-			console.log("myJson", myJson);
+			 console.log("myJson", myJson);
 			const {
 					category,
 					company,
 					condition,
 					size,
-					qty,
-					image,
+					quantity,
 					desc
-				} = req.body.values;
+				} = myJson;
 				
+				const image = "www.example.com";
 					db.query(` 
 					INSERT INTO goods_categories (name)
 					VALUES ($1)
@@ -71,14 +71,16 @@ module.exports = (db) => {
 				.then((res) => {
 					// res.send(myJson);
 					const catId = res.rows[0].id;
-					const userId = req.params.id;
+					const userId = 1;
+				
 					db.query(`
 					INSERT INTO goods ( user_id,good_cat_id,size,quantity,img,company,condition,description )
 					VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 					RETURNING *;
-	`			, [userId,catId,size,qty,image,company,condition,desc ])
+	`			, [userId,catId,size,quantity,image,company,condition,desc ])
 				})
-				.then(res => console.log(res.rows));
+				.then(res => console.log(res.rows))
+				.catch(err =>console.log(err))
 				
 			});
 

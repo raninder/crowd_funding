@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 3001;
 
-
+const corsOptions = {origin: '*'};
 
 // PG database setup
 const { Pool } = require("pg");
@@ -21,7 +21,7 @@ const routes = require("./routes");
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use("/api", routes(db));
 
