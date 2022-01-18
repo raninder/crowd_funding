@@ -16,14 +16,21 @@ const db = new Pool(dbParams);
 db.connect(() =>  console.log(`Connected to database`));
 
 
-const routes = require("./routes");
-
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
-app.use("/api", routes(db));
+const goodsRoutes = require("./routes/goods");
+const userRoutes = require("./routes/users");
+
+// Mount all resource routes
+
+app.use("/api/goods", goodsRoutes(db));
+app.use("/api/users", userRoutes(db));
+
+// const routes = require("./routes");
+// app.use("/api", routes(db));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
