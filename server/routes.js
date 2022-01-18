@@ -1,15 +1,18 @@
-// const request = require('request');
-//  const fetch = require('cross-fetch');
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const { Session } = require("inspector");
+// const { Session } = require("inspector");
 
 
 module.exports = (db) => {
 	console.log(db);
   router.get('/getallgoods', (req, res) => {
 		    db.query(`SELECT * FROM goods;`)
+									// SELECT goods.*, goods_categories.name FROM goods
+									// JOIN goods_categories
+									// ON goods_categories.id = goods.id;
+									
 		    .then((data) => {
 		      res.json(data.rows);
 		    })
@@ -59,25 +62,24 @@ module.exports = (db) => {
 					condition,
 					size,
 					quantity,
-					desc
+					description
 				} = myJson;
 				
 				const image = "www.example.com";
 					db.query(` 
-					INSERT INTO goods_categories (name)
-					VALUES ($1)
-					RETURNING *;
-					`, [category])
+					SELECT id FROM goods_categories WHERE name = '${category}';
+					`)
 				.then((res) => {
 					// res.send(myJson);
 					const catId = res.rows[0].id;
+					console.log("catId",catId);
 					const userId = 1;
 				
 					db.query(`
 					INSERT INTO goods ( user_id,good_cat_id,size,quantity,img,company,condition,description )
 					VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 					RETURNING *;
-	`			, [userId,catId,size,quantity,image,company,condition,desc ])
+	`			, [userId,catId,size,quantity,image,company,condition,description ])
 				})
 				.then(res => console.log(res.rows))
 				.catch(err =>console.log(err))
