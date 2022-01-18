@@ -26,12 +26,12 @@ CREATE TABLE goods (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   good_cat_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
-  size VARCHAR(255),
-  quantity INT NOT NULL,
-  img VARCHAR(255) NOT NULL,
-  company VARCHAR(255),
+  size VARCHAR(255) DEFAULT 'Not known',
+  quantity INT NOT NULL DEFAULT 1,
+  img VARCHAR(500) DEFAULT 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://www.buffalooccupationaltherapy.com/wp-content/uploads/2019/08/canstockphoto38760872-1.jpg',
+  company VARCHAR(255) DEFAULT 'Not known',
   condition VARCHAR(255) NOT NULL,
-  description VARCHAR(500) NOT NULL
+  description VARCHAR(500) 
 );
 DROP TABLE IF EXISTS fundraising CASCADE;
 CREATE TABLE fundraising (
@@ -39,7 +39,7 @@ CREATE TABLE fundraising (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_cat_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  img VARCHAR(255) NOT NULL,
+  img VARCHAR(500) DEFAULT 'https://www.surreyschools.ca/EducationalPrograms/SpecialNeedsSupport/PublishingImages/Support%20Hands.jpg' ,
   story VARCHAR(500) NOT NULL,
   goal DECIMAL(15,2) NOT NULL
 );
