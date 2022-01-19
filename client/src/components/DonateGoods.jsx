@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useAlert } from 'react-alert';
 import '../Donate.css';
 
 
@@ -9,21 +10,38 @@ export default function DonateGoods(props) {
 	const [condition, setCondition] = useState("");
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState("");
-	const [desc, setDesc] = useState("");
+	const [img, setImage] = useState("");
+	const [description, setDescription] = useState("");
+
+	const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
 	
-    const goods = { category, company, condition,size, quantity, desc };
-		// const goods = { company, size };
-		alert(JSON.stringify(goods));
-		// alert(size);
-		// console.log("goods", JSON.stringify(goods));
-    axios.post("http://localhost:3001/api/addnewgoods", goods)
+    const goods = { category, company, condition,size, quantity, description };
+		// alert(JSON.stringify(goods));
+		
+		const url ="http://localhost:3001/api/goods/addnewgoods";
+    axios.post(url, goods)
 		.then(res => {
-      console.log(res);
+     
+			alert.show('Thanks for Donating');
+			console.log(res);
+			// setQuantity("");
+			// setDescription("");
+			// handleReset();
     });
   }
+
+	function handleReset(){
+		setCategory("");
+    setCompany("");
+		setCondition("");
+		setDescription("");
+		setQuantity("");
+		setSize("");
+	}
+
 	return (
     <div className="styleform">
       <h1>Donate Goods</h1>
@@ -32,29 +50,33 @@ export default function DonateGoods(props) {
          <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
                <option value="">--Please choose an option--</option>
-               <option value="books">Books</option>
-               <option value="furniture">Furniture</option>
-               <option value="ex_equip">Exercise Equipment</option>
-							 <option value="daily_living">Daily Living</option>
-							 <option value="comm">Social and Communication</option>
-							 <option value="toys_and_games">Toys and Games</option>
+               <option value="Books">Books</option>
+							 <option value="Ex_Equipment">Exercise Equipment</option>
+               <option value="Furniture">Furniture</option>
+               <option value="Toys_and_Games">Toys and Games</option>
+							 <option value="Daily_Living">Daily Living</option>
+							 <option value="Mobility_Products">Mobility Products</option>
+							 <option value="Communication">Social and Communication</option>
+							 <option value="Others">Others</option>
            </select>
         
 					 <p>
-        	 <label> Company: </label>  
+        	 <label> Company/Brand (if applicable): </label>  
            <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/> 
 					</p>
 				<p>
-				<label>Condition:
+				
 				<div onChange={(e) => setCondition(e.target.value)}>
+					<label>Condition:
            <input type="radio" id = "exc" name="condition" value = "Excellent" />
 					 <label for="exc">Excellent</label>
 					 <input type="radio" id="good" name="condition" value = "Good" />
 					 <label for="good">Good</label>
 					 <input type="radio" id="satis" name="condition" value = "Satisfactory" />
 					 <label for="satis">Satisfactory</label>
+					 </label>
 					 </div>
-         </label>
+        
 				</p>
 
 					<p>
@@ -68,16 +90,18 @@ export default function DonateGoods(props) {
 					</p>
 
 				<p>
-					<label for="image">Upload Image:</label>
-  				<input type="file" id="image" name="image" accept="image/*" />
+					<label for="img">Upload Image:</label>
+					<input name="img" value={img} onChange={(e) => setImage(e.target.value)}/>
+  				{/* <input type="file" id="image" name="image" accept="image/*" /> */}
 				</p>
 
 				<p>
-				<label for="desc">Description:</label><br/>
-				<textarea id="desc" name="desc" rows="4" cols="30" value={desc} onChange={(e) => setDesc(e.target.value)}/>
+				<label for="description">Description:</label><br/>
+				<textarea id="description" name="description" rows="4" cols="30" value={description} onChange={(e) => setDescription(e.target.value)}/>
 				</p>
 
-       <button type="submit" >Submit</button>
+       <button type="submit" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+			 <button onClick={handleReset}>Reset</button>
 			 
       </form>
     </div>

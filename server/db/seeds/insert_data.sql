@@ -11,7 +11,8 @@ VALUES ('Books'),
 ('Toys_and_Games'),
 ('Daily_Living'),
 ('Mobility_Products'),
-('Communication');
+('Communication'),
+('Others');
 
 INSERT INTO fund_categories (name)
 VALUES ('Therapy'),

@@ -28,7 +28,7 @@ CREATE TABLE goods (
   good_cat_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
   size VARCHAR(255) DEFAULT 'Not known',
   quantity INT NOT NULL DEFAULT 1,
-  img VARCHAR(500) DEFAULT 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://www.buffalooccupationaltherapy.com/wp-content/uploads/2019/08/canstockphoto38760872-1.jpg',
+  img VARCHAR(500), 
   company VARCHAR(255) DEFAULT 'Not known',
   condition VARCHAR(255) NOT NULL,
   description VARCHAR(500) 

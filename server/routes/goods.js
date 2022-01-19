@@ -27,22 +27,24 @@ router.put('/reqgoods', (req, res) => {
 					 WHERE good_cat_id= $1
 					 RETURNING *;
 					`, [catId])
-.then(res => res.rows);
+.then(result => res.send(result.rows));
 });
 
 router.post("/addnewgoods", (req, res) => {
 	const myJson = req.body;
 		 console.log("myJson", myJson);
-		const {
+		let {
 				category,
 				company,
 				condition,
 				size,
 				quantity,
+				img,
 				description
-			} = myJson;
-			
-			// const image = "www.example.com";
+			} = req.body;
+			console.log("image",img);
+			// if(image=="")
+			// 	image = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
 				db.query(` 
 				SELECT id FROM goods_categories WHERE name = '${category}';
 				`)
@@ -50,13 +52,13 @@ router.post("/addnewgoods", (req, res) => {
 				// res.send(myJson);
 				const catId = res.rows[0].id;
 				console.log("catId",catId);
-				const userId = 1;
+				let userId = 3;
 			
 				db.query(`
 				INSERT INTO goods ( user_id,good_cat_id,size,quantity,img,company,condition,description )
 				VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 				RETURNING *;
-`			, [userId,catId,size,quantity,image,company,condition,description ])
+`			, [userId,catId,size,quantity,img,company,condition,description ])
 			})
 			.then(res => console.log(res.rows))
 			.catch(err =>console.log(err))
