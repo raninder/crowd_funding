@@ -39,7 +39,7 @@ CREATE TABLE fundraising (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_cate_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  img VARCHAR(255) NOT NULL,
+  img VARCHAR(500) NOT NULL,
   story VARCHAR(500) NOT NULL,
   goal DECIMAL(15,2) NOT NULL
 );

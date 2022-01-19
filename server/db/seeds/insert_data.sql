@@ -13,12 +13,12 @@ VALUES ('books'),
 ('Socail & Communication');
 
 INSERT INTO fund_categories (name)
-VALUES ('Therapy'),
- ('Medical'), 
- ('Travel'),
-  ('Equipment'), 
-  ('Food'),
-   ('Education');
+VALUES ('therapy'),
+ ('medical'), 
+ ('travel'),
+  ('equipment'), 
+  ('food'),
+   ('education');
 
 INSERT INTO goods (user_id,good_cate_id,size,quantity,img,company,codition,description)
 VALUES(1,4,'medium',3,'https://www.istockphoto.com/photo/mom-and-son-laugh-together-while-playing-in-living-room-gm1165345367-320628958',null,'good','this toy is nice condition.'),
