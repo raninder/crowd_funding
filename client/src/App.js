@@ -11,6 +11,7 @@ import {
   Link
 
 } from "react-router-dom";
+
 function App() {
   
   const [user,setLoginUser] = useState({})
@@ -19,8 +20,8 @@ function App() {
     <div className="App">
       <Router>
       
-        <Link to="/">Homepage </Link>
-        <Link to="/Login">Login</Link>
+        <Link to="/"><i class="fa fa-fw fa-home"></i>Homepage </Link>
+        <Link to="/Login"><i class="fa fa-fw fa-user"></i>Login</Link>
         <Link to="/Register">Register</Link>
 <Switch>
   <Route exact path="/">

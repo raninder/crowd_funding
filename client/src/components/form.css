@@ -23,6 +23,7 @@ input, select {
     box-sizing: border-box;
   }
   label {
+    justify-content: left;
     margin-bottom: 10px;
     display: block;
   }
@@ -40,9 +41,10 @@ input, select {
     background-color: #45a049;
   }
   .mainsection {
-    
+    display: block;
+    justify-content: center;
+    width: 75%;
     border-radius: 5px;
-    background-color: #f2f2f2;
     padding: 20px;
     
   }
