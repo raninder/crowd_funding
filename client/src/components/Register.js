@@ -54,7 +54,7 @@ export default function Register(props) {
   //create form 
   return (
     <main className="">
-      <section className="">
+      <section className="mainsection">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
         <label name="First Name">First Name</label>
