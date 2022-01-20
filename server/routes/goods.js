@@ -54,13 +54,15 @@ router.post("/addnewgoods", (req, res) => {
 				console.log("catId",catId);
 				let userId = 3;
 			
-				db.query(`
+				return db.query(`
 				INSERT INTO goods ( user_id,good_cat_id,size,quantity,img,company,condition,description )
 				VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
 				RETURNING *;
 `			, [userId,catId,size,quantity,img,company,condition,description ])
 			})
-			.then(res => console.log(res.rows))
+			.then(result => {
+				console.log("res",result);
+				res.send(result.rows) })
 			.catch(err =>console.log(err))
 			
 		});
