@@ -6,6 +6,7 @@ INSERT INTO users (email,passwordhash,first_name,last_name,phone_number,s_addres
 
 INSERT INTO goods_categories (name)
 <<<<<<< HEAD
+<<<<<<< HEAD
 VALUES ('Books'),
 ('Ex_Equipment'),
 ('Furniture'),
@@ -31,6 +32,8 @@ VALUES(1,6,'medium',3,'https://st.depositphotos.com/1281871/3004/i/950/depositph
 
 INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal)
 =======
+=======
+>>>>>>> 5ca99e908322f08662ebc95c33d52191ee50ec35
 VALUES ('books'),
 ('Exercise Equipment'),
 ('Furniture'),
@@ -52,6 +55,9 @@ VALUES(1,4,'medium',3,'https://www.istockphoto.com/photo/mom-and-son-laugh-toget
 (1,4,'small',1,'https://www.istockphoto.com/photo/child-with-down-syndrome-enjoying-with-his-father-at-public-park-gm1185240681-333946796',null,'good','it is perfect for 2 to 9 old kids');
 
 INSERT INTO fundraising (user_id,fund_cate_id,title,img,story,goal)
+<<<<<<< HEAD
+>>>>>>> 5ca99e908322f08662ebc95c33d52191ee50ec35
+=======
 >>>>>>> 5ca99e908322f08662ebc95c33d52191ee50ec35
 VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00),
 (3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00);
