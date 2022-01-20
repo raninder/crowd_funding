@@ -18,7 +18,7 @@ export default function DonateGoods(props) {
 	function handleSubmit(e) {
     e.preventDefault();
 	
-    const goods = { category, company, condition,size, quantity, description };
+    const goods = { category, company, condition,size, quantity, img, description };
 		// alert(JSON.stringify(goods));
 		
 		const url ="http://localhost:3001/api/goods/addnewgoods";

@@ -11,6 +11,7 @@ export default function Products(props) {
   useEffect(() => {
     axios.get(url)
     .then((data) => {
+      console.log("data",data);
       setGoods(data.data);
     });
   }, []);
