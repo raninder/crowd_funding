@@ -4,7 +4,7 @@ import Product from "./Product";
 import "../styles/DispGoods.css";
 
 
-export default function Products(props) {
+export default function RequestGoods(props) {
   const [goods, setGoods] = useState([]);
 
   const url = "http://localhost:3001/api/goods/getallgoods";

@@ -23,7 +23,7 @@ export default function Fundrasing(props) {
         <main className="">
             <section className="">
                 <h1>Fundrasing</h1>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <label name="category">category</label>
                     <select name="category" onChange={(e) => setCategory(e.target.value)}>
                         <option value="">--Please choose an option--</option>

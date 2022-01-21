@@ -11,13 +11,13 @@ import {
 export default function Homepage(props) {
     return (
         <>
-        <Router>
+    <h1> Help the Children with Special Needs</h1>
+    <div>                        
+    <img src="https://www.regionofwaterloo.ca/en/health-and-wellness/resources/Images/PHEChildrenSNAP.jpg" alt="Children's toys"></img>
+                                
+    </div>
       
-      <Link to="/">Homepage </Link>
-      <Link to="/Fundrasing">Fundrasing</Link>
-      <Route path="/Fundrasing"><Fundrasing /></Route>
-            <h1>Welcome to Homepage which is only visible when you are logged in </h1>
-       </Router>
-        </>
+     
+    </>
     )
 }

@@ -23,10 +23,24 @@ input, select {
     box-sizing: border-box;
   }
   label {
+    text-align:center;
     justify-content: left;
     margin-bottom: 10px;
     display: block;
   }
+  
+  .condition label {
+    float: center;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px;
+  }
+  input[type=radio],
+    input.radio {
+      float: center;
+      clear: none;
+      margin: 2px 0 0 2px;
+    }
   button {
     width: 50%;
     background-color: #4CAF50;

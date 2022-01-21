@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
-import '../Donate.css';
+import './form.css';
 
 
 export default function DonateGoods(props) {
@@ -29,25 +29,26 @@ export default function DonateGoods(props) {
 			console.log(res);
 			// setQuantity("");
 			// setDescription("");
-			// handleReset();
+			 handleReset();
     });
   }
 
 	function handleReset(){
-		setCategory("");
+		setCategory(null);
     setCompany("");
 		setCondition("");
 		setDescription("");
 		setQuantity("");
 		setSize("");
+		setImage("");
 	}
 
 	return (
     <div className="styleform">
       <h1>Donate Goods</h1>
 			
-      <form onSubmit={handleSubmit}>   
-         <label> Category: </label>
+      <form onSubmit={handleSubmit}>    
+          <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
                <option value="">--Please choose an option--</option>
                <option value="Books">Books</option>
@@ -61,22 +62,22 @@ export default function DonateGoods(props) {
            </select>
         
 					 <p>
-        	 <label> Company/Brand (if applicable): </label>  
-           <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/> 
+        	 {/* <label> Company/Brand (if applicable): </label>  
+           <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/>  */}
 					</p>
 				<p>
-				
-				<div onChange={(e) => setCondition(e.target.value)}>
-					<label>Condition:
-           <input type="radio" id = "exc" name="condition" value = "Excellent" />
+				<label>Condition:
+				<div  onChange={(e) => setCondition(e.target.value)} class = "condition">
+					
+           <input type="radio" class = "radio" id = "exc" name="condition" value = "Excellent" />
 					 <label for="exc">Excellent</label>
-					 <input type="radio" id="good" name="condition" value = "Good" />
+					 <input type="radio" class = "radio" id="good" name="condition" value = "Good" />
 					 <label for="good">Good</label>
-					 <input type="radio" id="satis" name="condition" value = "Satisfactory" />
+					 <input type="radio" id="satis" class = "radio" name="condition" value = "Satisfactory" />
 					 <label for="satis">Satisfactory</label>
-					 </label>
+					
 					 </div>
-        
+					 </label>
 				</p>
 
 					<p>
@@ -90,12 +91,12 @@ export default function DonateGoods(props) {
 					</p>
 
 				<p>
-					<label for="img">Upload Image:</label>
-					<input name="img" value={img} onChange={(e) => setImage(e.target.value)}/>
+					<label for="img"> Image URL:</label>
+					<input name="img" value={img} onChange={(e) => setImage(e.target.value)}/>  
   				{/* <input type="file" id="image" name="image" accept="image/*" /> */}
-				</p>
+				</p> 
 
-				<p>
+				 <p>
 				<label for="description">Description:</label><br/>
 				<textarea id="description" name="description" rows="4" cols="30" value={description} onChange={(e) => setDescription(e.target.value)}/>
 				</p>
@@ -104,7 +105,7 @@ export default function DonateGoods(props) {
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>
-    </div>
+    </div> 
   )
 
 }
