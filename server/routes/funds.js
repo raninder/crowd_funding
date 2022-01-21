@@ -3,12 +3,24 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const { Session } = require("inspector");
 module.exports = (db) => {
-    router.get('/getallfundrising', (req, res) => {
+    router.get('/getallfundraising', (req, res) => {
         db.query(`SELECT * FROM fundraising;`)
           .then((data) => {
+            console.log("hi");
             res.json(data.rows);
           })
       });
+
+      router.get('/getallfundraising/:id', (req, res) => {
+        console.log("req.params",req.params);
+       const id = req.params.id;
+        db.query(`SELECT * FROM fundraising WHERE id=${id}`)
+          .then((data) => {
+            // console.log("id",id);
+            res.json(data.rows);
+          })
+      });
+
       router.get('/getallfundCategories', (req, res) => {
         db.query(`SELECT * FROM fund_categories;`)
           .then((data) => {
@@ -21,7 +33,8 @@ module.exports = (db) => {
         const {
           category, title, story, img, goal
         } = myJson;
-    
+        if(img = '')
+        img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
         // const image = "www.example.com";
         db.query(`
               SELECT id FROM fund_categories WHERE name = '${category}';
