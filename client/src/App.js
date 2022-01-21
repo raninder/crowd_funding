@@ -8,6 +8,7 @@ import DonateGoods from './components/DonateGoods';
 import Register from './components/Register';
 import DonateMoney from './components/DonateMoney';
 import Login from './components/Login';
+import Donate from './components/Donate';
 import Fundraising from './components/Fundraising';
 import {
   BrowserRouter as Router, 
@@ -53,6 +54,7 @@ const App = () => {
           <Route path="/DonateGoods/">< DonateGoods/></Route>
           <Route path="/Fundraising/">< Fundraising/></Route>
           <Route path="/DonateMoney/">< DonateMoney/></Route>
+          <Route path="/Donate/">< Donate/></Route>
           <Route path="/"><Homepage/></Route>
           </Switch>
           {/* <Routes> */}
