@@ -24,20 +24,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
-const goodsRoutes = require("./routes/goods");
-const userRoutes = require("./routes/users");
+
 
 // Mount all resource routes
 
-app.use("/api/goods", goodsRoutes(db));
-app.use("/api/users", userRoutes(db));
 
 // const routes = require("./routes");
-//const goodsRoutes = require("./routes/goods");
+const goodsRoutes = require("./routes/goods");
 const userRoutes = require("./routes/users");
 const fundRoutes = require("./routes/funds");
 // Mount all resource routes
-//app.use("/api/goods", goodsRoutes(db));
+app.use("/api/goods", goodsRoutes(db));
 app.use("/api/users", userRoutes(db));
 app.use("/api/funds", fundRoutes(db));
 // const routes = require(“./routes”);
