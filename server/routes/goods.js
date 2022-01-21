@@ -16,7 +16,6 @@ router.get('/getallgoods', (req, res) => {
 
 
 router.put('/reqgoods', (req, res) => {
-	// alert("request fulfilled");
 	const myJson= req.body;
 	console.log(myJson);
 	const catId = req.body.good_cat_id; 
@@ -24,7 +23,7 @@ router.put('/reqgoods', (req, res) => {
 
 	db.query(`UPDATE goods
 					 Set quantity = quantity-1
-					 WHERE good_cat_id= $1
+					 WHERE good_cat_id= $1 AND quantity > 0
 					 RETURNING *;
 					`, [catId])
 .then(result => res.send(result.rows));
@@ -43,8 +42,8 @@ router.post("/addnewgoods", (req, res) => {
 				description
 			} = req.body;
 			console.log("image",img);
-			// if(image=="")
-			// 	image = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
+			if(img=="")
+				img = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
 				db.query(` 
 				SELECT id FROM goods_categories WHERE name = '${category}';
 				`)
