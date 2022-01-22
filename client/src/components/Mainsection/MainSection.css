@@ -1,0 +1,45 @@
+.mainContainer {
+  display: flex;
+}
+
+.MainSection {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+}
+
+.image {
+  justify-content: left;
+  margin: 30px;
+}
+
+.image img{
+  width: 100%;
+}
+
+.article-text {
+  display: flex;
+  justify-content: right;
+  padding: 10px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size:x-large;
+  margin: 100px;
+}
+.button {
+  justify-content: right;
+  margin: 100px;
+  
+}
+button{
+  background-color: rgb(43, 110, 235);
+  color: white;
+  height: 50px;
+  width: 230px;
+  font-size: large;
+  border: none;
+  margin: 15px;
+  font-weight: 900;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 15px;
+}
