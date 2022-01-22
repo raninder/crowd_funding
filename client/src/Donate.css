@@ -1,0 +1,32 @@
+/* .wrapper {
+	padding: 5px 20px;
+}
+
+.wrapper fieldset {
+	margin: 20px 0;
+} */
+
+/* form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; } */
+
+.container label {
+  float:left;
+  width:25%;
+  text-align:right;
+  
+}
+.container input {
+  float:left;
+  width:65%;
+}
+
+/* .styleform label{
+	float:left;
+	margin-left:200px;
+	text-align:right;
+} */
+/* .styleform 
+.styleform input{margin-left:200px;} this gives space for the label on the left */
+/* .styleform .clear{clear:both;} prevent elements from stacking weirdly */
