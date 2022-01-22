@@ -15,6 +15,7 @@ router.get('/getallgoods', (req, res) => {
 });
 
 
+
 router.put('/reqgoods', (req, res) => {
 	const myJson= req.body;
 	console.log(myJson);
