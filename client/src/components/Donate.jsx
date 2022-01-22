@@ -11,9 +11,9 @@ export default function Donate(props) {
 	const url = "http://localhost:3001/api/funds/getallfundraising/"+id;
 	useEffect(() => {
     axios.get(url)
-    .then((data) => {
+    .then((res) => {
       
-      setResult(data.data[0]);
+      setResult(res.data[0]);
     });
   }, []);
 	 

@@ -7,33 +7,10 @@ export default function Product(props) {
 console.log("img",img);
 	 const alert = useAlert();
 
-// 	function confirm(){
-// 	alert.show('Request submitted')
-// 	const goods = { good_cat_id, quantity };
 
-// 	const url = "http://localhost:3001/api/goods/reqgoods";
-
-// 	axios.put(url, goods)
-// 	.then(res => {
-// 		alert.show(good_cat_id);
-// 		console.log(res);
-// 		// setResults([...res.data])
-
-// 	})
-// 	.catch(err => {
-// 		console.log(err);
-// 	})
-// }
-// function cancel(){
-// 	alert.show("Request cancelled");
-// }
 	
 	function request() {
-		// alert.show("hi");
-		// return <Confirm />
-  // <Confirm message={"Sure to delete"} onCancel={cancel} onConfirm={confirm}/>
-	// console.log("test");
-	// alert.show('Request submitted')
+		
     const goods = { good_cat_id, quantity };
 	
 		const url = "http://localhost:3001/api/goods/reqgoods";
@@ -68,7 +45,7 @@ console.log("img",img);
 					Company: {company} <br/>
 					Condition: {condition} <br/>
 					Description: {description} <br/>
-		{/* if user logged in */}
+					{/* if user logged in */}
 					<button onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request() }}>Request</button> 
 				
 					</div>
