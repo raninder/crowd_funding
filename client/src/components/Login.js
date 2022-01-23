@@ -19,8 +19,11 @@ console.log("hiii",props);
     const login =(event)=>{
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
-        .then(res=>{alert(res.data.message)
+        .then(res=>{
+            alert(res.data.message);
+            // alert("id"+res.data.user);
         // setLoginUser(res.data.user)
+        localStorage.setItem("userID", res.data.user);
         setLoginUser({_id:res.data.user})
     history.push("/")})
     .catch(error => console.log(error));

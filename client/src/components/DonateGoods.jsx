@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
 import './form.css';
@@ -12,13 +12,18 @@ export default function DonateGoods(props) {
   const [quantity, setQuantity] = useState("");
 	const [img, setImage] = useState("");
 	const [description, setDescription] = useState("");
+	const [id, setId] = useState("");
+	useEffect(() => {
+		setId(localStorage.getItem("userID"));
+	}, []);
+	console.log("ID",id);
 
 	const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
 	
-    const goods = { category, company, condition,size, quantity, img, description };
+    const goods = { category, company, condition,size, quantity, img, description ,id};
 		// alert(JSON.stringify(goods));
 		
 		const url ="http://localhost:3001/api/goods/addnewgoods";
@@ -27,8 +32,6 @@ export default function DonateGoods(props) {
      
 			alert.show('Thanks for Donating');
 			console.log(res);
-			// setQuantity("");
-			// setDescription("");
 			 handleReset();
     });
   }
@@ -36,7 +39,7 @@ export default function DonateGoods(props) {
 	function handleReset(){
 		setCategory(null);
     setCompany("");
-		setCondition("");
+		setCondition(false);
 		setDescription("");
 		setQuantity("");
 		setSize("");
@@ -45,9 +48,10 @@ export default function DonateGoods(props) {
 
 	return (
     <div className="styleform">
-      <h1>Donate Goods</h1>
+      <h1>Donate Goods  {id}</h1>
 			
-      <form onSubmit={handleSubmit}>    
+      <form onSubmit={handleSubmit}>  
+			<input type="hidden" value = {id} name="id"/>  
           <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
                <option value="">--Please choose an option--</option>
@@ -62,8 +66,8 @@ export default function DonateGoods(props) {
            </select>
         
 					 <p>
-        	 {/* <label> Company/Brand (if applicable): </label>  
-           <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/>  */}
+        	 <label> Company/Brand (if applicable): </label>  
+           <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/> 
 					</p>
 				<p>
 				<label>Condition:
