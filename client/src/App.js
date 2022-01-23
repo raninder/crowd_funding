@@ -9,6 +9,7 @@ import Register from './components/Register';
 import DonateMoney from './components/DonateMoney';
 import Login from './components/Login';
 import Donate from './components/Donate';
+import Search from './components/Search';
 import Fundraising from './components/Fundraising';
 import {
   BrowserRouter as Router, 
@@ -32,8 +33,8 @@ const App = () => {
       
      
       <Link to="/"><i class="fa fa-fw fa-home"></i>Homepage </Link> &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/Login"><i class="fa fa-fw fa-user"></i>Login</Link> &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/Register">Register</Link> &nbsp;&nbsp;&nbsp;&nbsp;
+      {/* <Link to="/Login"><i class="fa fa-fw fa-user"></i>Login</Link> &nbsp;&nbsp;&nbsp;&nbsp; */}
+      {/* <Link to="/Register">Register</Link> &nbsp;&nbsp;&nbsp;&nbsp; */}
         <Link to="/RequestGoods">RequestGoods </Link> &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/DonateGoods">DonateGoods </Link>&nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/Fundraising">Fundraising </Link>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/Fundraising/">< Fundraising/></Route>
           <Route path="/DonateMoney/">< DonateMoney/></Route>
           <Route path="/Donate/">< Donate/></Route>
+          <Route path="/Search/">< Search/></Route>
           <Route path="/"><Homepage/></Route>
           </Switch>
           {/* <Routes> */}
