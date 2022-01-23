@@ -1,31 +1,18 @@
 import { useStripe, useElements, PaymentElement, CardElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-// const CARD_OPTIONS = {
-//     iconStyle: "solid",
-//     style: {
-//         base: {
-//             iconColor: "#c4f0ff",
-//             color: "#fff",
-//             fontWeight: 500,
-//             fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-//             fontSize: "16px",
-//             fontSmoothing: "antialiased",
-//             ":-webkit-autofill": { color: "#fce883" },
-//             "::placeholder": { color: "#87bbfd" }
-//         },
-//         invalid: {
-//             iconColor: "#ffc7ee",
-//             color: "#ffc7ee"
-//         }
-//     }
-// }
+
 export default function CheckoutForm(props) {
     const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-
+    const [userid, setId] = useState("");
+	useEffect(() => {
+		setId(localStorage.getItem("userID"));
+	}, []);
+   
+console.log('userid',userid);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -46,8 +33,9 @@ export default function CheckoutForm(props) {
 
 
                 console.log("Successful payment", response.data)
+
                 if (response.data) {
-                    axios.post("http://localhost:3001/api/funds/addnewdonation", props)
+                    axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount,userid})
                         .then(res => {
                             console.log(res);
                         });

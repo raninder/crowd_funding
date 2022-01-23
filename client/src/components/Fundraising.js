@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
@@ -6,12 +6,16 @@ export default function Fundraising(props) {
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
-    const user_email = props.user;
-    console.log( props.user)
+    const [id, setId] = useState("");
+	useEffect(() => {
+		setId(localStorage.getItem("userID"));
+	}, []);
+   
+console.log('userid',id);
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
-           user_email, category, title, story, img, goal
+           id, category, title, story, img, goal
         };
 
         alert(JSON.stringify(user));

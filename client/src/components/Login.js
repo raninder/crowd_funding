@@ -1,6 +1,14 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import {useHistory} from "react-router-dom"
+import Register from "./Register"
+import {useHistory} from "react-router-dom";
+import {
+    BrowserRouter as Router, 
+    Switch, 
+    Route,
+    Link
+  
+  } from "react-router-dom";
 const Login = (props) => {
 const history = useHistory()
 const {setLoginUser} = props;
@@ -15,15 +23,20 @@ const {setLoginUser} = props;
     [name]:value
     })
     }
-console.log("hiii",props);
+ console.log("hiii user",user);
     const login =(event)=>{
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
-        .then(res=>{alert(res.data.message)
+        .then(res=>{
+            alert(res.data.message);
+            //  alert("id"+res.data.email);
         // setLoginUser(res.data.user)
-        setLoginUser({_id:res.data.user})
-    history.push("/")})
-    .catch(error => console.log(error));
+      const value =  localStorage.setItem("userID", res.data.id);
+      console.log("setid",value)  
+      localStorage.setItem("email", res.data.email);
+        // setLoginUser({_id:res.data.id})
+        history.push("/")})
+        .catch(error => console.log(error));
     }
     return (
         <main className="">
@@ -32,12 +45,16 @@ console.log("hiii",props);
                 <form action="#" autoComplete="off">
                     <label name="Email">Email</label>
                     <input type="text" name="email" value={user.email}  onChange={handleChange} />
+   
                     <br />
                     <label name="Password">Password</label>
                     <input type="password" name="password" value={user.password}  onChange={handleChange} />
                     <br />
                     {/* <section className="">{error}</section> */}
-                    <button type="submit"onClick={login} >Login</button>
+                    <button type="submit"onClick={login} >Login</button><br/><br/>
+                    Don't have an account? 
+                    <Link to="/Register">Register </Link>
+                    
                 </form>
             </section>
         </main>

@@ -33,7 +33,7 @@ module.exports = (db) => {
           // req.session = {userId:result.id};
           // console.log("result",result.email);
           // res.redirect('/');
-          return res.status(200).send({ message: "success", user: result.id });
+          return res.status(200).send({message:"success",id:result.id,email:result.email});
 
         } else {
           return res.status(403).send("Username and password does not match");

@@ -19,7 +19,7 @@ module.exports = (db) => {
         const myJson = req.body;
         console.log("myJson", myJson);
         const {
-          category, title, story, img, goal
+          id,category, title, story, img, goal
         } = myJson;
         // console.log('email', user_email);
         // const image = "www.example.com";
@@ -31,7 +31,7 @@ module.exports = (db) => {
             const cateId = res.rows[0].id;
             // const catId = 1;
             console.log('catId', cateId);
-            userId = 2;
+            userId = id;
             // console.log('catId', userId);
             db.query(`
             INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal )
@@ -53,15 +53,15 @@ module.exports = (db) => {
         const myJson = req.body;
         console.log("myJson", myJson);
         const {
-          amount
+          amount,userid
         } = myJson;
         fundId = 1;
-            userId = 2;
+            // userId = userid;
             db.query(`
             INSERT INTO donation_money(user_id,fund_id,amount,date)
             VALUES($1,$2,$3,now())
             RETURNING *;
-    `			, [userId, fundId, amount])
+    `			, [userid, fundId, amount])
           })
      
     
