@@ -27,14 +27,11 @@ console.log("hiii",props);
     }
     return (
         <main className="">
-            <section className="">
+            <section className="main">
                 <h1>Login</h1>
                 <form action="#" autoComplete="off">
                     <label name="Email">Email</label>
                     <input type="text" name="email" value={user.email}  onChange={handleChange} />
-                    {/* <input className="" name="email" type="email" value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    /> */}
                     <br />
                     <label name="Password">Password</label>
                     <input type="password" name="password" value={user.password}  onChange={handleChange} />

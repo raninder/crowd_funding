@@ -5,7 +5,7 @@ import { useAlert } from 'react-alert';
 export default function Product(props) {
   const { good_cat_id,quantity,size,img,company,condition,description} = props;
 console.log("img",img);
-	const alert = useAlert();
+	// const alert = useAlert();
 
 // 	function confirm(){
 // 	alert.show('Request submitted')

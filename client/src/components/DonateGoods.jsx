@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import '../Donate.css';
 
 
@@ -13,7 +13,7 @@ export default function DonateGoods(props) {
 	const [img, setImage] = useState("");
 	const [description, setDescription] = useState("");
 
-	const alert = useAlert();
+	// const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
@@ -43,9 +43,10 @@ export default function DonateGoods(props) {
 	}
 
 	return (
+		
     <div className="styleform">
+	  <section className="main">
       <h1>Donate Goods</h1>
-			
       <form onSubmit={handleSubmit}>   
          <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
@@ -104,6 +105,7 @@ export default function DonateGoods(props) {
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>
+	  </section>
     </div>
   )
 

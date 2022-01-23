@@ -43,6 +43,7 @@ router.post("/addnewgoods", (req, res) => {
 				description
 			} = req.body;
 			console.log("image",img);
+			console.log("hiii",category);
 			// if(image=="")
 			// 	image = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
 				db.query(` 

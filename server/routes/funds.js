@@ -21,7 +21,7 @@ module.exports = (db) => {
         const {
           category, title, story, img, goal
         } = myJson;
-    
+        // console.log('email', user_email);
         // const image = "www.example.com";
         db.query(`
               SELECT id FROM fund_categories WHERE name = '${category}';
@@ -31,10 +31,10 @@ module.exports = (db) => {
             const cateId = res.rows[0].id;
             // const catId = 1;
             console.log('catId', cateId);
-            const userId = 1;
-    
+            userId = 2;
+            // console.log('catId', userId);
             db.query(`
-            INSERT INTO fundraising ( user_id,fund_cate_id,title,img,story,goal )
+            INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal )
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
     `			, [userId, cateId, title, img, story, goal])
@@ -43,6 +43,27 @@ module.exports = (db) => {
         // .catch(err => console.log(err))
     
       });
+      router.get('/donation',(req,res) => {
+        db.query(`SELECT * FROM donation_money;`)
+        .then((data) => {
+          res.json(data.rows);
+        }) 
+      })
+      router.post('/addnewdonation', (req,res) => {
+        const myJson = req.body;
+        console.log("myJson", myJson);
+        const {
+          amount
+        } = myJson;
+        fundId = 1;
+            userId = 2;
+            db.query(`
+            INSERT INTO donation_money(user_id,fund_id,amount,date)
+            VALUES($1,$2,$3,now())
+            RETURNING *;
+    `			, [userId, fundId, amount])
+          })
+     
     
       return router;
     };

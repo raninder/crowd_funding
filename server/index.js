@@ -26,20 +26,22 @@ app.use(cors(corsOptions));
 
 const goodsRoutes = require("./routes/goods");
 const userRoutes = require("./routes/users");
-
+const fundRoutes = require("./routes/funds");
+const paysRoutes = require("./routes/pays");
 // Mount all resource routes
 
 app.use("/api/goods", goodsRoutes(db));
 app.use("/api/users", userRoutes(db));
-
+app.use("/api/funds", fundRoutes(db));
+app.use("/api/pays", paysRoutes(db));
 // const routes = require("./routes");
 //const goodsRoutes = require("./routes/goods");
-const userRoutes = require("./routes/users");
-const fundRoutes = require("./routes/funds");
+// const userRoutes = require("./routes/users");
+
 // Mount all resource routes
 //app.use("/api/goods", goodsRoutes(db));
-app.use("/api/users", userRoutes(db));
-app.use("/api/funds", fundRoutes(db));
+// app.use("/api/users", userRoutes(db));
+
 // const routes = require(“./routes”);
 // app.use(“/api”, routes(db));
 // app.use("/api", routes(db));
