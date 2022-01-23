@@ -47,7 +47,7 @@ export default function DonateGoods(props) {
 	}
 
 	return (
-    <div className="styleform">
+    <div className="mainsection">
       <h1>Donate Goods  {id}</h1>
 			
       <form onSubmit={handleSubmit}>  
