@@ -27,7 +27,7 @@ module.exports = (db) => {
             res.json(data.rows);
           })
       });
-      router.post("/addnewfundrasing", (req, res) => {
+      router.post("/addnewfundraising", (req, res) => {
         const myJson = req.body;
         console.log("myJson", myJson);
         const {

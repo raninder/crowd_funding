@@ -42,7 +42,7 @@ module.exports = (db) => {
 				console.log("result");
           // res.redirect('/');
 					
-          return res.status(200).send({message:"success",user:result.id});
+          return res.status(200).send({message:"success",id:result.id,email:result.email});
           
         } else {
           return res.status(403).send("Username and password does not match");
