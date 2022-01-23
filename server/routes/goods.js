@@ -15,18 +15,18 @@ router.get('/getallgoods', (req, res) => {
 });
 
 
-
 router.put('/reqgoods', (req, res) => {
 	const myJson= req.body;
 	console.log(myJson);
 	const catId = req.body.good_cat_id; 
-	console.log("catId",catId);
+	const id = req.body.id;
+	console.log("id,catId",id,catId);
 
 	db.query(`UPDATE goods
 					 Set quantity = quantity-1
-					 WHERE good_cat_id= $1 AND quantity > 0
+					 WHERE id = $1 AND good_cat_id= $2 AND quantity > 0
 					 RETURNING *;
-					`, [catId])
+					`, [id,catId])
 .then(result => res.send(result.rows));
 });
 
@@ -40,19 +40,20 @@ router.post("/addnewgoods", (req, res) => {
 				size,
 				quantity,
 				img,
-				description
+				description,
+				id
 			} = req.body;
-			console.log("image",img);
+			
+			let userId = 	parseInt(id);
+			
 			if(img=="")
 				img = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
 				db.query(` 
 				SELECT id FROM goods_categories WHERE name = '${category}';
 				`)
 			.then((res) => {
-				// res.send(myJson);
+	
 				const catId = res.rows[0].id;
-				console.log("catId",catId);
-				let userId = 3;
 			
 				return db.query(`
 				INSERT INTO goods ( user_id,good_cat_id,size,quantity,img,company,condition,description )
@@ -61,7 +62,6 @@ router.post("/addnewgoods", (req, res) => {
 `			, [userId,catId,size,quantity,img,company,condition,description ])
 			})
 			.then(result => {
-				console.log("res",result);
 				res.send(result.rows) })
 			.catch(err =>console.log(err))
 			
