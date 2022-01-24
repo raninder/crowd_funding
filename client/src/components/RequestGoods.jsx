@@ -10,7 +10,12 @@ export default function RequestGoods(props) {
   const [goods, setGoods] = useState([]);
   const [filteredData,setFilteredData] = useState(goods);
   const [id, setId] = useState();
-
+  const [email, setEmail] = useState();
+  useEffect(() => {
+    setId(localStorage.getItem("userID"));
+    setEmail(localStorage.getItem("email"));
+  }, []);
+  // console.log("ID",id);
    
   const history = useHistory();
  
@@ -19,6 +24,8 @@ export default function RequestGoods(props) {
   const url = "http://localhost:3001/api/goods/getallgoods";
   useEffect(() => {
     axios.get(url)
+    // setId(localStorage.getItem("userID"))
+    // setEmail(localStorage.getItem("email"))
     .then((response) => {
       console.log("data",response);
       setGoods(response.data);
@@ -48,7 +55,10 @@ const allGoods = goods.map((item) => {
 return (
   <>
     <p/><p/><p/><p/>
-    {/* <h4> User ID: {id}</h4> */}
+    {/* <h4> User ID: {id}</h4> */} 
+    { email&&
+        <h5> Logged in as {email} </h5>
+    }<br/>
   <label> Search Category: </label>  
   <select name="category" onChange={(event) => handleSearch(event)}>  
                <option value="">--Please choose an option--</option>

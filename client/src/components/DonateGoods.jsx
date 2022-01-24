@@ -47,7 +47,7 @@ export default function DonateGoods(props) {
 	}
 
 	return (
-    <div className="mainsection">
+    <div className="main">
       <h1>Donate Goods  {id}</h1>
 			
       <form onSubmit={handleSubmit}>  

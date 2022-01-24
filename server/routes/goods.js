@@ -17,18 +17,25 @@ router.get('/getallgoods', (req, res) => {
 
 router.put('/reqgoods', (req, res) => {
 	const myJson= req.body;
-	console.log(myJson);
-	const catId = req.body.good_cat_id; 
-	const id = req.body.id;
-	console.log("id,catId",id,catId);
+	console.log("myjson",myJson);
+	const id = req.body.product_id; 
+	
 
 	db.query(`UPDATE goods
 					 Set quantity = quantity-1
-					 WHERE id = $1 AND good_cat_id= $2 AND quantity > 0
+					 WHERE id=$1 AND quantity>0
 					 RETURNING *;
-					`, [id,catId])
-.then(result => res.send(result.rows));
-});
+					`, [id])
+.then(result => 
+	{ console.log("qty",result.rows);
+	const resultData = result.rows[0];
+	const quantity = resultData.quantity;
+	// const [{quantity}] = result.rows;
+	console.log("qunatity",quantity);
+		res.send({quantity});
+
+	}
+)});
 
 router.post("/addnewgoods", (req, res) => {
 	const myJson = req.body;

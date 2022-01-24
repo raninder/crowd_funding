@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./form.css"
 import axios from "axios";
+import { useAlert } from 'react-alert';
+
 export default function Register(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,9 +11,13 @@ export default function Register(props) {
   const [phone, setPhone] = useState("");
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
-  const [province, setprovince] = useState("");
+  const [province, setProvince] = useState("");
   const [postal, setPostal] = useState("");
   const [error, setError] = useState("");
+  
+
+  const alert = useAlert();
+
   //reset form data 
   const reset = () => {
     // setStudent("");
@@ -30,12 +36,25 @@ export default function Register(props) {
        first_name,last_name,email,phone,street,city,province,postal,password 
       };
 		
-		alert(JSON.stringify(user));
+		// alert.show(JSON.stringify(user));
 	
     axios.post("http://localhost:3001/api/users/register", user)
 		.then(res => {
+      alert.show("Registered successfully");
       console.log(res);
+      handleReset();
     });
+  }
+  function handleReset(){
+    setEmail("");
+      setPassword("");
+      setFirstname("");
+      setLastname("");
+      setPhone("");
+      setStreet("");
+      setCity("");
+      setProvince("");
+      setPostal("");
   }
   //check validation for textbox
   function validate() {
@@ -88,7 +107,7 @@ export default function Register(props) {
           /><br/>
           <label name="province">province</label>
           <input className="" name="province"  value={province}
-            onChange={(event) => setprovince(event.target.value)}
+            onChange={(event) => setProvince(event.target.value)}
           /><br/>
           
           <label name="Postal code">Postal code</label>
