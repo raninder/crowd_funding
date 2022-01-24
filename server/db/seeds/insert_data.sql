@@ -52,10 +52,13 @@ Records 4 messages'),
 (3,1,'',8,'https://images-na.ssl-images-amazon.com/images/I/517XAFNcfBL._SX198_BO1,204,203,200_QL40_ML2_.jpg','Audible','Excellent','book that offers a wonderful message about embracing the things that bring us together as humans');
 
 
-INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal)
-VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00),
-(3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00);
+INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal,amountraising)
+VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00,0),
+(3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00,0),
+(2,4,'Heather has had a tragic loss','https://epicassist.org/wp-content/uploads/2018/03/Creating-a-world-that-does-not-disable-people-with-disability.jpg','On behalf of Malton Moms and the community, we extend our most heartfelt sympathy for this loss. On the morning of Jan. 20, 2022, three children lost their lives in a house fire despite heroic efforts to save them.',6000.00,0),
+(4,5,'Help Lukes fight against Cancer','https://moffitt.org/media/14367/moffitt-cancer-center-thoracic-13.jpg?width=733&height=421&mode=max','Luke was diagnosed with B Cell Non-Hodgkins Lymphoma. Lymphoma is a cancer of the lymphatic system, a part of the body germ-fighting network.',5000.00,0),
+(5,6,'Fatal Taxi Shooting in Oshawa','https://globalnews.ca/wp-content/uploads/2022/01/oshawa-taxi-driver-kille-e1642810257161.png?w=720',' He was a proud father to my two cousins and always wanted the best life for them. They are both in university and striving to succeed in life and I don’t want this horrific incident to stop their education.',6000.00,0);
 
 INSERT INTO donation_money(user_id,fund_id,amount,date)
-VALUES(4,1,3000.00,now()),
-(4,2,1000.00,now());
+VALUES(3,1,3000.00,now()),
+(2,2,1000.00,now());

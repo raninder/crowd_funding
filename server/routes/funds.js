@@ -48,10 +48,11 @@ module.exports = (db) => {
             
             console.log('userID', userId + 3);
             db.query(`
-            INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal )
-            VALUES ($1, $2, $3, $4, $5, $6)
+            INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal,amountraising )
+            VALUES ($1, $2, $3, $4, $5, $6, 0)
             RETURNING *;
     `			, [userId, cateId, title, img, story, goal])
+    
           })
         // .then(res => console.log(res.rows))
         // .catch(err => console.log(err))
@@ -67,16 +68,24 @@ module.exports = (db) => {
         const myJson = req.body;
         console.log("myJson", myJson);
         const {
-          amount,userid
+          amount,userid,fundid
         } = myJson;
-        fundId = 1;
+        // fundid = 1;
             // userId = userid;
             db.query(`
             INSERT INTO donation_money(user_id,fund_id,amount,date)
             VALUES($1,$2,$3,now())
             RETURNING *;
-    `			, [userid, fundId, amount])
-          })
+    `			, [userid, fundid, amount])
+    .then((res) => {
+      db.query(`UPDATE fundraising
+      Set amountraising = amountraising + $1
+      WHERE id=$2
+      RETURNING *;
+     `, [amount,fundid])
+     })
+    })
+    
      
     
       return router;

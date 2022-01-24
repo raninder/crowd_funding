@@ -55,7 +55,7 @@ export default function Homepage(props) {
       <Route path="/about" ><About/></Route> 
           <Route path="/requestgoods"><RequestGoods /></Route>
           <Route path="/donategoods"><DonateGoods /></Route>
-          <Route path="/DonateForm"><DonateForm /></Route>
+          {/* <Route path="/DonateForm"><DonateForm /></Route> */}
             <h1>Welcome to Homepage which is only visible when you are logged in </h1>
        
         </>

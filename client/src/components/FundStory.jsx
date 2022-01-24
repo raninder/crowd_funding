@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 
 export default function FundStory(props) {
-	const { id,user_id,fund_cate_id,title,img,story,goal } = props;
+	const { id,user_id,fund_cate_id,title,img,story,goal,amountraising } = props;
 
 	const history = useHistory();
   
@@ -32,7 +32,8 @@ export default function FundStory(props) {
 					User id: {user_id} <br/>
 					Cat id: {fund_cate_id} <br/>
 					Title: {title} <br/>
-					Goal: {goal} <br/>
+					Goal: ${goal} <br/>
+					Amount Raised: ${amountraising} <br/>
 					Story: {story} <br/>
 
 					<Link
