@@ -32,7 +32,8 @@ module.exports = (db) => {
             // const catId = 1;
             console.log('catId', cateId);
             userId = id;
-            // console.log('catId', userId);
+            
+            console.log('userID', userId + 3);
             db.query(`
             INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal )
             VALUES ($1, $2, $3, $4, $5, $6)

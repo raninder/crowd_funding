@@ -10,8 +10,8 @@ router.post("/payment", (req, res) => {
 	try {
 		const payment = stripe.paymentIntents.create({
 			amount,
-			currency: "USD",
-			description: "Donetion part",
+			currency: "CAD",
+			description: "Donation part",
 			payment_method: id,
 			confirm: true
 		})
