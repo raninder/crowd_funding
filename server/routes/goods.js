@@ -4,10 +4,11 @@ const bcrypt = require("bcrypt");
 module.exports = (db) => {
 
 router.get('/getallgoods', (req, res) => {
-	db.query(`SELECT * FROM goods;`)
-						// SELECT goods.*, goods_categories.name FROM goods
-						// JOIN goods_categories
-						// ON goods_categories.id = goods.id;
+	db.query(
+		// `SELECT * FROM goods;`)
+						`SELECT goods.*, goods_categories.name FROM goods
+						JOIN goods_categories
+						ON goods_categories.id = goods.good_cat_id;`)
 						
 	.then((data) => {
 		res.json(data.rows);
@@ -55,6 +56,7 @@ router.post("/addnewgoods", (req, res) => {
 			
 			if(img=="")
 				img = "https://www.childrensfactory.com/wp-content/uploads/sites/1/100-016.jpg";
+				
 				db.query(` 
 				SELECT id FROM goods_categories WHERE name = '${category}';
 				`)
