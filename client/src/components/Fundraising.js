@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
+
+import React, { useState,useEffect } from "react";
 import axios from "axios";
+import "./form.css";
+import {useHistory} from "react-router-dom";
+
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
     const [title, setTitle] = useState("");
@@ -7,6 +11,7 @@ export default function Fundraising(props) {
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
     const [id, setId] = useState("");
+    const history = useHistory()
 	useEffect(() => {
 		setId(localStorage.getItem("userID"));
 	}, []);
@@ -20,11 +25,13 @@ console.log('userid',id);
 
         alert(JSON.stringify(user));
 
-        axios.post("http://localhost:3001/api/funds/addnewfundrasing", user)
+        axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
+                history.push("/Donate")
+                handleReset();
             });
-            alert.show('Thanks for Donating');
+            // alert.show('Thanks for Donating');
     }
     function handleReset() {
         setCategory("");

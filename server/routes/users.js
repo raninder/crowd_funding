@@ -2,6 +2,14 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { Session } = require("inspector");
+
+// const cookieSession = require('cookie-session');
+// app.use(cookieSession({
+// 	name: 'session',
+// 	keys: ["user_id"]
+// }));
+
+
 const getUserByEmail = (users, email) => {
   const user = users.find(element => element.email === email);
   // console.log("email===", user);
@@ -30,15 +38,17 @@ module.exports = (db) => {
         const result = authenticateUser(users, email, password);
         // console.log("hello", result)
         if (result) {
-          // req.session = {userId:result.id};
-          // console.log("result",result.email);
+        // req.session = {userId:result.id};
+				console.log("result");
           // res.redirect('/');
+					
           return res.status(200).send({message:"success",id:result.id,email:result.email});
-
+          
         } else {
           return res.status(403).send("Username and password does not match");
         }
       })
+
   });
 
 

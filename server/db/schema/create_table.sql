@@ -32,7 +32,6 @@ CREATE TABLE goods (
   company VARCHAR(255) DEFAULT 'Not known',
   condition VARCHAR(255) NOT NULL,
   description VARCHAR(500) 
-  
 );
 DROP TABLE IF EXISTS fundraising CASCADE;
 CREATE TABLE fundraising (
@@ -40,7 +39,7 @@ CREATE TABLE fundraising (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_cat_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  img VARCHAR(500) DEFAULT 'https://www.surreyschools.ca/EducationalPrograms/SpecialNeedsSupport/PublishingImages/Support%20Hands.jpg' ,
+  img VARCHAR(500),
   story VARCHAR(500) NOT NULL,
   goal DECIMAL(15,2) NOT NULL
 );
@@ -50,10 +49,6 @@ CREATE TABLE donation_money (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_id INTEGER REFERENCES fundraising(id) ON DELETE CASCADE,
   amount DECIMAL(15,2) NOT NULL,
-  -- cardholder_name VARCHAR(255) NOT NULL,
-  -- crditcard_number BIGINT NOT NULL,
-  -- expmonth VARCHAR(255) NOT NULL,
-  -- expyear INT NOT NULL,
-  -- cvv INT NOT NULL,
+  
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

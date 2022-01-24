@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 
-
 input, select {
     width: 100%;
     padding: 12px 20px;
@@ -35,6 +34,19 @@ input, select {
     margin-bottom: 10px;
     display: block;
   }
+  
+  .condition label {
+    float: center;
+    clear: none;
+    display: block;
+    padding: 0px 1em 0px 8px;
+  }
+  input[type=radio],
+    input.radio {
+      float: center;
+      clear: none;
+      margin: 2px 0 0 2px;
+    }
   button {
     width: 40%;
     background-color: #4CAF50;
@@ -56,3 +68,12 @@ input, select {
     padding: 20px;
     
   }
+ .main {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+   
+   
+   
+   

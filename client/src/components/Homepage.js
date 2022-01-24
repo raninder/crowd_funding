@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useVisualMode from "../hooks/useVisualMode";
 import Fundraising from "./Fundraising";
 import About from './About';
-import Products from './Products';
+import RequestGoods from './RequestGoods';
 import DonateGoods from './DonateGoods';
 import DonateForm from './DonateForm';
 
@@ -14,10 +14,36 @@ import {
 
 } from "react-router-dom";
 export default function Homepage(props) {
-  console.log("Homepage", props)
+    const [id, setId] = useState();
+    const [email, setEmail] = useState();
+
+    useEffect(() => {
+        setId(localStorage.getItem("userID"));
+        setEmail(localStorage.getItem("email"));
+      }, []);
+      console.log("ID",id);
+
+      const logout = function () {
+        setEmail("");
+        setId("");
+        localStorage.removeItem("userID");
+        localStorage.removeItem("email");
+      }
     return (
         <>
-        <Router>
+        {email?
+        <div><h5> Logged in as {email} </h5> 
+         <button onClick = {logout} className="btn btn-seconadry">Logout</button></div>
+        :
+        <Link to="/Login" className="btn btn-primary">Login </Link>
+        }
+       
+        {/* <h4> User ID: {id}</h4> */}
+    <h1> Help the Children with Special Needs</h1>
+    <div>                        
+    <img src="https://www.regionofwaterloo.ca/en/health-and-wellness/resources/Images/PHEChildrenSNAP.jpg" alt="Children's toys"></img>
+                                
+    </div>
       
       <Link to="/">Homepage </Link>
       <Link to="/Fundraising">Fundraising</Link>
@@ -27,11 +53,11 @@ export default function Homepage(props) {
         <Link to="/DonateForm">DonationForm </Link>
       <Route path="/Fundraising"><Fundraising /></Route>
       <Route path="/about" ><About/></Route> 
-          <Route path="/requestgoods"><Products /></Route>
+          <Route path="/requestgoods"><RequestGoods /></Route>
           <Route path="/donategoods"><DonateGoods /></Route>
           <Route path="/DonateForm"><DonateForm /></Route>
             <h1>Welcome to Homepage which is only visible when you are logged in </h1>
-       </Router>
+       
         </>
     )
 }

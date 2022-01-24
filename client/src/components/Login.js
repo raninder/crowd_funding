@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import Register from "./Register"
+// import Register from "./Register"
 import {useHistory} from "react-router-dom";
 import {
     BrowserRouter as Router, 
@@ -28,13 +28,12 @@ const {setLoginUser} = props;
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
         .then(res=>{
-            alert(res.data.message);
+            // alert(res.data.message);
             //  alert("id"+res.data.email);
         // setLoginUser(res.data.user)
-      const value =  localStorage.setItem("userID", res.data.id);
-      console.log("setid",value)  
-      localStorage.setItem("email", res.data.email);
-        // setLoginUser({_id:res.data.id})
+        localStorage.setItem("userID", res.data.id);
+        localStorage.setItem("email", res.data.email);
+        setLoginUser({_id:res.data.id})
         history.push("/")})
         .catch(error => console.log(error));
     }
@@ -54,7 +53,7 @@ const {setLoginUser} = props;
                     <button type="submit"onClick={login} >Login</button><br/><br/>
                     Don't have an account? 
                     <Link to="/Register">Register </Link>
-                    
+                    {/* <Route path="/Register"><Register/></Route> */}
                 </form>
             </section>
         </main>
