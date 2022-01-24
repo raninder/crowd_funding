@@ -1,31 +1,35 @@
-.mainContainer {
-  display: flex;
-}
-
 .MainSection {
   display: flex;
-  width: 100%;
   flex-direction: column;
+}
 
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .image {
   justify-content: left;
   margin: 30px;
+  width: 40%;
 }
 
 .image img{
-  width: 100%;
+  padding-top: 70px;
+  width: 80%;
 }
 
-.article-text {
-  display: flex;
-  justify-content: right;
-  padding: 10px;
+.flex-right {
+  padding-top: 70px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size:x-large;
   margin: 100px;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
 }
+
 .button {
   justify-content: right;
   margin: 100px;

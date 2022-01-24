@@ -13,6 +13,7 @@
   display:flex;
   height: 100%;
   margin-left:50px ;
+  cursor: pointer;
 }
 
 
@@ -29,3 +30,11 @@
   color: black;
   font-weight: bold;
 }
+
+.login, .signup {
+  width: 150px;
+  height: 30px;
+  font-size: medium;
+  padding-top: 6px;
+}
+

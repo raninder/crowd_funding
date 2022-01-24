@@ -1,9 +1,10 @@
 import React, { useState, Component } from "react";
 import './MainSection.css';
 import { mainItems } from "./MainSectionItems";
+import { useHistory } from "react-router-dom";
 
 export default function MainSection () {
-
+  const history = useHistory();
   
   return (
     <div className="MainSection">
@@ -24,7 +25,7 @@ export default function MainSection () {
             </div>
 
             <div className="button">
-              <button>{item.title}</button>
+              <button onClick={() => history.push(item.url)}>{item.title}</button>
             </div>
 
            </div> 

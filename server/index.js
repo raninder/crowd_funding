@@ -7,6 +7,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const PORT = process.env.PORT || 3001;
+const userRoutes = require("./routes/users");
+const fundRoutes = require("./routes/funds");
 
 const corsOptions = {origin: '*'};
 
@@ -15,7 +17,7 @@ const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect(() =>  console.log(`Connected to database`));
-
+console.log(db)
 
 // const routes = require("./routes");
 
@@ -25,7 +27,6 @@ app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 const goodsRoutes = require("./routes/goods");
-const userRoutes = require("./routes/users");
 
 // Mount all resource routes
 
@@ -34,8 +35,7 @@ app.use("/api/users", userRoutes(db));
 
 // const routes = require("./routes");
 //const goodsRoutes = require("./routes/goods");
-const userRoutes = require("./routes/users");
-const fundRoutes = require("./routes/funds");
+
 // Mount all resource routes
 //app.use("/api/goods", goodsRoutes(db));
 app.use("/api/users", userRoutes(db));
