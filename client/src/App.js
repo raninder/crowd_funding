@@ -10,9 +10,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
-
-
-
+import FundraisingOption from './components/FundraisingOptions';
 
 export default function App() {
 
@@ -23,12 +21,11 @@ export default function App() {
     <div className="App">
 
       <Router>
-        
-        {/* <Route path="/" component={Homepage}/> */}
         <Route path="/Homepage" component={Homepage}/>
         <Route path="/Login" component={Login}/>
         <Route path="/Register" component={Register}/>
         <Route path="/fundrasising" component={Fundraising} />
+        <Route path="/fundrasisingoption" component={FundraisingOption} />
         <Route path="/donate" component={DonateGoods} />
         <Route path="/requestgoods/*" component={Products} />
         <Route path="/about" component={About} />
