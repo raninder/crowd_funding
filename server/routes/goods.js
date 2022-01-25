@@ -36,20 +36,21 @@ router.put('/reqgoods', (req, res) => {
 	const myJson= req.body;
 	console.log("myjson1111",myJson);
 	const id = req.body.id; 
-	console.log("id",id);
+	let qty= parseInt(req.body.qty);
+	console.log("id n qty",id, qty);
+	if(!qty)
+	qty=1;
 
 	db.query(`UPDATE goods
-					 Set quantity = quantity-1
+					 Set quantity = quantity-${qty}
 					 WHERE id=$1 AND quantity>0
 					 RETURNING *;
 					`, [id])
 .then(result => 
 	{ console.log("qty",result.rows);
 	const resultData = result.rows[0];
-	// const quantity = resultData.quantity;
-	// const [{quantity}] = result.rows;
 	console.log("quantity",result.rows[0]);
-		// res.send({quantity});
+
 
 	}
 )});
@@ -63,8 +64,7 @@ router.get('/getallgoods/:id', (req, res) => {
 			res.json(data.rows);
 		})
 });
-// before adding check userid and product id in a cart
-// 2. id product is in Cart, increment qty
+
 router.post("/addtocart",(req,res) => {
 	const myJson = req.body;
 		 console.log("myJson", myJson);
@@ -81,28 +81,6 @@ router.post("/addtocart",(req,res) => {
 })
 
 
-
-
-	router.get("/getcart/:id",(req,res) => {
-		console.log("req.params",req.params);
-//  sconst id = req.params.id;
-	// return db.query(`
-	// 			SELECT * from cart WHERE id=${id};`
-	// 		)
-	// 		.then(result => {
-	// 			console.log("cart",result.rows);
-	// 			res.send(result.rows) })
-	// 		.catch(err =>console.log(err))
-})
-router.get("/getcart",(req,res) => {
-	return db.query(`
-				SELECT * from cart;`
-			)
-			.then(result => {
-				console.log("cart",result.rows);
-				res.send(result.rows) })
-			.catch(err =>console.log(err))
-})
 
 router.post("/addnewgoods", (req, res) => {
 	const myJson = req.body;
