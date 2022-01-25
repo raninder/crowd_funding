@@ -18,7 +18,7 @@ export default function Search() {
 
 	return (
     <>
-		<h1>Hello</h1>
+		
 		<div className="goods-display">
       <p/>
       <h2 className="heading">Goods in Stock</h2>

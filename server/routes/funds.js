@@ -30,7 +30,7 @@ module.exports = (db) => {
       router.post("/addnewfundraising", (req, res) => {
         const myJson = req.body;
         console.log("myJson", myJson);
-        const {
+        let {
           id,category, title, story, img, goal
         } = myJson;
         // if(img = '')

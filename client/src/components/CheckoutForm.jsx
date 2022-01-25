@@ -2,7 +2,13 @@ import { useStripe, useElements, PaymentElement, CardElement } from '@stripe/rea
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import DonateMoney from './DonateMoney'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  
+  } from "react-router-dom";
 
 export default function CheckoutForm(props) {
     const [success, setSuccess] = useState(false)
@@ -68,7 +74,7 @@ console.log('fundid',fundid)
                 :
                 <div>
                     <h2>You just Donate money. this is the best decision of you're life</h2>
-                    <DonateMoney />
+                  <button><Link to="/DonateMoney">DonateMoney </Link></button>  <Route path="/DonateMoney/">< DonateMoney/></Route>
                 </div>
             }
 
