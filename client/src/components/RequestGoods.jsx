@@ -19,7 +19,6 @@ export default function RequestGoods(props) {
    
   const history = useHistory();
  
-
   
   const url = "http://localhost:3001/api/goods/getallgoods";
   useEffect(() => {

@@ -6,24 +6,25 @@ import './form.css';
 
 export default function DonateGoods(props) {
 	const [category, setCategory] = useState("");
+	const [goodsname, setGoodsname] = useState("");
   const [company, setCompany] = useState("");
 	const [condition, setCondition] = useState("");
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState("");
 	const [img, setImage] = useState("");
 	const [description, setDescription] = useState("");
-	const [id, setId] = useState("");
+	const [uid, setUid] = useState("");
 	useEffect(() => {
-		setId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
-	console.log("ID",id);
+	console.log("ID",uid);
 
-	const alert = useAlert();
+	// const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
 	
-    const goods = { category, company, condition,size, quantity, img, description ,id};
+    const goods = { category, goodsname,company, condition,size, quantity, img, description ,uid};
 		// alert(JSON.stringify(goods));
 		
 		const url ="http://localhost:3001/api/goods/addnewgoods";
@@ -39,6 +40,7 @@ export default function DonateGoods(props) {
 	function handleReset(){
 		setCategory(null);
     setCompany("");
+		setGoodsname("");
 		setCondition(false);
 		setDescription("");
 		setQuantity("");
@@ -48,10 +50,10 @@ export default function DonateGoods(props) {
 
 	return (
     <div className="main">
-      <h1>Donate Goods  {id}</h1>
+      <h1>Donate Goods  </h1>
 			
       <form onSubmit={handleSubmit}>  
-			<input type="hidden" value = {id} name="id"/>  
+			<input type="hidden" value = {uid} name="uid"/>  
           <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
                <option value="">--Please choose an option--</option>
@@ -64,7 +66,10 @@ export default function DonateGoods(props) {
 							 <option value="Communication">Social and Communication</option>
 							 <option value="Others">Others</option>
            </select>
-        
+					 <p>
+        	 <label> Goods Name: </label>  
+           <input name="goodsname" value={goodsname} onChange={(e) => setGoodsname(e.target.value)}/> 
+					</p>
 					 <p>
         	 <label> Company/Brand (if applicable): </label>  
            <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/> 
@@ -73,12 +78,11 @@ export default function DonateGoods(props) {
 				<label>Condition:
 				<div  onChange={(e) => setCondition(e.target.value)} class = "condition">
 					
-           <input type="radio" class = "radio" id = "exc" name="condition" value = "Excellent" />
-					 <label for="exc">Excellent</label>
-					 <input type="radio" class = "radio" id="good" name="condition" value = "Good" />
-					 <label for="good">Good</label>
-					 <input type="radio" id="satis" class = "radio" name="condition" value = "Satisfactory" />
-					 <label for="satis">Satisfactory</label>
+           <input type="radio" class = "radio" id = "new" name="condition" value = "New" />
+					 <label for="new">New</label>
+					 <input type="radio" class = "radio" id="used" name="condition" value = "Used" />
+					 <label for="used">Good</label>
+					
 					
 					 </div>
 					 </label>

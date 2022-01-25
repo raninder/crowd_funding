@@ -30,8 +30,8 @@ module.exports = (db) => {
       router.post("/addnewfundraising", (req, res) => {
         const myJson = req.body;
         console.log("myJson", myJson);
-        const {
-          category, title, story, img, goal
+        let {
+          id,category, title, story, img, goal
         } = myJson;
         if(img = '')
         img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
@@ -44,10 +44,11 @@ module.exports = (db) => {
             const cateId = res.rows[0].id;
             // const catId = 1;
             console.log('catId', cateId);
-            const userId = 1;
-    
+            userId = id;
+            
+            console.log('userID', userId + 3);
             db.query(`
-            INSERT INTO fundraising ( user_id,fund_cate_id,title,img,story,goal )
+            INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal )
             VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
     `			, [userId, cateId, title, img, story, goal])
@@ -56,6 +57,27 @@ module.exports = (db) => {
         // .catch(err => console.log(err))
     
       });
+      router.get('/donation',(req,res) => {
+        db.query(`SELECT * FROM donation_money;`)
+        .then((data) => {
+          res.json(data.rows);
+        }) 
+      })
+      router.post('/addnewdonation', (req,res) => {
+        const myJson = req.body;
+        console.log("myJson", myJson);
+        const {
+          amount,userid
+        } = myJson;
+        fundId = 1;
+            // userId = userid;
+            db.query(`
+            INSERT INTO donation_money(user_id,fund_id,amount,date)
+            VALUES($1,$2,$3,now())
+            RETURNING *;
+    `			, [userid, fundId, amount])
+          })
+     
     
       return router;
     };

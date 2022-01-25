@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import useVisualMode from "../hooks/useVisualMode";
-import Fundrasing from "./Fundraising";
+import Fundraising from "./Fundraising";
+import About from './About';
+import RequestGoods from './RequestGoods';
+import DonateGoods from './DonateGoods';
+import DonateForm from './DonateForm';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -9,18 +14,18 @@ import {
 
 } from "react-router-dom";
 export default function Homepage(props) {
-    const [id, setId] = useState();
+    const [uid, setUid] = useState();
     const [email, setEmail] = useState();
 
     useEffect(() => {
-        setId(localStorage.getItem("userID"));
+        setUid(localStorage.getItem("userID"));
         setEmail(localStorage.getItem("email"));
       }, []);
-      console.log("ID",id);
+      console.log("ID",uid);
 
       const logout = function () {
         setEmail("");
-        setId("");
+        setUid("");
         localStorage.removeItem("userID");
         localStorage.removeItem("email");
       }
@@ -40,7 +45,19 @@ export default function Homepage(props) {
                                 
     </div>
       
-     
-    </>
+      <Link to="/">Homepage </Link>
+      <Link to="/Fundraising">Fundraising</Link>
+      <Link to="/about">About </Link> &nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/requestgoods">Request Goods </Link> &nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/donategoods">Donate Goods </Link>
+        <Link to="/DonateForm">DonationForm </Link>
+      <Route path="/Fundraising"><Fundraising /></Route>
+      <Route path="/about" ><About/></Route> 
+          <Route path="/requestgoods"><RequestGoods /></Route>
+          <Route path="/donategoods"><DonateGoods /></Route>
+          <Route path="/DonateForm"><DonateForm /></Route>
+            <h1>Welcome to Homepage which is only visible when you are logged in </h1>
+       {/* </Router> */}
+        </>
     )
 }

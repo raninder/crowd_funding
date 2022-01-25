@@ -7,16 +7,16 @@ export default function Fundraising(props) {
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
-    const [id, setId] = useState("");
+    const [uid, setUid] = useState("");
 	useEffect(() => {
-		setId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
-	console.log("ID",id);
+	console.log("ID",uid);
 
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
-            id,category,title, story, img, goal
+            uid,category,title, story, img, goal
         };
 
         alert(JSON.stringify(user));
@@ -26,6 +26,7 @@ export default function Fundraising(props) {
                 console.log(res);
                 handleReset();
             });
+            // alert.show('Thanks for Donating');
     }
 
     function handleReset(){
@@ -49,25 +50,25 @@ export default function Fundraising(props) {
                         <option value="equipment">Equipment</option>
                         <option value="food">Food</option>
                         <option value="education">Education</option>
-                    </select><br/><br/>
+                    </select>
                     <label name="title">Title</label>
                     <input className="" name="title" value={title}
                         onChange={(event) => setTitle(event.target.value)}
-                    /><br /><br/>
+                    />
                     <label name="story">Story</label>
                     <textarea className="" name="story" value={story}
                         onChange={(event) => setStory(event.target.value)}
-                    /><br /><br/>
+                    />
                     <label name="img">Upload Image</label>
                     <input className="" name="img" value={img}
                         onChange={(event) => setImg(event.target.value)}
-                    /><br /><br/>
+                    />
                     <label name="goal">Goal</label>
                     <input className="" name="goal" type="goal" value={goal}
                         onChange={(event) => setGoal(event.target.value)}
-                    /><br /><br/>
+                    /><br/>
                     {/* <section className="">{error}</section> */}
-                    <button type="submit" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" >Submit</button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>
