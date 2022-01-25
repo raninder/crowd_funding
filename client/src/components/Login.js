@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import Register from "./Register"
+// import Register from "./Register"
 import {useHistory} from "react-router-dom";
 import {
     BrowserRouter as Router, 
@@ -55,7 +55,7 @@ const {setLoginUser} = props;
                     <button type="submit"onClick={login} >Login</button><br/><br/>
                     Don't have an account? 
                     <Link to="/Register">Register </Link>
-                    
+                    {/* <Route path="/Register"><Register/></Route> */}
                 </form>
             </section>
         </main>

@@ -1,6 +1,9 @@
+
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./form.css";
+import {useHistory} from "react-router-dom";
+
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
     const [title, setTitle] = useState("");
@@ -8,6 +11,7 @@ export default function Fundraising(props) {
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
     const [uid, setUid] = useState("");
+    const history = useHistory();
 	useEffect(() => {
 		setUid(localStorage.getItem("userID"));
 	}, []);
@@ -24,23 +28,37 @@ export default function Fundraising(props) {
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
+                history.push("/Donate")
                 handleReset();
             });
             // alert.show('Thanks for Donating');
     }
-
-    function handleReset(){
-		setCategory(null);
+    function handleReset() {
+        setCategory("");
         setTitle("");
-		setStory("");
-		setGoal("");
-		setImg("");
-	}
+        setStory("");
+        setImg("");
+        setGoal("");
+
+    }
+    function validate() {
+        // if (student === "") {
+        //   setError("Student name cannot be blank");
+        //   return;
+        // }
+        // if (interviewer === null) {
+        //   setError("Interviewer cannot be unselected");
+        //   return;
+        // }
+        // setError("");
+        // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
+      }
+
     return (
-        <main className="mainsection">
+        <main className="">
             <section className="main">
-                <h1>Fundraising</h1>
-                <form onSubmit={handleSubmit}>
+                <h1>Fundrasing</h1>
+                <form onSubmit={handleSubmit} >
                     <label name="category">category</label>
                     <select name="category" onChange={(e) => setCategory(e.target.value)}>
                         <option value="">--Please choose an option--</option>

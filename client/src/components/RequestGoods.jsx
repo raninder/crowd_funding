@@ -31,7 +31,7 @@ export default function RequestGoods(props) {
       // setFilteredData(response.data);
     })
     .catch(error => {
-      console.log('Error: ' + error);
+      // console.log('Error: ' + error);
       })
   }, []);
 
@@ -40,7 +40,7 @@ export default function RequestGoods(props) {
     let result = [];
     console.log(value);
     result = goods.filter((data) => {
-      return data.good_cat_id==value;
+      return data.good_cat_id===value;
       });
       console.log("result",result);
     history.push('/Search', { result});

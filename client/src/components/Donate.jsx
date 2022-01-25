@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function Donate(props) {
+	// const history = useHistory()
 	const [result, setResult] = useState({});
 	const history = useHistory();
 	const id = history.location.state.id;
@@ -18,7 +19,7 @@ export default function Donate(props) {
   }, []);
 	 
 	console.log("result",result);
-	
+	localStorage.setItem("fundID", id);
 	console.log("id",id);
 	
 	return(
@@ -35,7 +36,8 @@ export default function Donate(props) {
 					User id: {result.user_id} <br/>
 					Cat id: {result.fund_cate_id} <br/>
 					Title: {result.title} <br/>
-					Goal: {result.goal} <br/>
+					Goal: ${result.goal} <br/>
+					Amount Raised: ${result.amountraising}
 					Story: {result.story} <br/><br/>
 				
 			<button className="btn btn-primary" onClick={() => history.push('/DonateForm')}>Donate Now</button>

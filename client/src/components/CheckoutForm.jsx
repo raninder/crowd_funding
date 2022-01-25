@@ -1,6 +1,7 @@
 import { useStripe, useElements, PaymentElement, CardElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import DonateMoney from './DonateMoney'
 
 
 export default function CheckoutForm(props) {
@@ -8,11 +9,14 @@ export default function CheckoutForm(props) {
     const stripe = useStripe()
     const elements = useElements()
     const [userid, setId] = useState("");
+    const [fundid, setfundId] = useState("");
 	useEffect(() => {
 		setId(localStorage.getItem("userID"));
+        setfundId(localStorage.getItem("fundID"))
 	}, []);
    
 console.log('userid',userid);
+console.log('fundid',fundid)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -35,7 +39,7 @@ console.log('userid',userid);
                 console.log("Successful payment", response.data)
 
                 if (response.data) {
-                    axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount,userid})
+                    axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount,userid,fundid})
                         .then(res => {
                             console.log(res);
                         });
@@ -64,6 +68,7 @@ console.log('userid',userid);
                 :
                 <div>
                     <h2>You just Donate money. this is the best decision of you're life</h2>
+                    <DonateMoney />
                 </div>
             }
 

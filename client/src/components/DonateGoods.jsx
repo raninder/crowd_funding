@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
+import '../Donate.css';
 import './form.css';
 
 

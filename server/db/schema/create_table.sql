@@ -51,11 +51,6 @@ CREATE TABLE donation_money (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_id INTEGER REFERENCES fundraising(id) ON DELETE CASCADE,
   amount DECIMAL(15,2) NOT NULL,
-  -- cardholder_name VARCHAR(255) NOT NULL,
-  -- crditcard_number BIGINT NOT NULL,
-  -- expmonth VARCHAR(255) NOT NULL,
-  -- expyear INT NOT NULL,
-  -- cvv INT NOT NULL,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
