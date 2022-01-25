@@ -29,22 +29,12 @@ console.log("img",img);
 // }
 	
 	function request() {
-		// alert.show("hi");
-		// return <Confirm />
-  // <Confirm message={"Sure to delete"} onCancel={cancel} onConfirm={confirm}/>
-	// console.log("test");
-	// alert.show('Request submitted')
     const goods = { good_cat_id, quantity };
-	
 		const url = "http://localhost:3001/api/goods/reqgoods";
-	
     axios.put(url, goods)
 		.then(res => {
 			alert.show('Request submitted')
-			// setAlert(true);
 			console.log(res);
-			// setResults([...res.data])
-  
     })
 		.catch(err => {
 			console.log(err);
