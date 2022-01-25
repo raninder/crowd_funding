@@ -39,11 +39,23 @@ export default function RequestGoods(props) {
     let value = event.target.value;
     let result = [];
     console.log(value);
-    result = goods.filter((data) => {
-      return data.good_cat_id===value;
-      });
-      console.log("result",result);
-    history.push('/Search', { result});
+    console.log("goodsdata",goods);
+    console.log("cat",goods[0].good_cat_id);
+    for(let item of goods){
+      console.log("i",item.good_cat_id);
+      if (item.good_cat_id == value){
+      result.push(item);
+      console.log("res",result);
+      }
+    }
+    // result = goods.filter((data) => {
+    //   console.log("check cat",data.good_cat_id);
+      
+    //   return data.good_cat_id===value;
+    //   });
+      console.log("result",result[0].user_id);
+   
+      history.push('/Search', { result});
   
   }
 const allGoods = goods.map((item) => {

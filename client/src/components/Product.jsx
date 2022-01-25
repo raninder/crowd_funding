@@ -49,7 +49,8 @@ export default function Product(props) {
 					Condition: {condition} <br/>
 					Description: {description} <br/>
 					{/* if user logged in */}
-					<button onClick={() => add_to_request(id) }>Request</button> 
+				
+					<button className="btn btn-primary"onClick={() => add_to_request(id) }>Request</button> 
 				
 					</div>
 		}

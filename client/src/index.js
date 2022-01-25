@@ -6,12 +6,7 @@ import AlertTemplate from 'react-alert-template-basic'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css';
-=======
-// import AlertTemplate from 'react-alert-template-basic';
-// import 'bootstrap/dist/css/bootstrap.css';
->>>>>>> origin/npatel
 
 
 // optional configuration
@@ -25,15 +20,9 @@ const options = {
 }
 
 const Root = () => (
-<<<<<<< HEAD
   <AlertProvider template={AlertTemplate} {...options}>
     <App />
   </AlertProvider>
-=======
-  // <AlertProvider template={AlertTemplate} {...options}>
-    <App />
-  // </AlertProvider>
->>>>>>> origin/npatel
 )
 
 render(<Root />, document.getElementById('root'))
