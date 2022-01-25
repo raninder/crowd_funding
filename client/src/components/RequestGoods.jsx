@@ -38,24 +38,27 @@ export default function RequestGoods(props) {
   function handleSearch(event){
     let value = event.target.value;
     let result = [];
-    console.log(value);
-    console.log("goodsdata",goods);
-    console.log("cat",goods[0].good_cat_id);
+    // console.log(value);
+    // console.log("goodsdata",goods);
+    // console.log("cat",goods[0].good_cat_id);
+    let categoryName;
     for(let item of goods){
-      console.log("i",item.good_cat_id);
+      // console.log("i",item.good_cat_id);
       if (item.good_cat_id == value){
+        categoryName = item.name;
       result.push(item);
-      console.log("res",result);
+      // console.log("res",result);
       }
     }
+    console.log("categoryName",categoryName);
     // result = goods.filter((data) => {
     //   console.log("check cat",data.good_cat_id);
       
     //   return data.good_cat_id===value;
     //   });
-      console.log("result",result[0].user_id);
+      // console.log("result",result[0].user_id);
    
-      history.push('/Search', { result});
+      history.push('/Search', { result,categoryName});
   
   }
 const allGoods = goods.map((item) => {
@@ -65,12 +68,21 @@ const allGoods = goods.map((item) => {
 
 return (
   <>
-    <p/><p/><p/><p/>
-    {/* <h4> User ID: {id}</h4> */} 
+    
+        
+           
+  <div className="goods-display">
+      <p/>
+      <h2 className="heading">Goods in Stock</h2>
+      <hr className="hr" />
+    </div>
+    
+ <p/><p/><p/><p/>
+    {/* <h4> User ID: {id}</h4>   */}
     { email&&
         <h5> Logged in as {email} </h5>
     }<br/>
-  <label> <h4>Search Category </h4></label>  
+  <label> <h4>Search Category </h4> 
   <select name="category" onChange={(event) => handleSearch(event)}>  
                <option value="">--Please choose an option--</option>
                <option value="1">1. Books</option>
@@ -81,17 +93,9 @@ return (
 							 <option value="6">6. Mobility Products</option>
 							 <option value="7">7. Social and Communication</option>
 							 <option value="8">8. Others</option>
-           </select>
+           </select></label> 
            <p/><p/>
-        
-           
-  <div className="goods-display">
-      <p/>
-      <h2 className="heading">Goods in Stock</h2>
-      <hr className="hr" />
-    </div>
-    <div className="goods-container">{allGoods}</div>
- 
+           <div className="goods-container">{allGoods}</div>
   </>
 );
 }

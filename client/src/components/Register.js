@@ -20,20 +20,7 @@ export default function Register(props) {
   const alert = useAlert();
   const history = useHistory();
 
-  //reset form data 
-  function handleReset() {
-    setEmail = "";
-    setPassword = "";
-    setPhone = "";
-    setFirstname = "";
-    setLastname = "";
-    setPhone = "";
-    setStreet = "";
-    setCity = "";
-    setProvince = "";
-    setPostal = "";
-
-  }
+  
   //cancel function set onCancel event
   // const Cancel = () => {
   //   // reset();
@@ -55,7 +42,7 @@ export default function Register(props) {
       handleReset();
     });
     setTimeout(()=> {
-      history.push("/RequestGoods");
+      history.push("/");
       },1000);
   }
   function handleReset(){

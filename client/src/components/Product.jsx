@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
+import "../styles/DispGoods.css";
 import { useHistory } from 'react-router-dom';
 import {
   BrowserRouter as Router, 
@@ -37,13 +38,14 @@ export default function Product(props) {
       <img
           className="goods-img"
           src={img}
-          alt={"sorry"}
+          alt={"Donated Item"}
         />
 					{/* Product id: {id} <br/>
 					Category id: {good_cat_id} <br/> */}
 					Product Name: {goods_name} <br/>
 					Category Name: {name} <br/>
-					Size: {size} <br/>
+					{size &&
+					<span>Size: {size} <br/></span>}
 					Quantity: {quantityState} <br/>
 					Company: {company} <br/>
 					Condition: {condition} <br/>

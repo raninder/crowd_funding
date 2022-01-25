@@ -21,7 +21,7 @@ router.get('/getusergoods', (req, res) => {
 	
 	db.query(
 		// `SELECT * FROM request_goods;`)
-						`SELECT request_goods.* ,goods.goods_name 
+						`SELECT request_goods.* ,goods.goods_name,goods.img 
 						from request_goods
 						JOIN goods 
 						ON goods.id=request_goods.goods_id

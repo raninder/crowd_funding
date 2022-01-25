@@ -33,7 +33,7 @@
   flex-direction: column;
   margin: 1em;
   max-width: 300px;
-  justify-content: flex-start; 
+  justify-content: center; 
   position:  relative;
 
       border:        1px solid #ccc;
@@ -45,7 +45,8 @@
 .goods-img {
   height: 10em;
   width: 10em;
-  align-items: center;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 /* .goods-img:hover {

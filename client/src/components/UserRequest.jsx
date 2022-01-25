@@ -14,7 +14,9 @@ import {
 function User(props){
 		return(
 			<div className="container">
-				
+				<img className="req-img"
+				src={props.img}
+				/>
 				Product Name: {props.goods_name} <br/>
 				Quantity: {props.quantity} <br/>
 				Date: {props.date} 
@@ -39,7 +41,7 @@ export default function UserRequest(props) {
   useEffect(() => {
     axios.get(url)
     .then((response) => {
-      console.log("data",response);
+      console.log("data",response.data);
       setResult(response.data);
     })
     .catch(error => {
