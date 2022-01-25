@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from "react";
-import {BrowserRouter as Router, Route, Navigate} from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import About from './components/About';
 import Products from './components/Products';
@@ -17,27 +17,27 @@ import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
 import FundraisingOption from './components/FundraisingOptions';
 import DonateForm from './components/DonateForm';
+import Navbar from './components/Navbar/Navbar';
 
 
 
 export default function App() {
-
   const [user,setLoginUser] = useState({})
-  console.log(user);
 
   return (
     <div className="App">
-
       <Router>
-        <Route path="/Homepage" component={Homepage}/>
+        <Navbar/>
+        <Route path="/Homepage"><Homepage/></Route>
+        <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
+        <Route path="/Register"><Register/></Route>
         <Route path="/fundrasising" component={Fundraising} />
         <Route path="/fundrasisingoption" component={FundraisingOption} />
-        <Route path="/donate" component={DonateGoods} />
+        <Route path="/donategoods" component={DonateGoods} />
         <Route path="/requestgoods/*" component={Products} />
         <Route path="/about" component={About} />
 
-        <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
-        <Route path="/Register"><Register/></Route>
+  
         <Route path="/RequestGoods">< RequestGoods/></Route>
         <Route path="/DonateGoods/">< DonateGoods/></Route>
         <Route path="/Fundraising/">< Fundraising/></Route>

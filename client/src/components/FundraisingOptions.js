@@ -5,7 +5,7 @@ import Campaign from "./campaign";
 
 export default function FundraisingOption (props) {
   const [campaigns, setCampaigns] = useState([]);
-  const url = "http://localhost:3001/api/funds/getallfundrising";
+  const url = "http://localhost:3001/api/funds/getallfundraising";
 
   useEffect(() => {  
     axios.get(url)

@@ -3,7 +3,7 @@ import './MainSection.css';
 import { mainItems } from "./MainSectionItems";
 import { useHistory } from "react-router-dom";
 
-export default function MainSection () {
+export default function MainSection (props) {
   const history = useHistory();
   
   return (

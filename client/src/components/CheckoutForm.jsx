@@ -19,7 +19,12 @@ console.log('userid',userid);
 console.log('fundid',fundid)
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log(props.amount);
+        if(props.amount == 0 || props.amount.value == "0"){
+            alert("Plese enter donation amount!");
+            return;
+        }
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)
@@ -31,7 +36,7 @@ console.log('fundid',fundid)
                 const { id } = paymentMethod
                 console.log("id", id)
                 const response = await axios.post("http://localhost:3001/api/pays/payment", {
-                    amount: props.amount,
+                    amount: props.amount.value,
                     id
                 })
 
@@ -39,7 +44,7 @@ console.log('fundid',fundid)
                 console.log("Successful payment", response.data)
 
                 if (response.data) {
-                    axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount,userid,fundid})
+                    axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount.value,userid,fundid})
                         .then(res => {
                             console.log(res);
                         });

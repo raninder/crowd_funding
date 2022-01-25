@@ -3,7 +3,7 @@ export const mainItems = [
     title: 'Fundraising',
     image: '/images/Fundraising.png',
     article: "Start helping, and start getting helped.",
-    url: '/fundrasisingoption'
+    url: '/DonateMoney'
   },
   { 
     title: 'Donate',
