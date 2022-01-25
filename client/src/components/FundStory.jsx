@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import Donate from "./Donate";
 // import { Button } from 'react-bootstrap';
-// import history from './history';
 import { useHistory } from 'react-router-dom';
 
 import {

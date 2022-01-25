@@ -11,7 +11,6 @@ import {
   } from "react-router-dom";
 const Login = (props) => {
 const history = useHistory()
-// const [uid,setUid] = useState("");
 const {setLoginUser} = props;
     const [user,setUser] = useState({
         email:"",

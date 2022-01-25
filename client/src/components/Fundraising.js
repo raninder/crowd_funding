@@ -41,18 +41,6 @@ export default function Fundraising(props) {
         setGoal("");
 
     }
-    function validate() {
-        // if (student === "") {
-        //   setError("Student name cannot be blank");
-        //   return;
-        // }
-        // if (interviewer === null) {
-        //   setError("Interviewer cannot be unselected");
-        //   return;
-        // }
-        // setError("");
-        // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
-      }
 
     return (
         <main className="">

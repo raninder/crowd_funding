@@ -74,10 +74,12 @@ export default function Cart1(props) {
           alt={"Donated Goods"}
         />	
 				<div className="text">
-					id:{result.id} <br/>
+					{/* id:{result.id} <br/>
 					User id: {result.user_id} <br/>
-					Category id: {result.good_cat_id} <br/>
+					Category id: {result.good_cat_id} <br/> */}
 					Product Name: {result.goods_name} <br/>
+					{result.size &&
+					<span>Size: {result.size}<br/></span>}
 					Condition: {result.condition} <br/>
 					Company: {result.company} <br/>
 					Quantity: {result.quantity} <br/>

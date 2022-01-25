@@ -1,15 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./donate.css"
-import { useAlert } from 'react-alert';
-import { useHistory } from 'react-router-dom';
-import {
-  BrowserRouter as Router, 
-  Switch, 
-  Route,
-  Link
 
-} from "react-router-dom";
 
 function User(props){
 		return(
