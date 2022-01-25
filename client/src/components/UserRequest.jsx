@@ -13,7 +13,7 @@ import {
 
 function User(props){
 		return(
-			<div className='container'>
+			<div className="container">
 				
 				Product Name: {props.goods_name} <br/>
 				Quantity: {props.quantity} <br/>
@@ -23,7 +23,7 @@ function User(props){
 		) 
 	}
 
-export default function Users(props) {
+export default function UserRequest(props) {
 	const [result, setResult] = useState([]);
 	const [uid,setUid] = useState("");
 	const [email,setEmail] = useState("");
@@ -38,8 +38,6 @@ export default function Users(props) {
 	const url = `http://localhost:3001/api/goods/getusergoods/`;
   useEffect(() => {
     axios.get(url)
-    // setId(localStorage.getItem("userID"))
-    // setEmail(localStorage.getItem("email"))
     .then((response) => {
       console.log("data",response);
       setResult(response.data);
@@ -51,13 +49,13 @@ export default function Users(props) {
 	
 	console.log("result",result);
 	const allusers = result.map((ele) =>{
-		console.log("ele.id", ele.id);
-		// if(ele.email ==email)
+		console.log("ele.id", ele.user_id);
+		 if(ele.user_id ==uid)
 		return <User key = {ele.id} {...ele} />
 	})
 return(
 <>
-Users
+
 <table border='1'>
 					
 {allusers}

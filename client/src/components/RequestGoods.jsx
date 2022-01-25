@@ -58,7 +58,7 @@ return (
     { email&&
         <h5> Logged in as {email} </h5>
     }<br/>
-  <label> Search Category: </label>  
+  <label> <h4>Search Category </h4></label>  
   <select name="category" onChange={(event) => handleSearch(event)}>  
                <option value="">--Please choose an option--</option>
                <option value="1">1. Books</option>

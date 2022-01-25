@@ -45,7 +45,7 @@ export default function Homepage(props) {
                                 
     </div>
       
-      <Link to="/">Homepage </Link>
+      {/* <Link to="/">Homepage </Link>
       <Link to="/Fundraising">Fundraising</Link>
       <Link to="/about">About </Link> &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/requestgoods">Request Goods </Link> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -56,7 +56,7 @@ export default function Homepage(props) {
           <Route path="/requestgoods"><RequestGoods /></Route>
           <Route path="/donategoods"><DonateGoods /></Route>
           <Route path="/DonateForm"><DonateForm /></Route>
-            <h1>Welcome to Homepage which is only visible when you are logged in </h1>
+            <h1>Welcome to Homepage which is only visible when you are logged in </h1> */}
        {/* </Router> */}
         </>
     )

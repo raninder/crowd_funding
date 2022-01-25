@@ -7,8 +7,9 @@ import DonateMoney from './components/DonateMoney';
 import Login from './components/Login';
 import Donate from './components/Donate';
 import Search from './components/Search';
-import Cart from './components/Cart';
-// import Users from './components/Users';
+import Cart1 from './components/Cart1';
+import DonateForm from './components/DonateForm';
+ import UserRequest from './components/UserRequest';
 import Fundraising from './components/Fundraising';
 import {
   BrowserRouter as Router,
@@ -37,10 +38,9 @@ const App = () => {
         <Link to="/RequestGoods">RequestGoods </Link> &nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/DonateGoods">DonateGoods </Link>&nbsp;&nbsp;&nbsp;&nbsp;
         <Link to="/Fundraising">Fundraising </Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/Cart">Cart </Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        {/* <Link to="/Users">Users </Link>&nbsp;&nbsp;&nbsp;&nbsp; */}
-        <Link to="/DonateMoney">DonateMoney </Link>
-     
+        {/* <Link to="/Cart1">Cart1 </Link>&nbsp;&nbsp;&nbsp;&nbsp; */}
+        <Link to="/DonateMoney">DonateMoney </Link>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Link to="/UserRequest" className="btn btn-primary">UserRequest </Link>
         {/* Routes for new version, Switch for old version of rreact-router-dom */}
         {/* <Routes> */}
         <Switch>
@@ -58,8 +58,9 @@ const App = () => {
           <Route path="/DonateMoney/">< DonateMoney/></Route>
           <Route path="/Donate/">< Donate/></Route>
           <Route path="/Search/">< Search/></Route>
-          <Route path="/Cart/">< Cart/></Route>
-          {/* <Route path="/Users/">< Users/></Route> */}
+          <Route path="/Cart1/">< Cart1/></Route>
+          <Route path="/DonateForm/">< DonateForm/></Route>
+          <Route path="/UserRequest/">< UserRequest/></Route>
           <Route path="/"><Homepage/></Route>
           </Switch>
           

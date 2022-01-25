@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./form.css"
 import axios from "axios";
 import { useAlert } from 'react-alert';
+import { useHistory } from "react-router-dom";
 
 export default function Register(props) {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ export default function Register(props) {
   
 
   const alert = useAlert();
+  const history = useHistory();
 
   //reset form data 
   function handleReset() {
@@ -52,6 +54,9 @@ export default function Register(props) {
       console.log(res);
       handleReset();
     });
+    setTimeout(()=> {
+      history.push("/RequestGoods");
+      },1000);
   }
   function handleReset(){
     setEmail("");

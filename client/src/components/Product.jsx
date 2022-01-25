@@ -21,11 +21,11 @@ export default function Product(props) {
 	useEffect(() => {
 		setUid(localStorage.getItem("userID"));
 	}, []);
-	// console.log("ID",uid);
+	console.log("uID",uid);
 	 const alert = useAlert();
 	
 	function add_to_request(product_id) {
-		history.push('/Cart', { product_id, quantity});
+		history.push('/Cart1', { product_id, quantity});
 		
   }
   return (
@@ -39,9 +39,9 @@ export default function Product(props) {
           src={img}
           alt={"sorry"}
         />
-					Product id: {id} <br/>
-					Category id: {good_cat_id} <br/>
-					Goods Name: {goods_name} <br/>
+					{/* Product id: {id} <br/>
+					Category id: {good_cat_id} <br/> */}
+					Product Name: {goods_name} <br/>
 					Category Name: {name} <br/>
 					Size: {size} <br/>
 					Quantity: {quantityState} <br/>
