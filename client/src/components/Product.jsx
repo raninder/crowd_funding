@@ -1,40 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
-//import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 
 export default function Product(props) {
-  const { good_cat_id,quantity,size,img,company,condition,description} = props;
-console.log("img",img);
-	//const alert = useAlert();
-
-// 	function confirm(){
-// 	alert.show('Request submitted')
-// 	const goods = { good_cat_id, quantity };
-
-// 	const url = "http://localhost:3001/api/goods/reqgoods";
-
-// 	axios.put(url, goods)
-// 	.then(res => {
-// 		alert.show(good_cat_id);
-// 		console.log(res);
-// 		// setResults([...res.data])
-
-// 	})
-// 	.catch(err => {
-// 		console.log(err);
-// 	})
-// }
-// function cancel(){
-// 	alert.show("Request cancelled");
-// }
+  const { id,good_cat_id,quantity,size,img,company,condition,description} = props;
+	const [uid, setUId] = useState("");
+	const [quantityState,setQuantityState] = useState(quantity);
+	useEffect(() => {
+		setUId(localStorage.getItem("userID"));
+	}, []);
+	// console.log("ID",id);
+	//  const alert = useAlert();
 	
-	function request() {
-    const goods = { good_cat_id, quantity };
+	function request(product_id) {
+		
+    // const goods = { id };
+	
 		const url = "http://localhost:3001/api/goods/reqgoods";
-    axios.put(url, goods)
+	
+    axios.put(url, {product_id})
 		.then(res => {
-			alert.show('Request submitted')
-			console.log(res);
+			// alert.show('Request submitted')
+			console.log("res",res);
+			setQuantityState(res.data.quantity);
     })
 		.catch(err => {
 			console.log(err);
@@ -43,7 +31,7 @@ console.log("img",img);
   return (
     
   <div >
-		{quantity >0 &&
+		{quantityState > 0 &&
 		<div className="products">
 		
       <img
@@ -51,15 +39,15 @@ console.log("img",img);
           src={img}
           alt={"sorry"}
         />
-						
+					Product id: {id}
 					Category id: {good_cat_id} <br/>
 					Size: {size} <br/>
-					Quantity: {quantity} <br/>
+					Quantity: {quantityState} <br/>
 					Company: {company} <br/>
 					Condition: {condition} <br/>
 					Description: {description} <br/>
-		{/* if user logged in */}
-					<button onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request() }}>Request</button> 
+					{/* if user logged in */}
+					<button onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request(id) }}>Request</button> 
 				
 					</div>
 		}

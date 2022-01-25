@@ -2,14 +2,22 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { Session } = require("inspector");
+
+// const cookieSession = require('cookie-session');
+// app.use(cookieSession({
+// 	name: 'session',
+// 	keys: ["user_id"]
+// }));
+
+
 const getUserByEmail = (users, email) => {
   const user = users.find(element => element.email === email);
-  console.log("email===",user);
+  // console.log("email===", user);
   return user;
 };
 const authenticateUser = (users, email, password) => {
   const userFound = getUserByEmail(users, email);
-  console.log("email",userFound)
+  // console.log("email", userFound)
   if (userFound && bcrypt.compareSync(password, userFound.passwordhash)) {
     return userFound;
   }
@@ -19,32 +27,34 @@ const authenticateUser = (users, email, password) => {
 module.exports = (db) => {
 
   router.post('/login', (req, res) => {
-    console.log("login successful",req.body);
+    // console.log("login successful", req.body);
     const email = req.body.email;
     const password = req.body.password;
     db.query(`SELECT id,email,passwordhash FROM users;`)
       .then((data) => {
-       console.log(data.rows)
+        console.log(data.rows)
         const users = data.rows;
-        console.log("login successful",users)
+        // console.log("login successful", users)
         const result = authenticateUser(users, email, password);
-        console.log("hello",result)
+        // console.log("hello", result)
         if (result) {
         // req.session = {userId:result.id};
-console.log("result");
+				console.log("result");
           // res.redirect('/');
-          return res.status(200).send({message:"success",user:result.id});
+					
+          return res.status(200).send({message:"success",id:result.id,email:result.email});
           
         } else {
           return res.status(403).send("Username and password does not match");
         }
       })
+
   });
 
 
   // logout post
   router.post('/logout', (req, res) => {
-    req.session = null;
+    // req.session = null;
     // res.clearCookie('user_id');
     // res.redirect('/');
   });
@@ -54,7 +64,7 @@ console.log("result");
         res.json(data.rows);
       })
   });
-  
+
   router.post("/register", (req, res) => {
     console.log("hello", req.body);
     const {

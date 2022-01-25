@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./form.css"
 import axios from "axios";
+// import { useAlert } from 'react-alert';
+
 export default function Register(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -9,20 +11,32 @@ export default function Register(props) {
   const [phone, setPhone] = useState("");
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
-  const [province, setprovince] = useState("");
+  const [province, setProvince] = useState("");
   const [postal, setPostal] = useState("");
   const [error, setError] = useState("");
+  
+
+  // const alert = useAlert();
+
   //reset form data 
-  const reset = () => {
-    // setStudent("");
-    setError("");
-   
+  function handleReset() {
+    setEmail = "";
+    setPassword = "";
+    setPhone = "";
+    setFirstname = "";
+    setLastname = "";
+    setPhone = "";
+    setStreet = "";
+    setCity = "";
+    setProvince = "";
+    setPostal = "";
+
   }
   //cancel function set onCancel event
-  const Cancel = () => {
-    reset();
-    props.onCancel();
-  }
+  // const Cancel = () => {
+  //   // reset();
+  //   props.onCancel();
+  // }
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -30,31 +44,44 @@ export default function Register(props) {
        first_name,last_name,email,phone,street,city,province,postal,password 
       };
 		
-		alert(JSON.stringify(user));
+		// alert.show(JSON.stringify(user));
 	
     axios.post("http://localhost:3001/api/users/register", user)
 		.then(res => {
+      alert.show("Registered successfully");
       console.log(res);
+      handleReset();
     });
   }
-  //check validation for textbox
-  function validate() {
-    // if (student === "") {
-    //   setError("Student name cannot be blank");
-    //   return;
-    // }
-    // if (interviewer === null) {
-    //   setError("Interviewer cannot be unselected");
-    //   return;
-    // }
-    // setError("");
-    // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
+  function handleReset(){
+    setEmail("");
+      setPassword("");
+      setFirstname("");
+      setLastname("");
+      setPhone("");
+      setStreet("");
+      setCity("");
+      setProvince("");
+      setPostal("");
   }
+  //check validation for textbox
+  // function validate() {
+  //   // if (student === "") {
+  //   //   setError("Student name cannot be blank");
+  //   //   return;
+  //   // }
+  //   // if (interviewer === null) {
+  //   //   setError("Interviewer cannot be unselected");
+  //   //   return;
+  //   // }
+  //   // setError("");
+  //   // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
+  // }
   
   //create form 
   return (
     <main className="">
-      <section className="mainsection">
+      <section className="main">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
         <label name="First Name">First Name</label>
@@ -88,23 +115,19 @@ export default function Register(props) {
           /><br/>
           <label name="province">province</label>
           <input className="" name="province"  value={province}
-            onChange={(event) => setprovince(event.target.value)}
+            onChange={(event) => setProvince(event.target.value)}
           /><br/>
           
           <label name="Postal code">Postal code</label>
           <input className="" name="postal"  value={postal}
             onChange={(event) => setPostal(event.target.value)}
           /><br/>
-          <section className="">{error}</section>
+          {/* <section className="">{error}</section> */}
           <button type="submit" >Submit</button>
+          <button onClick={handleReset}>Reset</button>
         </form>
       </section>
-      <section className="appointment__card-right">
-        <section className="appointment__actions">
-          {/* <button  onClick={Cancel}>Cancel</button> */}
-          {/* <button  onClick={validate}>Save</button> */}
-        </section>
-      </section>
+      
     </main>
   );
 }
