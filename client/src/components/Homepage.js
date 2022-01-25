@@ -12,7 +12,6 @@ export default function Homepage(props) {
         setId(localStorage.getItem("userID"));
         setEmail(localStorage.getItem("email"));
       }, []);
-      console.log("ID",id);
 
       const logout = function () {
         setEmail("");
@@ -22,8 +21,7 @@ export default function Homepage(props) {
       }
     return (
     <div>
-      <Navbar
-      />
+      <Navbar/>
       <MainSection/>
     </div>    
     )

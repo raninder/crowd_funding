@@ -30,8 +30,6 @@ export default function App() {
 
       <Router>
         <Route path="/Homepage" component={Homepage}/>
-        <Route path="/Login" component={Login}/>
-        <Route path="/Register" component={Register}/>
         <Route path="/fundrasising" component={Fundraising} />
         <Route path="/fundrasisingoption" component={FundraisingOption} />
         <Route path="/donate" component={DonateGoods} />
@@ -39,15 +37,14 @@ export default function App() {
         <Route path="/about" component={About} />
 
         <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
-          <Route path="/Register"><Register/></Route>
-          <Route path="/RequestGoods">< RequestGoods/></Route>
-          <Route path="/DonateGoods/">< DonateGoods/></Route>
-          <Route path="/Fundraising/">< Fundraising/></Route>
-          <Route path="/DonateMoney/">< DonateMoney/></Route>
-          <Route path="/Donate/">< Donate/></Route>
-          <Route path="/Search/">< Search/></Route>
-          <Route path="/DonateForm"><DonateForm /></Route>
-          <Route path="/"><Homepage/></Route>
+        <Route path="/Register"><Register/></Route>
+        <Route path="/RequestGoods">< RequestGoods/></Route>
+        <Route path="/DonateGoods/">< DonateGoods/></Route>
+        <Route path="/Fundraising/">< Fundraising/></Route>
+        <Route path="/DonateMoney/">< DonateMoney/></Route>
+        <Route path="/Donate/">< Donate/></Route>
+        <Route path="/Search/">< Search/></Route>
+        <Route path="/DonateForm"><DonateForm /></Route>
       </Router>
     </div>
   )
