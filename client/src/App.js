@@ -18,7 +18,6 @@ import Homepage from "./components/Homepage";
 import FundraisingOption from './components/FundraisingOptions';
 import DonateForm from './components/DonateForm';
 
-import Homepage from "./components/Homepage";
 
 
 export default function App() {
