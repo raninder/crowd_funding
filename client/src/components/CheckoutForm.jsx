@@ -9,14 +9,18 @@ export default function CheckoutForm(props) {
     const stripe = useStripe()
     const elements = useElements()
     const [userid, setId] = useState("");
+    const [receiptUrl, setReceiptUrl] = useState('')
     const [fundid, setfundId] = useState("");
 	useEffect(() => {
 		setId(localStorage.getItem("userID"));
         setfundId(localStorage.getItem("fundID"))
+          
+
 	}, []);
    
 console.log('userid',userid);
-console.log('fundid',fundid)
+console.log('fundid',fundid);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,11 +41,13 @@ console.log('fundid',fundid)
                 console.log("id", id)
                 const response = await axios.post("http://localhost:3001/api/pays/payment", {
                     amount: props.amount.value,
-                    id
+                    id,
+               
                 })
 
-
-                console.log("Successful payment", response.data)
+          
+                console.log("Successful payment", response.data);
+             
 
                 if (response.data) {
                     axios.post("http://localhost:3001/api/funds/addnewdonation", {amount:props.amount.value,userid,fundid})

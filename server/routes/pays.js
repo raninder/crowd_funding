@@ -13,7 +13,8 @@ router.post("/payment", (req, res) => {
 			currency: "CAD",
 			description: "Donation part",
 			payment_method: id,
-			confirm: true
+			confirm: true,
+		
 		})
 		console.log("Payment", payment)
 		res.json({
