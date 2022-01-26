@@ -20,10 +20,12 @@ import Cart1 from './components/Cart1';
 import DonateForm from './components/DonateForm';
  import UserRequest from './components/UserRequest';
 export default function App() {
+
   const [user,setLoginUser] = useState({})
   console.log(user);
   return (
     <div className="App">
+
       <Router>
         <Route path="/Homepage" component={Homepage}/>
         {/* <Route path="/"><Homepage /></Route> */}
@@ -31,8 +33,9 @@ export default function App() {
         <Route path="/fundrasisingoption" component={FundraisingOption} />
         <Route path="/DonateGoods" component={DonateGoods} />
         <Route path="/RequestGoods">< RequestGoods/></Route>
-        <Route path="/requestgoods/*" component={Products} />
+        {/* <Route path="/requestgoods/*" component={Products} /> */}
         <Route path="/about" component={About} />
+
         <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
         <Route path="/Register"><Register/></Route>
         {/* <Route path="/DonateGoods">< DonateGoods/></Route> */}
@@ -43,8 +46,7 @@ export default function App() {
         <Route path="/Cart1/">< Cart1/></Route>
         <Route path="/UserRequest/">< UserRequest/></Route>
         <Route path="/DonateForm"><DonateForm /></Route>
-        {/* <Route path="/"><Homepage/></Route> */}
-        </Router>
-        </div>
+      </Router>
+    </div>
   )
 };

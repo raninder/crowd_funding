@@ -36,7 +36,7 @@ import {
    				 	pathname: "/Donate",
     				state: { id }
   				}}
-					className="btn btn-primary">Donate</Link>
+					className="btn btn-primary">View details</Link>
 
 		</div>
 

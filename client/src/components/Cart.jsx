@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./donate.css"
 import { useHistory } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import { useAlert } from 'react-alert';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import { useAlert } from 'react-alert';
 
 
 
@@ -15,7 +15,7 @@ export default function Cart(props) {
 	const quantity = history.location.state.quantity;
 	console.log("qty",quantity);
 	const [quantityState,setQuantityState] = useState(quantity);
-	const alert = useAlert();
+	// const alert = useAlert();
 
 	const url = `http://localhost:3001/api/goods/getallgoods/${id}`;
 

@@ -25,7 +25,11 @@ return (
   <div className="goods-display">
     <div>
       <h2 className="heading">Fundraisers</h2>
+<<<<<<< HEAD
       <button className="btn-fundaiser" onClick={() => history.push("/fundraising")} >Start a Fundraising Campaign</button>
+=======
+      <button className="btn-fundaiser" onClick={() => history.push("/fundrasising")} >Start Fundraising</button>
+>>>>>>> origin/npatel
       <hr className="hr" />
     </div>
     

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 // import CurrencyInput from 'react-currency-input-field';
-import CurrencyFormat from 'react-currency-format';
+// import CurrencyFormat from 'react-currency-format';
 import './campaign.css';
 
 export default function Campaign(props) {
@@ -12,7 +12,7 @@ export default function Campaign(props) {
       <img src={img} className="campaign-img"/> 
       <p>{story}</p>
       <p>{goal}</p>
-      <CurrencyFormat
+      {/* <CurrencyFormat
         id="amount"
         name="donateamount"
         placeholder="Please enter the amount"
@@ -20,9 +20,9 @@ export default function Campaign(props) {
         thousandSeparator={true}
         prefix={'CA$'}
         decimalsLimit={2}
-        onValueChange={(value, name) => console.log(value, name)}
-      />;
-      <button className="campaign-donate">Donate</button>
+        onValueChange={(value, name) => console.log(value, name)} */}
+      {/* />; */}
+      <button className="campaign-donate">View details</button>
 
     </div>
   )

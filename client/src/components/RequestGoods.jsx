@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "./Product";
 import Search from "./Search";
-import "../styles/DispGoods.css";
+import "./style.css";
+// import "../styles/DispGoods.css";
 import { useHistory } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 

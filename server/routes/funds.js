@@ -33,9 +33,15 @@ module.exports = (db) => {
         let {
           id,category, title, story, img, goal
         } = myJson;
+<<<<<<< HEAD
         if(img = '')
         img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
         // const image = "www.example.com";
+=======
+        // if(img = '')
+        // img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
+        // // const image = "www.example.com";
+>>>>>>> origin/npatel
         db.query(`
               SELECT id FROM fund_categories WHERE name = '${category}';
               `)
@@ -46,7 +52,7 @@ module.exports = (db) => {
             console.log('catId', cateId);
             userId = id;
             
-            console.log('userID', userId + 3);
+            console.log('userID', userId);
             db.query(`
             INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal,amountraising )
             VALUES ($1, $2, $3, $4, $5, $6, 0)

@@ -7,6 +7,10 @@ import { useHistory } from 'react-router-dom';
 export default function Product(props) {
   const { id,good_cat_id,goods_name,name,quantity,size,img,company,condition,description} = props;
 	const [uid, setUid] = useState("");
+<<<<<<< HEAD
+=======
+	const [cart,setCart] = useState(null);
+>>>>>>> origin/npatel
 	const [quantityState,setQuantityState] = useState(quantity);
 	const history = useHistory();
 	// const cart1 = [{}];
@@ -14,12 +18,32 @@ export default function Product(props) {
 	useEffect(() => {
 		setUid(localStorage.getItem("userID"));
 	}, []);
+<<<<<<< HEAD
 	console.log("uID",uid);
+=======
+	// console.log("ID",id);
+>>>>>>> origin/npatel
 	//  const alert = useAlert();
 	
 	function add_to_request(product_id) {
 		history.push('/Cart1', { product_id, quantity});
 		
+<<<<<<< HEAD
+=======
+    // const goods = { id };
+	
+		const url = "http://localhost:3001/api/goods/reqgoods";
+	
+    axios.put(url, {product_id})
+		.then(res => {
+			// alert.show('Request submitted')
+			console.log("res",res);
+			setQuantityState(res.data.quantity);
+    })
+		.catch(err => {
+			console.log(err);
+		})
+>>>>>>> origin/npatel
   }
   return (
     

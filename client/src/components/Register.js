@@ -35,7 +35,7 @@ export default function Register(props) {
       localStorage.setItem("email", res.data.email);
       alert("Registered successfully");
       handleReset();
-      history.push("/Homepage");
+      history.push("/");
     })
     .catch((error) => {
       alert(error.response.data.message)

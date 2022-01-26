@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./form.css";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
@@ -10,17 +10,31 @@ export default function Fundraising(props) {
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
+<<<<<<< HEAD
     const [uid, setUid] = useState("");
     const history = useHistory();
+=======
+    const [id, setId] = useState("");
+    const history = useHistory()
+>>>>>>> origin/npatel
 	useEffect(() => {
-		setUid(localStorage.getItem("userID"));
+		setId(localStorage.getItem("userID"));
 	}, []);
+<<<<<<< HEAD
 	console.log("ID",uid);
 
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
             uid,category,title, story, img, goal
+=======
+   
+console.log('userid',id);
+    function handleSubmit(e) {
+        e.preventDefault();
+        const user = {
+           id, category, title, story, img, goal
+>>>>>>> origin/npatel
         };
 
         alert(JSON.stringify(user));
@@ -28,7 +42,7 @@ export default function Fundraising(props) {
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
-                history.push("/Donate")
+                history.push("/DonateMoney")
                 handleReset();
             });
             // alert.show('Thanks for Donating');
@@ -74,7 +88,7 @@ export default function Fundraising(props) {
                         onChange={(event) => setGoal(event.target.value)}
                     /><br/>
                     {/* <section className="">{error}</section> */}
-                    <button type="submit" >Submit</button>
+                    <button type="submit" ><Link to="/DonateMoney">Submit </Link></button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>
