@@ -25,13 +25,14 @@ DROP TABLE IF EXISTS goods CASCADE;
 CREATE TABLE goods (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  good_cate_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
-  size VARCHAR(255),
-  quantity INT NOT NULL,
-  img VARCHAR(255) NOT NULL,
-  company VARCHAR(255),
-  codition VARCHAR(255) NOT NULL,
-  description VARCHAR(500) NOT NULL
+  good_cat_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
+  goods_name VARCHAR(255), 
+  size VARCHAR(255) DEFAULT 'Not known',
+  quantity INT NOT NULL DEFAULT 1,
+  img VARCHAR(500), 
+  company VARCHAR(255) DEFAULT 'Not known',
+  condition VARCHAR(255) NOT NULL,
+  description VARCHAR(500) 
 );
 DROP TABLE IF EXISTS fundraising CASCADE;
 CREATE TABLE fundraising (
@@ -39,9 +40,10 @@ CREATE TABLE fundraising (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   fund_cate_id INTEGER REFERENCES fund_categories(id) ON DELETE CASCADE,
   title VARCHAR(255) NOT NULL,
-  img VARCHAR(255) NOT NULL,
+  img VARCHAR(500),
   story VARCHAR(500) NOT NULL,
-  goal DECIMAL(15,2) NOT NULL
+  goal DECIMAL(15,2) NOT NULL,
+  amountraising DECIMAL(15,2) DEFAULT 0
 );
 DROP TABLE IF EXISTS donation_money CASCADE;
 CREATE TABLE donation_money (
@@ -51,3 +53,13 @@ CREATE TABLE donation_money (
   amount DECIMAL(15,2) NOT NULL,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+DROP TABLE IF EXISTS request_goods CASCADE;
+CREATE TABLE request_goods (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  goods_id INTEGER REFERENCES goods(id) ON DELETE CASCADE,
+  quantity INTEGER default 1,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
