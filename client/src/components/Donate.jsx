@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Donate.css"
+import "./donate.css";
 import { Prompt, useHistory } from 'react-router-dom';
 import { isUserLoggedIn } from "../helper/helper";
 import ProgressBar from "./ProgressBar";

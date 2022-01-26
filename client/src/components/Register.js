@@ -22,7 +22,7 @@ export default function Register(props) {
   
 
   const alert = useAlert();
-  const history = useHistory();
+  
   
   function handleSubmit(e) {
     e.preventDefault();

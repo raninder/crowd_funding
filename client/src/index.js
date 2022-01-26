@@ -19,9 +19,9 @@ const options = {
 }
 
 const Root = () => (
-  <AlertProvider template={AlertTemplate} {...options}>
+  // <AlertProvider template={AlertTemplate} {...options}>
     <App />
-  </AlertProvider>
+  // </AlertProvider>
 )
 
 render(<Root />, document.getElementById('root'))

@@ -15,7 +15,7 @@ export default function Product(props) {
 		setUid(localStorage.getItem("userID"));
 	}, []);
 	console.log("uID",uid);
-	 const alert = useAlert();
+	//  const alert = useAlert();
 	
 	function add_to_request(product_id) {
 		history.push('/Cart1', { product_id, quantity});

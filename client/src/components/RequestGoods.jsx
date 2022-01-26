@@ -4,6 +4,7 @@ import Product from "./Product";
 import Search from "./Search";
 import "../styles/DispGoods.css";
 import { useHistory } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
 export default function RequestGoods(props) {
@@ -93,7 +94,12 @@ return (
 							 <option value="6">6. Mobility Products</option>
 							 <option value="7">7. Social and Communication</option>
 							 <option value="8">8. Others</option>
-           </select></label> 
+           </select></label> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+          <Link
+  				to={{
+   				 	pathname: "/UserRequest",
+    				}}
+					className="btn btn-primary">User Requests</Link>
            <p/><p/>
            <div className="goods-container">{allGoods}</div>
   </>
