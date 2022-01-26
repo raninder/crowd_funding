@@ -1,6 +1,5 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-import '../Donate.css';
 import './form.css';
 
 
@@ -46,7 +45,7 @@ export default function DonateGoods(props) {
 
 	return (
     <section className="main">
-      <h1>Donate Goods  {id}</h1>
+      <h1>Goods donation form #{id}</h1>
 			
       <form onSubmit={handleSubmit}>  
 			<input type="hidden" value = {id} name="id"/>  
@@ -72,11 +71,10 @@ export default function DonateGoods(props) {
 				<div  onChange={(e) => setCondition(e.target.value)} class = "condition">
 					
            <input type="radio" class = "radio" id = "exc" name="condition" value = "Excellent" />
-					 <label for="exc">Excellent</label>
+					 <label for="exc">New</label>
 					 <input type="radio" class = "radio" id="good" name="condition" value = "Good" />
-					 <label for="good">Good</label>
-					 <input type="radio" id="satis" class = "radio" name="condition" value = "Satisfactory" />
-					 <label for="satis">Satisfactory</label>
+					 <label for="good">Used</label><br></br><br></br>
+					 
 					
 					 </div>
 					 </label>

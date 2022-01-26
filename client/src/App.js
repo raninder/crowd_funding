@@ -36,10 +36,6 @@ export default function App() {
         <Route path="/donategoods" component={DonateGoods} />
         <Route path="/requestgoods/*" component={Products} />
         <Route path="/about" component={About} />
-
-  
-        <Route path="/RequestGoods">< RequestGoods/></Route>
-        <Route path="/DonateGoods/">< DonateGoods/></Route>
         <Route path="/Fundraising/">< Fundraising/></Route>
         <Route path="/DonateMoney/">< DonateMoney/></Route>
         <Route path="/Donate/">< Donate/></Route>

@@ -9,7 +9,7 @@ export const mainItems = [
     title: 'Donate',
     image: '/images/hand.png',
     article: "Make difference quickly and easily by making one-time donations, monthly giving and more.",
-    url: '/donate'
+    url: '/DonateGoods'
   },{ 
     title: 'Request',
     image: '/images/donate.png',

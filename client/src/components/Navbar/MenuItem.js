@@ -1,19 +1,19 @@
 export const MenuItems = [
   {
     title: 'Fundraising',
-    shortName: 'link'
+    url: '/DonateMoney'
   },
   {
     title: 'Donate',
-    shortName: 'link'
+    url: '/DonateGoods'
   },
   {
     title: 'Request',
-    shortName: 'link'
+    url: '/requestgoods/*'
   },
 
   {
     title: 'About Us',
-    shortName: 'link'
+    url: '/about'
   }
 ]

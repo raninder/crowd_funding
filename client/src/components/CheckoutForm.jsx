@@ -72,7 +72,7 @@ console.log('fundid',fundid)
                 </form>
                 :
                 <div>
-                    <h2>You just Donate money. this is the best decision of you're life</h2>
+                    <h2>You donation has been processed! Thank you!</h2>
                     <DonateMoney />
                 </div>
             }

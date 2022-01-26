@@ -44,7 +44,7 @@ export default function Navbar(props) {
 
             return (
               <li key={index}>
-                <a className="nav-menu-text"  href=''>
+                <a className="nav-menu-text"  href={item.url}>
                   {item.title}
                 </a>
               </li>
