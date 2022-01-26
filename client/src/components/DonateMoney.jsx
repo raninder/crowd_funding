@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FundStory from "./FundStory";
-import "./style.css";
+import "./DisplayStyle.css";
 import { useHistory } from "react-router-dom";
 
 

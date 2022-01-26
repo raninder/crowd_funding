@@ -28,13 +28,12 @@ import ProgressBar from "./ProgressBar";
 					{title} <br/>
 					<ProgressBar bgcolor="#ef6c00" completed={finishPersentage >= 100 ? 100 : finishPersentage}/>
 					
-
 					<Link
   				to={{
    				 	pathname: "/Donate",
     				state: { id }
   				}}
-					className="btn btn-primary">Donate</Link>
+					className="btn-primary">View</Link>
 
 		</div>
 

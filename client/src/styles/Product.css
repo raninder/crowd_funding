@@ -1,0 +1,20 @@
+.product_container {
+  display:flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.product_img {
+  height: 70%;
+
+}
+.produc-details{
+  text-align: left;
+  font-weight: bold;  
+}
+
+.product_btn{
+  width: auto;
+}

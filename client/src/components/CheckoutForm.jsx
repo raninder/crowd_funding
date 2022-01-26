@@ -1,7 +1,6 @@
 import { useStripe, useElements, PaymentElement, CardElement } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import DonateMoney from './DonateMoney'
 
 
 export default function CheckoutForm(props) {
@@ -72,8 +71,8 @@ console.log('fundid',fundid)
                 </form>
                 :
                 <div>
-                    <h2>You donation has been processed! Thank you!</h2>
-                    <DonateMoney />
+                    <h2>You donation has been processed! Thank you! </h2>
+                    <h3>Go back to <a href='/Homepage'>Homepage</a> or keep viewing <a href='/DonateMoney'>other campaigns</a></h3>
                 </div>
             }
 

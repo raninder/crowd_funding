@@ -1,11 +1,27 @@
 .products {
   display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 15px;
+  justify-content: space-between;
 }
 
-.goods-image {
-  width: 30%;
+.goods-img {
+  height: 70%;
 }
 
-.products {
-  font-weight: bold;
+.btn-primary {
+  color: black;
+  text-decoration: none;
+  background-color: rgb(43, 110, 235);
+  color: white;
+  height: 25px;
+  width: 100px;
+  font-size: large;
+  border: none;
+  margin-left: auto;
+  font-weight: 900;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 15px;
+  margin-left: 100px;
 }

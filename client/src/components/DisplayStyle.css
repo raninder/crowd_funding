@@ -1,0 +1,25 @@
+.goods-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 50px;
+}
+
+.heading{
+  margin:5px;
+}
+.search {
+  font-size: larger;
+  font-weight: bold;
+  margin: 0 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+
+.search_drop_down{
+  font-weight: bold;
+  font-size: large;
+  width: 70%;
+  margin-left: 10px;;
+}

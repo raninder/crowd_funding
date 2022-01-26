@@ -21,7 +21,7 @@ export default function Search() {
 		
 		<div className="goods-display">
       <p/>
-      <h2 className="heading">Goods in Stock</h2>
+      <h2 className="heading">Products</h2>
       <hr className="hr" />
     </div>
     <div className="goods-container">{allGoods}</div>

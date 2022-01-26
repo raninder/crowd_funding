@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-// import { useAlert } from 'react-alert';
+import '../styles/Product.css'
 
 export default function Product(props) {
   const { id,good_cat_id,name,quantity,size,img,company,condition,description} = props;
@@ -9,18 +9,13 @@ export default function Product(props) {
 	useEffect(() => {
 		setUId(localStorage.getItem("userID"));
 	}, []);
-	// console.log("ID",id);
-	//  const alert = useAlert();
 	
 	function request(product_id) {
-		
-    // const goods = { id };
 	
 		const url = "http://localhost:3001/api/goods/reqgoods";
 	
     axios.put(url, {product_id})
 		.then(res => {
-			// alert.show('Request submitted')
 			console.log("res",res);
 			setQuantityState(res.data.quantity);
     })
@@ -29,32 +24,24 @@ export default function Product(props) {
 		})
   }
   return (
-    
-  <div >
-		{quantityState > 0 &&
-		<div className="products">
-		
-      <img
-          className="goods-img"
-          src={img}
-          alt={"sorry"}
-        />
-					Product id: {id} <br/>
-					Category id: {good_cat_id} <br/>
-					Category Name: {name} <br/>
-					Size: {size} <br/>
-					Quantity: {quantityState} <br/>
-					Company: {company} <br/>
-					Condition: {condition} <br/>
-					Description: {description} <br/>
-					{/* if user logged in */}
-					<button onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request(id) }}>Request</button> 
-				
+    <>
+			{quantityState > 0 &&
+				<div className="product_container">
+					<img
+							className="product_img"
+							src={img}
+							alt={"sorry"}
+						/>
+					<div className="produc-details">
+						<span>Category: {name}</span><br/>
+						<span>Size: {size}</span><br/>
+						<span>Quantity: {quantityState}</span><br/>
+						<span>Condition: {condition}</span><br/>
+						<span>Description: {description}</span><br/>
 					</div>
-		}
-		{/* <Results results={results} /> */}
-			
-
-   </div> 
+					<button className="product_btn" onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request(id) }}>Request</button> 
+				</div>
+			}			
+		</>
   );
 }

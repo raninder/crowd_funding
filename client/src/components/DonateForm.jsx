@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import CheckoutForm from "./CheckoutForm";
 import StripeContainer from "./StripeContainer";
 import CurrencyFormat from "react-currency-format";
 export default function Fundraising(props) {
@@ -18,17 +17,8 @@ export default function Fundraising(props) {
   return (
     <>
       <section className="main">
-        <CurrencyFormat
-          id="amount"
-          name="donateamount"
-          placeholder="Please enter the amount"
-          defaultValue={1000}
-          thousandSeparator={true}
-          prefix={'CA$'}
-          decimalsLimit={2}
-          onValueChange={(value) => setAmount(value)}
-        />;
-        <StripeContainer amount={amount} />
+   
+        <StripeContainer amount={amount} setAmount={setAmount} />
       </section>
     </>
   );

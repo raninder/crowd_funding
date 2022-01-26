@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Product from "./Product";
 import Search from "./Search";
-import "../styles/DispGoods.css";
+import "./DisplayStyle.css";
 import { useHistory } from 'react-router-dom';
 
 
 export default function RequestGoods(props) {
   const [goods, setGoods] = useState([]);
+  const [searchGoods, setSearchGoods] = useState([]);
   const [filteredData,setFilteredData] = useState(goods);
   const [id, setId] = useState();
   const [email, setEmail] = useState();
@@ -43,8 +44,10 @@ export default function RequestGoods(props) {
     result = goods.filter((data) => {
       return data.good_cat_id===value;
       });
-      console.log("result",result);
+      setSearchGoods(result);
+    console.log("result",result);
     history.push('/Search', { result});
+
   
   }
 const allGoods = goods.map((item) => {
@@ -54,30 +57,25 @@ const allGoods = goods.map((item) => {
 
 return (
   <>
-    <p/><p/><p/><p/>
-    {/* <h4> User ID: {id}</h4> */} 
-    { email&&
-        <h5> Logged in as {email} </h5>
-    }<br/>
-  <label> Search Category: </label>  
-  <select name="category" onChange={(event) => handleSearch(event)}>  
-               <option value="">--Please choose an option--</option>
-               <option value="1">1. Books</option>
-							 <option value="2">2. Exercise Equipment</option>
-               <option value="3">3. Furniture</option>
-               <option value="4">4. Toys and Games</option>
-							 <option value="5">5. Daily Living</option>
-							 <option value="6">6. Mobility Products</option>
-							 <option value="7">7. Social and Communication</option>
-							 <option value="8">8. Others</option>
-           </select>
-           <p/><p/>
+  <div className="search">
+    <label className="search_lable"> Search Category: </label>  
+    <select className="search_drop_down" name="category" onChange={(event) => handleSearch(event)}>  
+      <option value="">--Please choose an option--</option>
+      <option value="1">1. Books</option>
+      <option value="2">2. Exercise Equipment</option>
+      <option value="3">3. Furniture</option>
+      <option value="4">4. Toys and Games</option>
+      <option value="5">5. Daily Living</option>
+      <option value="6">6. Mobility Products</option>
+      <option value="7">7. Social and Communication</option>
+      <option value="8">8. Others</option>
+    </select>
+  </div>
         
            
   <div className="goods-display">
-      <p/>
-      <h2 className="heading">Goods in Stock</h2>
-      <hr className="hr" />
+      <h2 className="heading">Products</h2>
+      <hr className="hr" /> <br/>
     </div>
     <div className="goods-container">{allGoods}</div>
  

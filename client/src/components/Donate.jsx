@@ -39,7 +39,7 @@ export default function Donate(props) {
 					<ProgressBar bgcolor="#ef6c00" completed={finishPersentage >= 100 ? 100 : finishPersentage}/><br/><br/>
 					<h4>{result.story} <br/><br/></h4>
 				
-					<button className="btn btn-primary" onClick={() => {
+					<button className="donatenow" onClick={() => {
 					isUserLoggedIn() ? history.push('/DonateForm') : history.push('/Login');
 					}}>Donate Now</button>
 			</div>

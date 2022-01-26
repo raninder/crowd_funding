@@ -14,3 +14,7 @@
   flex-basis: width;
   background-color: rgb(165, 230, 230);
 }
+
+.btn-fundaiser {
+  width: auto;
+}

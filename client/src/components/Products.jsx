@@ -16,15 +16,18 @@ export default function Products(props) {
     });
   }, []);
 
-const allGoods = goods.map((item) => {
+const allGoods = goods.filter((item) => {
+  return item.quantity > 0;
+})
+.map((item) => {
   return <Product key={item.id} {...item} />;
 });
 
 return (
   <div className="goods-display">
     <div>
-      <h2 className="heading">Goods in Stock</h2>
-      <hr className="hr" />
+      <h2 className="heading">Products</h2>
+      <hr className="hr" /><br/>
     </div>
     <div className="goods-container">{allGoods}</div>
   </div>
