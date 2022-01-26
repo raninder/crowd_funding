@@ -62,14 +62,14 @@ return (
   <label> Search Category: </label>  
   <select name="category" onChange={(event) => handleSearch(event)}>  
                <option value="">--Please choose an option--</option>
-               <option value="1">Books</option>
-							 <option value="2">Exercise Equipment</option>
-               <option value="3">Furniture</option>
-               <option value="4">Toys and Games</option>
-							 <option value="5">Daily Living</option>
-							 <option value="6">Mobility Products</option>
-							 <option value="7">Social and Communication</option>
-							 <option value="8">Others</option>
+               <option value="1">1. Books</option>
+							 <option value="2">2. Exercise Equipment</option>
+               <option value="3">3. Furniture</option>
+               <option value="4">4. Toys and Games</option>
+							 <option value="5">5. Daily Living</option>
+							 <option value="6">6. Mobility Products</option>
+							 <option value="7">7. Social and Communication</option>
+							 <option value="8">8. Others</option>
            </select>
            <p/><p/>
         

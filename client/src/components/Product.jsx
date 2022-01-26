@@ -3,7 +3,7 @@ import axios from "axios";
 // import { useAlert } from 'react-alert';
 
 export default function Product(props) {
-  const { id,good_cat_id,quantity,size,img,company,condition,description} = props;
+  const { id,good_cat_id,name,quantity,size,img,company,condition,description} = props;
 	const [uid, setUId] = useState("");
 	const [quantityState,setQuantityState] = useState(quantity);
 	useEffect(() => {
@@ -39,8 +39,9 @@ export default function Product(props) {
           src={img}
           alt={"sorry"}
         />
-					Product id: {id}
+					Product id: {id} <br/>
 					Category id: {good_cat_id} <br/>
+					Category Name: {name} <br/>
 					Size: {size} <br/>
 					Quantity: {quantityState} <br/>
 					Company: {company} <br/>
