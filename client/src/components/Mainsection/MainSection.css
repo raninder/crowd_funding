@@ -11,12 +11,12 @@
 
 .image {
   justify-content: left;
-  margin: 30px;
-  width: 40%;
+  margin: auto;
+  width: 60%;
 }
 
 .image img{
-  padding-top: 70px;
+  padding-top: 40px;
   width: 80%;
 }
 
@@ -24,7 +24,7 @@
   padding-top: 70px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size:x-large;
-  margin: 100px;
+  margin: auto;
   width: 50%;
   text-align: center;
   font-weight: bold;

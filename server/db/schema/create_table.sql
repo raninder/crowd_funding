@@ -43,7 +43,7 @@ CREATE TABLE fundraising (
   img VARCHAR(500),
   story VARCHAR(500) NOT NULL,
   goal DECIMAL(15,2) NOT NULL,
-  amountraising DECIMAL(15,2) NOT NULL
+  amountraising DECIMAL(15,2) DEFAULT 0
 );
 DROP TABLE IF EXISTS donation_money CASCADE;
 CREATE TABLE donation_money (

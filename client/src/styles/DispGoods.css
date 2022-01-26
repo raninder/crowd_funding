@@ -1,6 +1,6 @@
 .goods-display 
   .hr {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     margin-bottom: 2em;
     margin-top: 2em;
@@ -32,8 +32,8 @@
   display: flex;
   flex-direction: column;
   margin: 1em;
-  max-width: 200px;
-     justify-content: flex-start; 
+  max-width: 300px;
+  justify-content: center; 
   position:  relative;
 
       border:        1px solid #ccc;
@@ -45,6 +45,8 @@
 .goods-img {
   height: 10em;
   width: 10em;
+  justify-content: center;
+  /* align-items: center; */
 }
 
 /* .goods-img:hover {

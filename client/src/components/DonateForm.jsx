@@ -34,8 +34,10 @@ export default function Fundraising(props) {
           <input type="text" name="amount" placeholder="500" value={amount} onChange={(event) => setAmount(event.target.value)} />
 
         </form>
-        </section>
+        <div>
         <StripeContainer amount={amount} />
+        </div>
+        </section>
       
     </>
   );

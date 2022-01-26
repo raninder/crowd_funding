@@ -1,20 +1,20 @@
 export const mainItems = [
   { 
-    title: 'Fundraising',
+    title: 'FundStory',
     image: '/images/Fundraising.png',
     article: "Start helping, and start getting helped.",
     url: '/DonateMoney'
   },
   { 
-    title: 'Donate',
+    title: 'DonateGoods',
     image: '/images/hand.png',
     article: "Make difference quickly and easily by making one-time donations, monthly giving and more.",
     url: '/DonateGoods'
   },{ 
-    title: 'Request',
+    title: 'RequestGoods',
     image: '/images/donate.png',
     article: "Checkout out our donations inventories, tell us what you need to support your daily life.",
-    url: '/requestgoods/*'
+    url: '/RequestGoods'
   },{ 
     title: 'About Us',
     image: '/images/aboutus.png',

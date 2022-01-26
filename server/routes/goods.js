@@ -16,14 +16,16 @@ router.get('/getallgoods', (req, res) => {
 	})
 });
 
-router.get('/getusergoods/', (req, res) => {
+
+router.get('/getusergoods', (req, res) => {
 	
 	db.query(
-		// `SELECT * FROM goods;`)
-						`SELECT * ,goods_name 
+		// `SELECT * FROM request_goods;`)
+						`SELECT request_goods.* ,goods.goods_name,goods.img 
 						from request_goods
 						JOIN goods 
-						ON goods.id=request_goods.goods_id;
+						ON goods.id=request_goods.goods_id
+						ORDER BY DATE; 
 						`)
 						
 	.then((data) => {
@@ -32,11 +34,12 @@ router.get('/getusergoods/', (req, res) => {
 });
 
 
-router.put('/reqgoods', (req, res) => {
+router.post('/reqgoods', (req, res) => {
 	const myJson= req.body;
 	console.log("myjson1111",myJson);
 	const id = req.body.id; 
 	let qty= parseInt(req.body.qty);
+	
 	console.log("id n qty",id, qty);
 	if(!qty)
 	qty=1;
@@ -47,13 +50,15 @@ router.put('/reqgoods', (req, res) => {
 					 RETURNING *;
 					`, [id])
 .then(result => 
-	{ console.log("qty",result.rows);
+	{ 
+		// console.log("qty",result.rows);
 	const resultData = result.rows[0];
-	console.log("quantity",result.rows[0]);
+	// console.log("quantity",result.rows[0]);
 
 
 	}
-)});
+)
+});
 
 router.get('/getallgoods/:id', (req, res) => {
 	console.log("req.params....",req.params);
@@ -67,13 +72,17 @@ router.get('/getallgoods/:id', (req, res) => {
 
 router.post("/addtocart",(req,res) => {
 	const myJson = req.body;
-		 console.log("myJson", myJson);
-	const {uid,product_id} = req.body;
+		 console.log("myJson-cart", myJson);
+	let {uid,id,qty} = req.body.cart;
+	 uid=parseInt(uid);
+	 id=parseInt(id);
+	 quantity=parseInt(qty);
+	console.log("uid,id,qty",uid,id,quantity);
 	return db.query(`
-				INSERT INTO cart ( user_id,goods_id,date )
-				VALUES ($1, $2, Now())
+				INSERT INTO request_goods ( user_id,goods_id,quantity,date )
+				VALUES ($1, $2, $3,Now())
 				RETURNING *;
-			`, [uid,product_id]
+			`, [uid,id,quantity]
 			)
 			.then(result => {
 				res.send(result.rows) })

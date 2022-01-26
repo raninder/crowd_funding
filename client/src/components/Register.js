@@ -21,26 +21,7 @@ export default function Register(props) {
   
 
   // const alert = useAlert();
-
-  //reset form data 
-  function handleReset() {
-    setEmail = "";
-    setPassword = "";
-    setPhone = "";
-    setFirstname = "";
-    setLastname = "";
-    setPhone = "";
-    setStreet = "";
-    setCity = "";
-    setProvince = "";
-    setPostal = "";
-
-  }
-  //cancel function set onCancel event
-  // const Cancel = () => {
-  //   // reset();
-  //   props.onCancel();
-  // }
+  // const history = useHistory();
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -58,6 +39,9 @@ export default function Register(props) {
     .catch((error) => {
       alert(error.response.data.message)
     });
+    setTimeout(()=> {
+      history.push("/");
+      },1000);
   }
   function handleReset(){
     setEmail("");
@@ -70,19 +54,6 @@ export default function Register(props) {
       setProvince("");
       setPostal("");
   }
-  //check validation for textbox
-  // function validate() {
-  //   // if (student === "") {
-  //   //   setError("Student name cannot be blank");
-  //   //   return;
-  //   // }
-  //   // if (interviewer === null) {
-  //   //   setError("Interviewer cannot be unselected");
-  //   //   return;
-  //   // }
-  //   // setError("");
-  //   // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
-  // }
   
   //create form 
   return (

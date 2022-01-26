@@ -1,19 +1,12 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
+import "../styles/DispGoods2.css";
 import { useHistory } from 'react-router-dom';
-import {
-  BrowserRouter as Router, 
-  Switch, 
-  Route,
-  Link
-
-} from "react-router-dom";
 
 export default function Product(props) {
   const { id,good_cat_id,goods_name,name,quantity,size,img,company,condition,description} = props;
 	const [uid, setUid] = useState("");
-	const [cart,setCart] = useState(null);
 	const [quantityState,setQuantityState] = useState(quantity);
 	const history = useHistory();
 	// const cart1 = [{}];
@@ -21,48 +14,36 @@ export default function Product(props) {
 	useEffect(() => {
 		setUid(localStorage.getItem("userID"));
 	}, []);
-	// console.log("ID",id);
+	console.log("uID",uid);
 	//  const alert = useAlert();
 	
 	function add_to_request(product_id) {
-		history.push('/Cart', { product_id, quantity});
+		history.push('/Cart1', { product_id, quantity});
 		
-    // const goods = { id };
-	
-		const url = "http://localhost:3001/api/goods/reqgoods";
-	
-    axios.put(url, {product_id})
-		.then(res => {
-			// alert.show('Request submitted')
-			console.log("res",res);
-			setQuantityState(res.data.quantity);
-    })
-		.catch(err => {
-			console.log(err);
-		})
   }
   return (
     
   <div >
 		{quantity > 0 &&
-		<div className="products">
+		<div className="card">
 		
       <img
           className="goods-img"
           src={img}
-          alt={"sorry"}
+          alt={"Donated Item"}
+					// style="width:100%"
         />
-					Product id: {id} <br/>
-					Category id: {good_cat_id} <br/>
-					Goods Name: {goods_name} <br/>
-					Category Name: {name} <br/>
-					Size: {size} <br/>
-					Quantity: {quantityState} <br/>
-					Company: {company} <br/>
-					Condition: {condition} <br/>
-					Description: {description} <br/>
-					{/* if user logged in */}
-					<button onClick={() => add_to_request(id) }>Request</button> 
+					 {/* Product id: {id} <br/> */}
+				<h3>{goods_name}</h3> 
+				<p>		Category Name: {name} </p>	
+					{size &&
+					<span>Size: {size} <br/></span>}
+				<p>		Quantity: {quantityState} </p>	
+				<p>		Company: {company} </p>	
+				<p>		Condition: {condition} </p>	
+				<p>		Description: {description} </p>	
+				
+				<p>		<button className="btn btn-primary"onClick={() => add_to_request(id) }>Request</button> </p>	
 				
 					</div>
 		}

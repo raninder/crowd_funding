@@ -7,10 +7,6 @@ const stripePromise = loadStripe('pk_test_51KEQAkFuHWXWbkhY56hpy1rtIS9QG6pMcW2al
 // const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
 export default function StripeContainer(props) {
-    // const options = {
-    //     // passing the client secret obtained from the server
-    //     clientSecret: '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',
-    //   };
     
 	return (
 		<Elements stripe={stripePromise} >
@@ -18,4 +14,3 @@ export default function StripeContainer(props) {
       </Elements>
 	)
 }
-// export default StripeContainer;

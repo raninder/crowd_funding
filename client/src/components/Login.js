@@ -28,8 +28,9 @@ const {setLoginUser} = props;
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
         .then(res=>{
-            // alert(res.data.message);
-            //  alert("id"+res.data.email);
+            alert(res.data);
+            console.log("res.data login",res.data.id,res.data.email);
+            // alert("id,email"+res.data.uid,res.data.email);
         // setLoginUser(res.data.user)
         localStorage.setItem("userID", res.data.id);
         localStorage.setItem("email", res.data.email);

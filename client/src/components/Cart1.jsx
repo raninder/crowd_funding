@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./donate.css"
 import { useHistory } from 'react-router-dom';
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 
 
 
-export default function Cart(props) {
+export default function Cart1(props) {
 	const [result, setResult] = useState({});
 	const [uid, setUid] = useState("");
+	const [qty,setQty]= useState();
 	const history = useHistory();
 	const id = history.location.state.product_id;
 	const quantity = history.location.state.quantity;
@@ -18,7 +19,7 @@ export default function Cart(props) {
 		setUid(localStorage.getItem("userID"));
 	}, []);
 
-	const alert = useAlert();
+	// const alert = useAlert();
 
 	const url = `http://localhost:3001/api/goods/getallgoods/${id}`;
 
@@ -34,31 +35,32 @@ export default function Cart(props) {
 	console.log("product_id",id);
 	console.log("user_id",uid);
 
-	function addRequest(product_id){
-		alert.show("Request Added");
+	function addRequest(qty){
+		// alert.show("Request Added");
+		const cart = { uid,id,qty }
+		console.log("cart",cart);
 		const url1 = "http://localhost:3001/api/goods/reqgoods";
 		const url2 = "http://localhost:3001/api/goods/addtocart";
-		const cart = { uid,id,quantity }
-    axios.put(url1, {id})
-		.then(res1 => {
-			alert.show('Request Added');
-			console.log("res",res1);
-		 setQuantityState(res1.data.quantity);
-    })
-		.catch(err => {
-			console.log(err);
+
+		const requestOne = axios.post(url1,{id,qty});
+		const requestTwo = axios.post(url2,{cart});
+
+		axios.all([requestOne, requestTwo])
+		.then(axios.spread((...responses) => {
+			const res1 = responses[0];
+			const res2 = responses[1];
+			console.log("resp1", res1.data);
+			console.log("resp2", res2.data);
+			// use/access the results 
+		})).catch(errors => {
+			console.log(errors);
 		})
 
-		axios.post(url2, cart )
-		.then(res2 => {
-			// alert.show('Request Added');
-			setResult(res2.data);
-			console.log("res",res2);
 		
 		setTimeout(()=> {
 		history.push("/RequestGoods");
 		},2000);
-	})
+
 
 }
 	
@@ -72,16 +74,23 @@ export default function Cart(props) {
           alt={"Donated Goods"}
         />	
 				<div className="text">
-					id:{result.id} <br/>
+					{/* id:{result.id} <br/>
 					User id: {result.user_id} <br/>
-					Category id: {result.good_cat_id} <br/>
+					Category id: {result.good_cat_id} <br/> */}
 					Product Name: {result.goods_name} <br/>
+					{result.size &&
+					<span>Size: {result.size}<br/></span>}
 					Condition: {result.condition} <br/>
 					Company: {result.company} <br/>
 					Quantity: {result.quantity} <br/>
 					Description: {result.description} <br/><br/>
-				
-			<button className="btn btn-primary" onClick={addRequest(id) }>Add Request</button> 
+					{result.quantity >1 &&
+					<div>
+					<label> Request Quantity: </label>  
+           <input name="qty" value={qty} onChange={(e) => setQty(e.target.value)}/> 
+					 </div>
+					}
+			<button className="btn btn-primary" onClick={()=>addRequest(qty) }>Add Request</button> 
 			</div>
 		</div>
 	) 

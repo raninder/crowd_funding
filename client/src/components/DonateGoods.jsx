@@ -51,6 +51,8 @@ export default function DonateGoods(props) {
 	return (
     <section className="main">
       {/* <h1>Donate Goods  {id}</h1> */}
+  
+      <h1>Donate Goods  </h1>
 			
       <form onSubmit={handleSubmit}>  
 			<input type="hidden" value = {uid} name="uid"/>  

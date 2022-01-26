@@ -16,7 +16,11 @@ import Search from './components/Search';
 import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
 import FundraisingOption from './components/FundraisingOptions';
+
+import Cart1 from './components/Cart1';
 import DonateForm from './components/DonateForm';
+ import UserRequest from './components/UserRequest';
+import Navbar from './components/Navbar/Navbar';
 
 
 
@@ -27,14 +31,15 @@ export default function App() {
 
   return (
     <div className="App">
-
+<Navbar/>
       <Router>
         <Route path="/Homepage" component={Homepage}/>
+        {/* <Route path="/"><Homepage /></Route> */}
         <Route path="/fundrasising" component={Fundraising} />
         <Route path="/fundrasisingoption" component={FundraisingOption} />
         <Route path="/DonateGoods" component={DonateGoods} />
         <Route path="/RequestGoods">< RequestGoods/></Route>
-        {/* <Route path="/requestgoods/*" component={Products} /> */}
+        <Route path="/requestgoods/*" component={Products} />
         <Route path="/about" component={About} />
 
         <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
@@ -44,8 +49,12 @@ export default function App() {
         <Route path="/DonateMoney/">< DonateMoney/></Route>
         <Route path="/Donate/">< Donate/></Route>
         <Route path="/Search/">< Search/></Route>
+        <Route path="/Cart1/">< Cart1/></Route>
+        <Route path="/UserRequest/">< UserRequest/></Route>
         <Route path="/DonateForm"><DonateForm /></Route>
-      </Router>
-    </div>
+        {/* <Route path="/"><Homepage/></Route> */}
+        </Router>
+        </div>
+
   )
 };

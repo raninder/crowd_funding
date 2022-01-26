@@ -41,18 +41,6 @@ console.log('userid',id);
         setGoal("");
 
     }
-    function validate() {
-        // if (student === "") {
-        //   setError("Student name cannot be blank");
-        //   return;
-        // }
-        // if (interviewer === null) {
-        //   setError("Interviewer cannot be unselected");
-        //   return;
-        // }
-        // setError("");
-        // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
-      }
 
     return (
         <main className="">
@@ -86,7 +74,7 @@ console.log('userid',id);
                         onChange={(event) => setGoal(event.target.value)}
                     /><br/>
                     {/* <section className="">{error}</section> */}
-                    <button type="submit" ><Link to="/DonateMoney">Submit </Link></button>
+                    <button type="submit" ><Link to="/DonateMoney" color="white">Submit </Link></button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>

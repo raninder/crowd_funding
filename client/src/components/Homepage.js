@@ -21,7 +21,7 @@ export default function Homepage(props) {
       }
     return (
     <div>
-      <Navbar/>
+      
       <MainSection/>
     </div>    
     )
