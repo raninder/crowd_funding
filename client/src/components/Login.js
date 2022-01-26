@@ -1,17 +1,15 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-// import Register from "./Register"
-import {useHistory} from "react-router-dom";
 import {
     BrowserRouter as Router, 
-    Switch, 
-    Route,
-    Link
+
+    Link,
+    useHistory
   
   } from "react-router-dom";
 const Login = (props) => {
-const history = useHistory()
-const {setLoginUser} = props;
+    let history = useHistory();
+    const {setLoginUser} = props;
     const [user,setUser] = useState({
         email:"",
         password: ""
@@ -23,7 +21,6 @@ const {setLoginUser} = props;
     [name]:value
     })
     }
- console.log("hiii user",user);
     const login =(event)=>{
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
@@ -32,11 +29,14 @@ const {setLoginUser} = props;
             console.log("res.data login",res.data.id,res.data.email);
             // alert("id,email"+res.data.uid,res.data.email);
         // setLoginUser(res.data.user)
-        localStorage.setItem("userID", res.data.id);
-        localStorage.setItem("email", res.data.email);
-        setLoginUser({_id:res.data.id})
-        history.push("/")})
-        .catch(error => console.log(error));
+            localStorage.setItem("userID", res.data.id);
+            localStorage.setItem("email", res.data.email);
+            setLoginUser({_id:res.data.id});
+            history.goBack();
+        })
+        .catch(error => {
+            alert(error.response.data.message)
+        });
     }
     return (
         <main className="">

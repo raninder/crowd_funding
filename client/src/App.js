@@ -1,5 +1,11 @@
 import './App.css';
 import React, { useState } from "react";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import About from './components/About';
+// import Products from './components/Products';
+// import Home from './components/Home';
+// import About from './components/About';
 import RequestGoods from './components/RequestGoods';
 import DonateGoods from './components/DonateGoods';
 import Register from './components/Register';
@@ -12,63 +18,44 @@ import DonateForm from './components/DonateForm';
  import UserRequest from './components/UserRequest';
 import Fundraising from './components/Fundraising';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// };
 
-} from "react-router-dom";
 import Homepage from "./components/Homepage";
-// import { useAlert } from 'react-alert';
+import FundraisingOption from './components/FundraisingOptions';
+import Navbar from './components/Navbar/Navbar';
 
 
-const App = () => {
+
+export default function App() {
   const [user,setLoginUser] = useState({})
-  console.log(user);
+
   return (
     <div className="App">
-      <h2>AbleTheDisable</h2>
-
       <Router>
-      
-     
-      <Link to="/"><i class="fa fa-fw fa-home"></i>Homepage </Link> &nbsp;&nbsp;&nbsp;&nbsp;
-      {/* <Link to="/Login"><i class="fa fa-fw fa-user"></i>Login</Link> &nbsp;&nbsp;&nbsp;&nbsp; */}
-      {/* <Link to="/Register">Register</Link> &nbsp;&nbsp;&nbsp;&nbsp; */}
-        <Link to="/RequestGoods">RequestGoods </Link> &nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/DonateGoods">DonateGoods </Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/Fundraising">Fundraising </Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        {/* <Link to="/Cart1">Cart1 </Link>&nbsp;&nbsp;&nbsp;&nbsp; */}
-        <Link to="/DonateMoney">DonateMoney </Link>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Link to="/UserRequest" className="btn btn-primary">UserRequest </Link>
-        {/* Routes for new version, Switch for old version of rreact-router-dom */}
-        {/* <Routes> */}
-        <Switch>
-          {/* <Route exact path="/">
-          {
-          user && user._id? <Homepage/>:<Login/>
-          }
-          </Route> */}
-       
-          <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
-          <Route path="/Register"><Register/></Route>
-          <Route path="/RequestGoods">< RequestGoods/></Route>
-          <Route path="/DonateGoods/">< DonateGoods/></Route>
-          <Route path="/Fundraising/">< Fundraising/></Route>
-          <Route path="/DonateMoney/">< DonateMoney/></Route>
-          <Route path="/Donate/">< Donate/></Route>
-          <Route path="/Search/">< Search/></Route>
-          <Route path="/Cart1/">< Cart1/></Route>
-          <Route path="/DonateForm/">< DonateForm/></Route>
-          <Route path="/UserRequest/">< UserRequest/></Route>
-          <Route path="/"><Homepage/></Route>
-          </Switch>
-          
-        
+   
+        <Navbar/>
+        <Route path="/Homepage"><Homepage/></Route>
+        {/* <Route path="/"><Homepage/></Route> */}
+        <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
+        <Route path="/Register"><Register/></Route>
+        <Route path="/fundraising" component={Fundraising} />
+        <Route path="/fundraisingoption" component={FundraisingOption} />
+        <Route path="/donategoods" component={DonateGoods} />
+        {/* <Route path="/requestgoods/*" component={Products} /> */}
+        <Route path="/requestgoods/*" component={RequestGoods} />
+        <Route path="/donatemoney" component={DonateMoney} />
+        <Route path="/donate/" component={Donate}/>
+        <Route path="/about" component={About} />
+        <Route path="/search"  component = {Search}/>
+        <Route path="/cart1/"component = {Cart1}/>
+        <Route path="/donateform" component = {DonateForm} />
+        <Route path="/userrequest/" component={UserRequest}/>
       </Router>
     </div>
-  );
+  )
 };
-  
-export default App;

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import {useHistory} from "react-router-dom";
+
 import "./form.css"
 import axios from "axios";
 import { useAlert } from 'react-alert';
-import { useHistory } from "react-router-dom";
+
 
 export default function Register(props) {
+  const {history} = useHistory()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [first_name, setFirstname] = useState("");
@@ -24,15 +28,17 @@ export default function Register(props) {
     e.preventDefault();
 	const user = {
        first_name,last_name,email,phone,street,city,province,postal,password 
-      };
-		
-		// alert.show(JSON.stringify(user));
-	
+      };	
     axios.post("http://localhost:3001/api/users/register", user)
 		.then(res => {
-      alert.show("Registered successfully");
-      console.log(res);
+      localStorage.setItem("userID", res.data.id);
+      localStorage.setItem("email", res.data.email);
+      alert("Registered successfully");
       handleReset();
+      history.push("/Homepage");
+    })
+    .catch((error) => {
+      alert(error.response.data.message)
     });
     setTimeout(()=> {
       history.push("/");

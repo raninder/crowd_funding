@@ -3,16 +3,12 @@ import axios from "axios";
 import Donate from "./Donate";
 // import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import './FundStory.css';
 
 import {
-  BrowserRouter as Router, 
-  Switch, 
-  Route,
-  Link
+  BrowserRouter as Router, Link } from "react-router-dom";
 
-} from "react-router-dom";
-
-export default function FundStory(props) {
+	export default function FundStory(props) {
 	const { id,user_id,fund_cate_id,title,img,story,goal,amountraising } = props;
 
 	const history = useHistory();

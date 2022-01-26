@@ -20,14 +20,13 @@ export default function DonateGoods(props) {
 	}, []);
 	console.log("ID",uid);
 
-	// const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
 	
     const goods = { category, goodsname,company, condition,size, quantity, img, description ,uid};
 		// alert(JSON.stringify(goods));
-		
+	
 		const url ="http://localhost:3001/api/goods/addnewgoods";
     axios.post(url, goods)
 		.then(res => {
