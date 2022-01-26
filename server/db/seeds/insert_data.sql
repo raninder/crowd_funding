@@ -1,5 +1,6 @@
 INSERT INTO users (email,passwordhash,first_name,last_name,phone_number,s_address,city,state,post_code)
- VALUES ('patelneema93@gmail.com','12345','Neema','Patel',90546967834,'34 brittania ave','oshawa','ontario','L1l0L8'),
+ VALUES 
+  ('patelneema93@gmail.com','12345','Neema','Patel',90546967834,'34 brittania ave','oshawa','ontario','L1l0L8'),
   ('patelheeya@gmail.com','12345','Heeya','Patel',90546967848,'36 brittania ave','oshawa','ontario','L1L0L8'),
   ('patelMeet@gmail.com','12345','Meet','Patel',9057894567,'20 brittania ave','oshawa','ontario','L1l0L8'),
   ('Raninder@gmail.com','12345','Raninder','Dhillon',90546967834,'40 wildfeild ave','oshawa','ontario','L1L9H8'),
@@ -14,7 +15,8 @@ INSERT INTO users (email,passwordhash,first_name,last_name,phone_number,s_addres
   ('test10@test.com','12345','Fname9','Lname9',1234567890,'11 ABC9 Cres','Mississauga','ontario','L5x 0P9');
    
 INSERT INTO goods_categories (name)
-VALUES ('Books'),
+VALUES 
+('Books'),
 ('Ex_Equipment'),
 ('Toys_and_Games'),
 ('Daily_Living'),
@@ -23,7 +25,8 @@ VALUES ('Books'),
 ('Others');
 
 INSERT INTO fund_categories (name)
-VALUES ('therapy'),
+VALUES 
+('therapy'),
  ('medical'), 
  ('travel'),
   ('equipment'), 
@@ -52,7 +55,7 @@ Records 4 messages'),
 (3,1,'book','',8,'https://images-na.ssl-images-amazon.com/images/I/517XAFNcfBL._SX198_BO1,204,203,200_QL40_ML2_.jpg','Audible','Excellent','book that offers a wonderful message about embracing the things that bring us together as humans');
 
 
-INSERT INTO fundraising (user_id,fund_cate_id,title,img,story,goal,amountraising)
+INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal,amountraising)
 VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00,0),
 (3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00,0),
 (2,4,'Heather has had a tragic loss','https://epicassist.org/wp-content/uploads/2018/03/Creating-a-world-that-does-not-disable-people-with-disability.jpg','On behalf of Malton Moms and the community, we extend our most heartfelt sympathy for this loss. On the morning of Jan. 20, 2022, three children lost their lives in a house fire despite heroic efforts to save them.',6000.00,0),

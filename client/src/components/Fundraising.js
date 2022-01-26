@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./form.css";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
@@ -28,7 +28,7 @@ console.log('userid',id);
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
-                history.push("/Donate")
+                history.push("/DonateMoney")
                 handleReset();
             });
             // alert.show('Thanks for Donating');
@@ -86,7 +86,7 @@ console.log('userid',id);
                         onChange={(event) => setGoal(event.target.value)}
                     /><br/>
                     {/* <section className="">{error}</section> */}
-                    <button type="submit" >Submit</button>
+                    <button type="submit" ><Link to="/DonateMoney">Submit </Link></button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>

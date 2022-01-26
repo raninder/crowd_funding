@@ -1,9 +1,8 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-// import { useAlert } from 'react-alert';
 import '../Donate.css';
-// import { useAlert } from 'react-alert';
 import './form.css';
+import { Link } from "react-router-dom";
 
 
 export default function DonateGoods(props) {
@@ -21,7 +20,6 @@ export default function DonateGoods(props) {
 	}, []);
 	console.log("ID",uid);
 
-	// const alert = useAlert();
 
 	function handleSubmit(e) {
     e.preventDefault();
@@ -111,7 +109,7 @@ export default function DonateGoods(props) {
 				<textarea id="description" name="description" rows="4" cols="30" value={description} onChange={(e) => setDescription(e.target.value)}/>
 				</p>
 
-       <button type="submit" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="submit" ><Link to="/RequestGoods">Submit </Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>

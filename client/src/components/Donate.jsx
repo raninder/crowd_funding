@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./donate.css"
-import { useHistory } from 'react-router-dom';
+import { Prompt, useHistory } from 'react-router-dom';
+import { isUserLoggedIn } from "../helper/helper";
+import ProgressBar from "./ProgressBar";
 
 
 export default function Donate(props) {
-	// const history = useHistory()
 	const [result, setResult] = useState({});
 	const history = useHistory();
 	const id = history.location.state.id;
 	const url = "http://localhost:3001/api/funds/getallfundraising/"+id;
+	let finishPersentage = Math.round(result.amountraising / result.goal * 100);
 	useEffect(() => {
     axios.get(url)
     .then((res) => {
@@ -32,15 +34,14 @@ export default function Donate(props) {
           alt={"sorry"}
         />	
 				<div className="text">
-					id:{result.id} <br/>
-					User id: {result.user_id} <br/>
-					Cat id: {result.fund_cate_id} <br/>
-					Title: {result.title} <br/>
-					Goal: ${result.goal} <br/>
-					Amount Raised: ${result.amountraising}
-					Story: {result.story} <br/><br/>
+					<h1>{result.title} </h1> <br/>
+					<h3 className="amountRaised">Amount Raised: ${result.amountraising} of {result.goal}</h3><br/>
+					<ProgressBar bgcolor="#ef6c00" completed={finishPersentage >= 100 ? 100 : finishPersentage}/><br/><br/>
+					<h4>{result.story} <br/><br/></h4>
 				
-			<button className="btn btn-primary" onClick={() => history.push('/DonateForm')}>Donate Now</button>
+					<button className="btn btn-primary" onClick={() => {
+					isUserLoggedIn() ? history.push('/DonateForm') : history.push('/Login');
+					}}>Donate Now</button>
 			</div>
 		</div>
 	) 

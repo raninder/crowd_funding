@@ -25,7 +25,12 @@ console.log('userid',userid);
 console.log('fundid',fundid)
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log(props.amount);
+        if(props.amount == 0 || props.amount.value == "0"){
+            alert("Plese enter donation amount!");
+            return;
+        }
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)

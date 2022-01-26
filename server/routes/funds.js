@@ -46,7 +46,7 @@ module.exports = (db) => {
             console.log('catId', cateId);
             userId = id;
             
-            console.log('userID', userId + 3);
+            console.log('userID', userId);
             db.query(`
             INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal,amountraising )
             VALUES ($1, $2, $3, $4, $5, $6, 0)
