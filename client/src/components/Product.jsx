@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { useAlert } from 'react-alert';
-import "../styles/DispGoods.css";
+import "../styles/DispGoods2.css";
 import { useHistory } from 'react-router-dom';
 
 export default function Product(props) {
@@ -25,25 +25,25 @@ export default function Product(props) {
     
   <div >
 		{quantity > 0 &&
-		<div className="products">
+		<div className="card">
 		
       <img
           className="goods-img"
           src={img}
           alt={"Donated Item"}
+					// style="width:100%"
         />
-					{/* Product id: {id} <br/>
-					Category id: {good_cat_id} <br/> */}
-					Product Name: {goods_name} <br/>
-					Category Name: {name} <br/>
+					 {/* Product id: {id} <br/> */}
+				<h3>{goods_name}</h3> 
+				<p>		Category Name: {name} </p>	
 					{size &&
 					<span>Size: {size} <br/></span>}
-					Quantity: {quantityState} <br/>
-					Company: {company} <br/>
-					Condition: {condition} <br/>
-					Description: {description} <br/>
+				<p>		Quantity: {quantityState} </p>	
+				<p>		Company: {company} </p>	
+				<p>		Condition: {condition} </p>	
+				<p>		Description: {description} </p>	
 				
-					<button className="btn btn-primary"onClick={() => add_to_request(id) }>Request</button> 
+				<p>		<button className="btn btn-primary"onClick={() => add_to_request(id) }>Request</button> </p>	
 				
 					</div>
 		}
