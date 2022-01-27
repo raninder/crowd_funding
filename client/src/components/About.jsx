@@ -17,7 +17,7 @@ and all of its challenges.</h3></p><br></br><br></br><br></br>
      You can set up your own fundraiser and can make a big difference in a child’s life.
      If your kids are outgrown and have things that can help another family in need, Please donate it using Donate goods feature on our website. 
      Your donation will help open new vistas for special needs children and challenged individuals. 
-     <br /><br /><br /><br /><hr /><br />
+     <br /><br /><br /><br /><hr /><br /><br /><br /><br /><br /><br /><br />
       <footer>For any queries, you can email us at info@ablethedisable.com or call us at 905.123.4567</footer>
      </div>
     </div>

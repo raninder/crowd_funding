@@ -4,11 +4,11 @@ export const MenuItems = [
     url: '/DonateMoney'
   },
   {
-    title: 'Donate',
+    title: 'Donate goods',
     url: '/DonateGoods'
   },
   {
-    title: 'Request',
+    title: 'Request goods',
     url: '/requestgoods/*'
   },
 

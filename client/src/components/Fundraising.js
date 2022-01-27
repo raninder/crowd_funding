@@ -16,20 +16,22 @@ export default function Fundraising(props) {
 		setId(localStorage.getItem("userID"));
 	}, []);
    
-console.log('userid',id);
+    console.log('userid',id);
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
            id, category, title, story, img, goal
         };
 
-        alert(JSON.stringify(user));
 
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
                 history.push("/Donate")
                 handleReset();
+            })
+            .catch(err => {
+                console.log(err)
             });
             // alert.show('Thanks for Donating');
     }

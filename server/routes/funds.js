@@ -50,9 +50,12 @@ module.exports = (db) => {
             db.query(`
             INSERT INTO fundraising ( user_id,fund_cat_id,title,img,story,goal,amountraising )
             VALUES ($1, $2, $3, $4, $5, $6, 0)
-            RETURNING *;
-    `			, [userId, cateId, title, img, story, goal])
-    
+            RETURNING *;`, [userId, cateId, title, img, story, goal])
+            .then(res => {
+              console.log(res);
+            });
+
+
           })
         // .then(res => console.log(res.rows))
         // .catch(err => console.log(err))
