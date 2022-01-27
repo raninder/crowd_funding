@@ -16,7 +16,6 @@ export default function Fundraising(props) {
 		setUid(localStorage.getItem("userID"));
 	}, []);
    
-    console.log('userid',id);
     function handleSubmit(e) {
         e.preventDefault();
         const user = {

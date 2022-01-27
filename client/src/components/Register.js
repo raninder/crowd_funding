@@ -3,7 +3,6 @@ import {useHistory} from "react-router-dom";
 
 import "./form.css"
 import axios from "axios";
-import { useAlert } from 'react-alert';
 
 
 export default function Register(props) {
@@ -21,7 +20,6 @@ export default function Register(props) {
   const [error, setError] = useState("");
   
 
-  const alert = useAlert();
   
   
   function handleSubmit(e) {

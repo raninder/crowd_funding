@@ -4,7 +4,9 @@ import "./donate.css"
 import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
-export default function Cart(props) {
+
+
+export default function Cart1(props) {
 	const [result, setResult] = useState({});
 	const [uid, setUid] = useState("");
 	const [qty,setQty]= useState();
@@ -17,7 +19,7 @@ export default function Cart(props) {
 		setUid(localStorage.getItem("userID"));
 	}, []);
 
-	const alert = useAlert();
+	// const alert = useAlert();
 
 	const url = `http://localhost:3001/api/goods/getallgoods/${id}`;
 
@@ -34,7 +36,7 @@ export default function Cart(props) {
 	console.log("user_id",uid);
 
 	function addRequest(qty){
-		alert.show("Request Added");
+		// alert.show("Request Added");
 		const cart = { uid,id,qty }
 		console.log("cart",cart);
 		const url1 = "http://localhost:3001/api/goods/reqgoods";
@@ -56,7 +58,7 @@ export default function Cart(props) {
 
 		
 		setTimeout(()=> {
-		history.push("/RequestGoods");
+		history.push("/requestgoods/*");
 		},1500);
 
 
@@ -88,9 +90,9 @@ export default function Cart(props) {
            <input name="qty" value={qty} onChange={(e) => setQty(e.target.value)}/> 
 					 </div>
 					}
-			<button className="btn btn-primary" onClick={()=>{ if (window.confirm('Are you sure you wish to request this item?')) addRequest(qty) }}>Add Request</button> 
+					<button className="btn btn-primary" onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) addRequest(qty) }}>Add Request</button> 
+
 			</div>
 		</div>
 	) 
 }
-

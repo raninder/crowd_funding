@@ -13,10 +13,9 @@ import Search from './components/Search';
 import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
 import DonateForm from './components/DonateForm';
-import Cart1 from './components/Cart1';
+import Cart from './components/Cart';
 import Navbar from './components/Navbar/Navbar';
-import DonateForm from './components/DonateForm';
- import UserRequest from './components/UserRequest';
+import UserRequest from './components/UserRequest';
 export default function App() {
 
   const [user,setLoginUser] = useState({})
@@ -36,7 +35,8 @@ export default function App() {
         <Route path="/Donate/">< Donate/></Route>
         <Route path="/Search/">< Search/></Route>
         <Route path="/DonateForm"><DonateForm /></Route>
-        <Route path="/Cart1/">< Cart1/></Route>
+        <Route path="/Cart/"><Cart/></Route>
+        <Route path="/UserRequest/">< UserRequest/></Route>
       </Router>
     </div>
   )

@@ -9,27 +9,13 @@ export default function Product(props) {
 	const [uid, setUid] = useState("");
 	const [quantityState,setQuantityState] = useState(quantity);
 	const history = useHistory();
-	// const cart1 = [{}];
 
 	useEffect(() => {
 		setUid(localStorage.getItem("userID"));
 	}, []);
 	
-	function request(product_id) {
-	
-		const url = "http://localhost:3001/api/goods/reqgoods";
-	
-    axios.put(url, {product_id})
-		.then(res => {
-			console.log("res",res);
-			setQuantityState(res.data.quantity);
-    })
-		.catch(err => {
-			console.log(err);
-		})
-  }
 	function add_to_request(product_id) {
-		history.push('/Cart1', { product_id, quantity});
+		history.push('/Cart', { product_id, quantity});
 		
   }
   return (

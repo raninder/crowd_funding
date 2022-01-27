@@ -58,7 +58,7 @@ Records 4 messages'),
 (3,1,'Book','',8,'https://images-na.ssl-images-amazon.com/images/I/517XAFNcfBL._SX198_BO1,204,203,200_QL40_ML2_.jpg','Audible','used','book that offers a wonderful message about embracing the things that bring us together as humans'),
 (2,8,'Bath Chair','',2,'https://www.flaghouse.ca/productImages/image.axd/i.41054/w.235/h.235/xm.0/Reclining+Bath+Chair+Medium_P.jpg','Otter','used','Ideal for shower rooms with limited space! Features deluxe elongated open front commode seat, padded lumbar support and head rest. Includes height-adjustable leg rest and easy fold foot rest. Overall size: 20"W x 44"H x 15"D. Internal width: 16". Seat Height: 18". Reclined Back Length: 27". Wt. capacity: 300 lbs.');
 
-INSERT INTO fundraising (user_id,fund_cate_id,title,img,story,goal,amountraising)
+INSERT INTO fundraising (user_id,fund_cat_id,title,img,story,goal,amountraising)
 VALUES(2,5,'Need money for baby','https://images.indianexpress.com/2020/05/autism-759-1.jpg','My son not able do any think by self. please help me.',5000.00,0),
 (3,2,'Need money for baby','http://www.todaysparent.com/wp-content/uploads/2016/05/specialneedssoccor-main.jpg','My kid not able to walk. please help me.',3000.00,0),
 (2,4,'Heather has had a tragic loss','https://epicassist.org/wp-content/uploads/2018/03/Creating-a-world-that-does-not-disable-people-with-disability.jpg','On behalf of Malton Moms and the community, we extend our most heartfelt sympathy for this loss. On the morning of Jan. 20, 2022, three children lost their lives in a house fire despite heroic efforts to save them.',6000.00,0),

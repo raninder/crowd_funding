@@ -33,15 +33,9 @@ module.exports = (db) => {
         let {
           id,category, title, story, img, goal
         } = myJson;
-<<<<<<< HEAD
-        if(img = '')
-        img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
-        // const image = "www.example.com";
-=======
         // if(img = '')
         // img = "https://www.workingmother.com/sites/workingmother.com/files/styles/opengraph_1_91x1/public/images/2017/09/holding-hands.jpg?itok=1GVLgWXK"
         // // const image = "www.example.com";
->>>>>>> origin/npatel
         db.query(`
               SELECT id FROM fund_categories WHERE name = '${category}';
               `)
