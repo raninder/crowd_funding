@@ -4,7 +4,7 @@ import "./donate.css"
 import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
-export default function Cart1(props) {
+export default function Cart(props) {
 	const [result, setResult] = useState({});
 	const [uid, setUid] = useState("");
 	const [qty,setQty]= useState();
