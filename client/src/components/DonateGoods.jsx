@@ -1,9 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-<<<<<<< HEAD
 import { useAlert } from 'react-alert';
-=======
->>>>>>> origin/npatel
 import '../Donate.css';
 import './form.css';
 import { Link } from "react-router-dom";
@@ -30,11 +27,7 @@ export default function DonateGoods(props) {
 	
     const goods = { category, goodsname,company, condition,size, quantity, img, description ,uid};
 		// alert(JSON.stringify(goods));
-<<<<<<< HEAD
 	
-=======
-		
->>>>>>> origin/npatel
 		const url ="http://localhost:3001/api/goods/addnewgoods";
     axios.post(url, goods)
 		.then(res => {
@@ -57,13 +50,8 @@ export default function DonateGoods(props) {
 	}
 
 	return (
-<<<<<<< HEAD
     <div className="main">
       <h1>Donate Goods  </h1>
-=======
-    <section className="main">
-      {/* <h1>Donate Goods  {id}</h1> */}
->>>>>>> origin/npatel
 			
       <form onSubmit={handleSubmit}>  
 			<input type="hidden" value = {uid} name="uid"/>  
@@ -126,12 +114,7 @@ export default function DonateGoods(props) {
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>
-<<<<<<< HEAD
     </div> 
-=======
-	  </section>
- 
->>>>>>> origin/npatel
   )
 
 }

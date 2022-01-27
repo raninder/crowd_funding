@@ -28,7 +28,6 @@ const {setLoginUser} = props;
         event.preventDefault()
         axios.post("http://localhost:3001/api/users/Login",user)
         .then(res=>{
-<<<<<<< HEAD
             alert(res.data);
             console.log("res.data login",res.data.id,res.data.email);
             // alert("id,email"+res.data.uid,res.data.email);
@@ -41,16 +40,6 @@ const {setLoginUser} = props;
         .catch(error => {
             alert(error.response.data.message)
         });
-=======
-            // alert(res.data.message);
-            //  alert("id"+res.data.email);
-        // setLoginUser(res.data.user)
-        localStorage.setItem("userID", res.data.id);
-        localStorage.setItem("email", res.data.email);
-        setLoginUser({_id:res.data.id})
-        history.push("/")})
-        .catch(error => console.log(error));
->>>>>>> origin/npatel
     }
     return (
         <main className="">

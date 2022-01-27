@@ -10,31 +10,17 @@ export default function Fundraising(props) {
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
-<<<<<<< HEAD
     const [uid, setUid] = useState("");
     const history = useHistory();
-=======
-    const [id, setId] = useState("");
-    const history = useHistory()
->>>>>>> origin/npatel
 	useEffect(() => {
-		setId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
-<<<<<<< HEAD
 	console.log("ID",uid);
 
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
             uid,category,title, story, img, goal
-=======
-   
-console.log('userid',id);
-    function handleSubmit(e) {
-        e.preventDefault();
-        const user = {
-           id, category, title, story, img, goal
->>>>>>> origin/npatel
         };
 
         alert(JSON.stringify(user));

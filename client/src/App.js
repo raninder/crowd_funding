@@ -17,6 +17,7 @@ import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
 import FundraisingOption from './components/FundraisingOptions';
 import Cart1 from './components/Cart1';
+import Navbar from './components/Navbar/Navbar';
 import DonateForm from './components/DonateForm';
  import UserRequest from './components/UserRequest';
 export default function App() {
@@ -25,7 +26,7 @@ export default function App() {
   console.log(user);
   return (
     <div className="App">
-
+                <Navbar/>
       <Router>
         <Route path="/Homepage" component={Homepage}/>
         {/* <Route path="/"><Homepage /></Route> */}

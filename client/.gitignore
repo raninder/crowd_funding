@@ -1,8 +1,4 @@
 node_modules/
 .env
 *.log
-<<<<<<< HEAD
 .DS_Store
-=======
-package-lock.json
->>>>>>> origin/ppz
