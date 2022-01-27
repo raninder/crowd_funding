@@ -36,7 +36,7 @@ export default function Navbar(props) {
   }
   return(
       <nav className="NavbarItems">
-        <a className="navbar-logo" onClick={() => history.push("/Homepage")}><img src="/images/logo.png"/></a>
+        <a className="navbar-logo" href= "/Homepage"><img src="/images/logo.png"/></a>
         <div className="menu-icon" onClick={handleClick}>
         </div>
         <ul className="nav-menu">

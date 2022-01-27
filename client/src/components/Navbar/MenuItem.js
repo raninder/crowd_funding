@@ -11,7 +11,6 @@ export const MenuItems = [
     title: 'Request goods',
     url: '/requestgoods/*'
   },
-
   {
     title: 'About Us',
     url: '/about'

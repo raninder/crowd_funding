@@ -2,7 +2,7 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import "./form.css";
-import {useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
@@ -10,24 +10,24 @@ export default function Fundraising(props) {
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
-    const [id, setId] = useState("");
-    const history = useHistory()
+    const [uid, setUid] = useState("");
+    const history = useHistory();
 	useEffect(() => {
-		setId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
    
     console.log('userid',id);
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
-           id, category, title, story, img, goal
+            uid,category,title, story, img, goal
         };
 
 
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
-                history.push("/Donate")
+                history.push("/DonateMoney")
                 handleReset();
             })
             .catch(err => {
@@ -43,18 +43,6 @@ export default function Fundraising(props) {
         setGoal("");
 
     }
-    function validate() {
-        // if (student === "") {
-        //   setError("Student name cannot be blank");
-        //   return;
-        // }
-        // if (interviewer === null) {
-        //   setError("Interviewer cannot be unselected");
-        //   return;
-        // }
-        // setError("");
-        // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
-      }
 
     return (
         <main className="">
@@ -88,7 +76,7 @@ export default function Fundraising(props) {
                         onChange={(event) => setGoal(event.target.value)}
                     /><br/>
                     {/* <section className="">{error}</section> */}
-                    <button type="submit" >Submit</button>
+                    <button type="submit" ><Link to="/DonateMoney">Submit </Link></button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>

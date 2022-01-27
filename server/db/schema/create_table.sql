@@ -26,6 +26,7 @@ CREATE TABLE goods (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   good_cat_id INTEGER REFERENCES goods_categories(id) ON DELETE CASCADE,
+  goods_name VARCHAR(255), 
   size VARCHAR(255) DEFAULT 'Not known',
   quantity INT NOT NULL DEFAULT 1,
   img VARCHAR(500), 
@@ -42,7 +43,7 @@ CREATE TABLE fundraising (
   img VARCHAR(500),
   story VARCHAR(500) NOT NULL,
   goal DECIMAL(15,2) NOT NULL,
-  amountraising DECIMAL(15,2) NOT NULL
+  amountraising DECIMAL(15,2) DEFAULT 0
 );
 DROP TABLE IF EXISTS donation_money CASCADE;
 CREATE TABLE donation_money (
@@ -52,3 +53,13 @@ CREATE TABLE donation_money (
   amount DECIMAL(15,2) NOT NULL,
   date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+DROP TABLE IF EXISTS request_goods CASCADE;
+CREATE TABLE request_goods (
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  goods_id INTEGER REFERENCES goods(id) ON DELETE CASCADE,
+  quantity INTEGER default 1,
+  date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)

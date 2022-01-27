@@ -1,7 +1,7 @@
+
 import './App.css';
 import React, { useState } from "react";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-
 import About from './components/About';
 import RequestGoods from './components/RequestGoods';
 import DonateGoods from './components/DonateGoods';
@@ -13,13 +13,13 @@ import Search from './components/Search';
 import Fundraising from './components/Fundraising';
 import Homepage from "./components/Homepage";
 import DonateForm from './components/DonateForm';
+import Cart1 from './components/Cart1';
 import Navbar from './components/Navbar/Navbar';
-
-
-
+import DonateForm from './components/DonateForm';
+ import UserRequest from './components/UserRequest';
 export default function App() {
-  const [user,setLoginUser] = useState({})
 
+  const [user,setLoginUser] = useState({})
   return (
     <div className="App">
       <Router>
@@ -36,7 +36,9 @@ export default function App() {
         <Route path="/Donate/">< Donate/></Route>
         <Route path="/Search/">< Search/></Route>
         <Route path="/DonateForm"><DonateForm /></Route>
+        <Route path="/Cart1/">< Cart1/></Route>
       </Router>
     </div>
   )
+
 };

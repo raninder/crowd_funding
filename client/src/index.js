@@ -5,8 +5,7 @@ import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// import AlertTemplate from 'react-alert-template-basic';
-// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 // optional configuration

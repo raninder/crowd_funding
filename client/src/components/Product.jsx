@@ -1,13 +1,18 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import '../styles/Product.css'
+import "../styles/DispGoods2.css";
+import { useHistory } from 'react-router-dom';
 
 export default function Product(props) {
-  const { id,good_cat_id,name,quantity,size,img,company,condition,description} = props;
-	const [uid, setUId] = useState("");
+  const { id,good_cat_id,goods_name,name,quantity,size,img,company,condition,description} = props;
+	const [uid, setUid] = useState("");
 	const [quantityState,setQuantityState] = useState(quantity);
+	const history = useHistory();
+	// const cart1 = [{}];
+
 	useEffect(() => {
-		setUId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
 	
 	function request(product_id) {
@@ -22,6 +27,10 @@ export default function Product(props) {
 		.catch(err => {
 			console.log(err);
 		})
+  }
+	function add_to_request(product_id) {
+		history.push('/Cart1', { product_id, quantity});
+		
   }
   return (
     <>
@@ -39,7 +48,7 @@ export default function Product(props) {
 						<span>Condition: {condition}</span><br/>
 						<span>Description: {description}</span><br/>
 					</div>
-					<button className="product_btn" onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) request(id) }}>Request</button> 
+					<button className="product_btn" onClick={() => add_to_request(id)}>Request</button> 
 				</div>
 			}			
 		</>

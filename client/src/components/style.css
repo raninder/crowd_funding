@@ -18,3 +18,23 @@
 .btn-fundaiser {
   width: auto;
 }
+.tagline{
+  color: rgb(97, 15, 15);
+  font-weight:2px;;
+}
+.slide-img{
+  height:20em;
+  width:30em;
+}
+
+.divStory {
+  font-family: Gill-Sans,Calibri,sans-serif;
+  font-size: 15pt;
+  border-top: solid 1px #555;
+  padding-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  justify-content:flex-start;
+  background-color:#bfcafe !important
+  /* rgb(243, 242, 204); */
+}

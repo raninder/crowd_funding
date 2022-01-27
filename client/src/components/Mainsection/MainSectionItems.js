@@ -14,7 +14,7 @@ export const mainItems = [
     title: 'Request Goods',
     image: '/images/donate.png',
     article: "Checkout out our donations inventories, tell us what you need to support your daily life.",
-    url: '/requestgoods/*'
+    url: '/RequestGoods'
   },{ 
     title: 'About Us',
     image: '/images/aboutus.png',

@@ -1,28 +1,31 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import './form.css';
+import { Link } from "react-router-dom";
 
 
 export default function DonateGoods(props) {
 	const [category, setCategory] = useState("");
+	const [goodsname, setGoodsname] = useState("");
   const [company, setCompany] = useState("");
 	const [condition, setCondition] = useState("");
   const [size, setSize] = useState("");
   const [quantity, setQuantity] = useState("");
 	const [img, setImage] = useState("");
 	const [description, setDescription] = useState("");
-	const [id, setId] = useState("");
+	const [uid, setUid] = useState("");
 	useEffect(() => {
-		setId(localStorage.getItem("userID"));
+		setUid(localStorage.getItem("userID"));
 	}, []);
-	console.log("ID",id);
+	console.log("ID",uid);
 
 
 	function handleSubmit(e) {
     e.preventDefault();
 	
-    const goods = { category, company, condition,size, quantity, img, description ,id};
-		
+    const goods = { category, goodsname,company, condition,size, quantity, img, description ,uid};
+		// alert(JSON.stringify(goods));
+	
 		const url ="http://localhost:3001/api/goods/addnewgoods";
     axios.post(url, goods)
 		.then(res => {
@@ -36,6 +39,7 @@ export default function DonateGoods(props) {
 	function handleReset(){
 		setCategory(null);
     setCompany("");
+		setGoodsname("");
 		setCondition(false);
 		setDescription("");
 		setQuantity("");
@@ -44,11 +48,11 @@ export default function DonateGoods(props) {
 	}
 
 	return (
-    <section className="main">
-      <h1>Goods donation form #{id}</h1>
+    <div className="main">
+      <h1>Donate Goods  </h1>
 			
       <form onSubmit={handleSubmit}>  
-			<input type="hidden" value = {id} name="id"/>  
+			<input type="hidden" value = {uid} name="uid"/>  
           <label> Category: </label>
            <select name="category" onChange={(e) => setCategory(e.target.value)}> 
                <option value="">--Please choose an option--</option>
@@ -61,7 +65,10 @@ export default function DonateGoods(props) {
 							 <option value="Communication">Social and Communication</option>
 							 <option value="Others">Others</option>
            </select>
-        
+					 <p>
+        	 <label> Goods Name: </label>  
+           <input name="goodsname" value={goodsname} onChange={(e) => setGoodsname(e.target.value)}/> 
+					</p>
 					 <p>
         	 <label> Company/Brand (if applicable): </label>  
            <input name="company" value={company} onChange={(e) => setCompany(e.target.value)}/> 
@@ -101,12 +108,11 @@ export default function DonateGoods(props) {
 				<textarea id="description" name="description" rows="4" cols="30" value={description} onChange={(e) => setDescription(e.target.value)}/>
 				</p>
 
-       <button type="submit" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="submit" ><Link to="/RequestGoods">Submit </Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>
-	  </section>
- 
+    </div> 
   )
 
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import StripeContainer from "./StripeContainer";
-import CurrencyFormat from "react-currency-format";
+// import CurrencyFormat from "react-currency-format";
 export default function Fundraising(props) {
   const [amount, setAmount] = useState("");
 
