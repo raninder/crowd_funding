@@ -59,7 +59,7 @@ export default function Cart1(props) {
 		
 		setTimeout(()=> {
 		history.push("/RequestGoods");
-		},2000);
+		},1500);
 
 
 }
@@ -90,7 +90,8 @@ export default function Cart1(props) {
            <input name="qty" value={qty} onChange={(e) => setQty(e.target.value)}/> 
 					 </div>
 					}
-			<button className="btn btn-primary" onClick={()=>addRequest(qty) }>Add Request</button> 
+					<button className="btn btn-primary" onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) addRequest(qty) }}>Add Request</button> 
+
 			</div>
 		</div>
 	) 

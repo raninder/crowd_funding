@@ -68,7 +68,7 @@ export default function Navbar(props) {
         :
         <>
           <div className="login-btn">
-              <button className="login" onClick={() => history.push("/Login")}>
+              <button className="login" onClick={() => history.push( {pathname: '/Login'})}>
                 Log-in
               </button>
             </div>

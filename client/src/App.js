@@ -1,3 +1,4 @@
+
 import './App.css';
 import React, { useState } from "react";
 import {BrowserRouter as Router, Route, Navigate} from 'react-router-dom';
@@ -28,7 +29,6 @@ export default function App() {
 
   const [user,setLoginUser] = useState({})
   console.log(user);
-
   return (
     <div className="App">
 <Navbar/>
@@ -41,7 +41,6 @@ export default function App() {
         <Route path="/RequestGoods">< RequestGoods/></Route>
         <Route path="/requestgoods/*" component={Products} />
         <Route path="/about" component={About} />
-
         <Route path="/Login"><Login setLoginUser={setLoginUser}/></Route>
         <Route path="/Register"><Register/></Route>
         {/* <Route path="/DonateGoods">< DonateGoods/></Route> */}
@@ -55,6 +54,5 @@ export default function App() {
         {/* <Route path="/"><Homepage/></Route> */}
         </Router>
         </div>
-
   )
 };

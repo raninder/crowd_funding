@@ -1,6 +1,6 @@
 export const MenuItems = [
   {
-    title:'FundStory',
+    title:'Fundraising',
     shortName: 'link',
     url: '/DonateMoney'
   },

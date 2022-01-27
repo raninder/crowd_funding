@@ -1,37 +1,38 @@
-
-import React, { useState,useEffect } from "react";
-import axios from "axios";
-import "./form.css";
-import {Link, useHistory} from "react-router-dom";
-
+import React, { useState,useEffect } from 'react';
+import axios from 'axios';
+import './form.css';
+import {Link, useHistory} from 'react-router-dom';
 export default function Fundraising(props) {
     const [category, setCategory] = useState("");
     const [title, setTitle] = useState("");
     const [story, setStory] = useState("");
     const [img, setImg] = useState("");
     const [goal, setGoal] = useState("");
-    const [id, setId] = useState("");
-    const history = useHistory()
-	useEffect(() => {
-		setId(localStorage.getItem("userID"));
-	}, []);
-   
-console.log('userid',id);
+    const [uid, setUid] = useState("");
+    const history = useHistory();
+    useEffect(() => {
+        setUid(localStorage.getItem("userID"));
+    }, []);
     function handleSubmit(e) {
         e.preventDefault();
         const user = {
-           id, category, title, story, img, goal
+            uid,category,title, story, img, goal
         };
-
-        alert(JSON.stringify(user));
-
         axios.post("http://localhost:3001/api/funds/addnewfundraising", user)
             .then(res => {
                 console.log(res);
                 history.push("/DonateMoney")
-                handleReset();
+                
+                
+            })
+            .catch(err => {
+                console.log(err)
             });
-            // alert.show('Thanks for Donating');
+            handleReset();
+            setTimeout(()=> {
+                history.push('/DonateMoney');
+                },1500);
+            // alert.show(‘Thanks for Donating’);
     }
     function handleReset() {
         setCategory("");
@@ -39,13 +40,11 @@ console.log('userid',id);
         setStory("");
         setImg("");
         setGoal("");
-
     }
-
     return (
         <main className="">
             <section className="main">
-                <h1>Fundrasing</h1>
+                <h1>Fundraising</h1>
                 <form onSubmit={handleSubmit} >
                     <label name="category">category</label>
                     <select name="category" onChange={(e) => setCategory(e.target.value)}>
@@ -55,7 +54,7 @@ console.log('userid',id);
                         <option value="travel">Travel</option>
                         <option value="equipment">Equipment</option>
                         <option value="food">Food</option>
-                        <option value="education">Education</option>
+                        <option value="ducation">Education</option>
                     </select>
                     <label name="title">Title</label>
                     <input className="" name="title" value={title}
@@ -73,8 +72,8 @@ console.log('userid',id);
                     <input className="" name="goal" type="goal" value={goal}
                         onChange={(event) => setGoal(event.target.value)}
                     /><br/>
-                    {/* <section className="">{error}</section> */}
-                    <button type="submit" ><Link to="/DonateMoney" color="white">Submit </Link></button>
+                    {/* <section className=“”>{error}</section> */}
+                    <button type="submit" >Submit </button>
                     <button onClick={handleReset}>Reset</button>
                 </form>
             </section>

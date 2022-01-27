@@ -60,6 +60,7 @@ module.exports = (db) => {
   });
 
   router.post("/register", (req, res) => {
+    console.log(req.body)
     const {
       first_name,
       last_name,

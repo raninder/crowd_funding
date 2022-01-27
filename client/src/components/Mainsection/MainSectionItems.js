@@ -1,6 +1,6 @@
 export const mainItems = [
   { 
-    title: 'FundStory',
+    title: 'Fundraising',
     image: '/images/Fundraising.png',
     article: "Start helping, and start getting helped.",
     url: '/DonateMoney'

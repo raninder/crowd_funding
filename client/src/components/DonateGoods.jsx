@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import axios from "axios";
 import '../Donate.css';
 import './form.css';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 export default function DonateGoods(props) {
@@ -20,7 +20,7 @@ export default function DonateGoods(props) {
 	}, []);
 	console.log("ID",uid);
 
-
+	const history = useHistory();
 	function handleSubmit(e) {
     e.preventDefault();
 	
@@ -31,9 +31,13 @@ export default function DonateGoods(props) {
     axios.post(url, goods)
 		.then(res => {
      
-			alert.show('Thanks for Donating');
+			// alert.show('Thanks for Donating');
+			history.push("/RequestGoods")
 			console.log(res);
 			 handleReset();
+			 setTimeout(()=> {
+				history.push('/RequestGoods');
+				},2000);
     });
   }
 
@@ -83,7 +87,7 @@ export default function DonateGoods(props) {
            <input type="radio" class = "radio" id = "new" name="condition" value = "New" />
 					 <label for="new">New</label>
 					 <input type="radio" class = "radio" id="used" name="condition" value = "Used" />
-					 <label for="used">Good</label>
+					 <label for="used">Used</label>
 					
 					
 					 </div>
@@ -111,7 +115,7 @@ export default function DonateGoods(props) {
 				<textarea id="description" name="description" rows="4" cols="30" value={description} onChange={(e) => setDescription(e.target.value)}/>
 				</p>
 
-       <button type="submit" ><Link to="/RequestGoods">Submit </Link></button>&nbsp;&nbsp;&nbsp;&nbsp;
+       <button type="submit" >Submit </button>&nbsp;&nbsp;&nbsp;&nbsp;
 			 <button onClick={handleReset}>Reset</button>
 			 
       </form>

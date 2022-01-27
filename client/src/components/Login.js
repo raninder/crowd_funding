@@ -35,7 +35,7 @@ const {setLoginUser} = props;
         localStorage.setItem("userID", res.data.id);
         localStorage.setItem("email", res.data.email);
         setLoginUser({_id:res.data.id})
-        history.push("/")})
+        history.push("/Homepage")})
         .catch(error => console.log(error));
     }
     return (

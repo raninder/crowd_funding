@@ -25,7 +25,7 @@ router.get('/getusergoods', (req, res) => {
 						from request_goods
 						JOIN goods 
 						ON goods.id=request_goods.goods_id
-						ORDER BY DATE; 
+						ORDER BY DATE DESC; 
 						`)
 						
 	.then((data) => {

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Donate from "./Donate";
-// import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import './FundStory.css';
 
 import {
   BrowserRouter as Router, Link } from "react-router-dom";
+import ProgressBar from "./ProgressBar";
 
 	export default function FundStory(props) {
 	const { id,user_id,fund_cate_id,title,img,story,goal,amountraising } = props;
 
 	const history = useHistory();
+	let finishPersentage = Math.round(amountraising / goal * 100);
   
 
   return (
@@ -23,27 +24,19 @@ import {
           src={img}
           alt={"sorry"}
         />
-						id:{id} <br/>
-					User id: {user_id} <br/>
-					Cat id: {fund_cate_id} <br/>
-					Title: {title} <br/>
-					Goal: ${goal} <br/>
-					Amount Raised: ${amountraising} <br/>
-					Story: {story} <br/>
-
+					
+					{title} <br/>
+					<ProgressBar bgcolor="#ef6c00" completed={finishPersentage >= 100 ? 100 : finishPersentage}/>
+					
 					<Link
   				to={{
    				 	pathname: "/Donate",
     				state: { id }
   				}}
-					className="btn btn-primary">View details</Link>
+					className="btn-primary">View Detail</Link>
 
 		</div>
 
 	);
 
 	}
-			
-
-
-
