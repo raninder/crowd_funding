@@ -1,0 +1,40 @@
+
+.NavbarItems {
+  background:  white;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+ 
+}
+
+.navbar-logo{
+  display:flex;
+  height: 100%;
+  margin-left:50px ;
+  cursor: pointer;
+}
+
+
+.nav-menu {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.nav-menu-text {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.login, .signup {
+  width: 150px;
+  height: 30px;
+  font-size: medium;
+  padding-top: 6px;
+}
+

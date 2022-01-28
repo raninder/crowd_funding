@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import "../styles/DispGoods2.css";
 import { useHistory } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ export default function Product(props) {
 		setUid(localStorage.getItem("userID"));
 	}, []);
 	console.log("uID",uid);
-	 const alert = useAlert();
+	//  const alert = useAlert();
 	
 	function add_to_request(product_id) {
 		history.push('/Cart1', { product_id, quantity});

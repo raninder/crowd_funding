@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import {useHistory} from "react-router-dom";
+
 import "./form.css"
 import axios from "axios";
-import { useAlert } from 'react-alert';
-import { useHistory } from "react-router-dom";
+//import { useAlert } from 'react-alert';
 
 export default function Register(props) {
+  const {history} = useHistory()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [first_name, setFirstname] = useState("");
@@ -17,26 +20,44 @@ export default function Register(props) {
   const [error, setError] = useState("");
   
 
-  const alert = useAlert();
-  const history = useHistory();
+  // const alert = useAlert();
+
+  //reset form data 
+  function handleReset() {
+    setEmail = "";
+    setPassword = "";
+    setPhone = "";
+    setFirstname = "";
+    setLastname = "";
+    setPhone = "";
+    setStreet = "";
+    setCity = "";
+    setProvince = "";
+    setPostal = "";
+
+  }
+  //cancel function set onCancel event
+  // const Cancel = () => {
+  //   // reset();
+  //   props.onCancel();
+  // }
   
   function handleSubmit(e) {
     e.preventDefault();
 	const user = {
        first_name,last_name,email,phone,street,city,province,postal,password 
-      };
-		
-		// alert.show(JSON.stringify(user));
-	
+      };	
     axios.post("http://localhost:3001/api/users/register", user)
 		.then(res => {
-      alert.show("Registered successfully");
-      console.log(res);
+      localStorage.setItem("userID", res.data.id);
+      localStorage.setItem("email", res.data.email);
+      alert("Registered successfully");
       handleReset();
+      history.push("/Homepage");
+    })
+    .catch((error) => {
+      alert(error.response.data.message)
     });
-    setTimeout(()=> {
-      history.push("/");
-      },1000);
   }
   function handleReset(){
     setEmail("");
@@ -49,6 +70,19 @@ export default function Register(props) {
       setProvince("");
       setPostal("");
   }
+  //check validation for textbox
+  // function validate() {
+  //   // if (student === "") {
+  //   //   setError("Student name cannot be blank");
+  //   //   return;
+  //   // }
+  //   // if (interviewer === null) {
+  //   //   setError("Interviewer cannot be unselected");
+  //   //   return;
+  //   // }
+  //   // setError("");
+  //   // save(email, password,firstName,lastName,phone,stAddress,province,state,postal);
+  // }
   
   //create form 
   return (

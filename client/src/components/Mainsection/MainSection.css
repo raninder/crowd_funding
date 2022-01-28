@@ -1,0 +1,49 @@
+.MainSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.image {
+  justify-content: left;
+  margin: auto;
+  width: 60%;
+}
+
+.image img{
+  padding-top: 40px;
+  width: 80%;
+}
+
+.flex-right {
+  padding-top: 70px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size:x-large;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.button {
+  justify-content: right;
+  margin: 100px;
+  
+}
+button{
+  background-color: rgb(43, 110, 235);
+  color: white;
+  height: 50px;
+  width: 230px;
+  font-size: large;
+  border: none;
+  margin: 15px;
+  font-weight: 900;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 15px;
+}

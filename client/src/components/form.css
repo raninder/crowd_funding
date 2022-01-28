@@ -60,14 +60,14 @@ input, select {
   button:hover {
     background-color: #45a049;
   }
-  .mainsection {
+  /* .mainsection {
     display: block;
     justify-content: center;
     width: 75%;
     border-radius: 5px;
     padding: 20px;
     
-  }
+  } */
  .main {
     width: 50%;
     margin-left: auto;

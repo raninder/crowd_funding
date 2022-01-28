@@ -32,20 +32,14 @@ module.exports = (db) => {
     const password = req.body.password;
     db.query(`SELECT id,email,passwordhash FROM users;`)
       .then((data) => {
-        console.log(data.rows)
         const users = data.rows;
-        // console.log("login successful", users)
         const result = authenticateUser(users, email, password);
-        // console.log("hello", result)
         if (result) {
-        // req.session = {userId:result.id};
-				console.log("result");
-          // res.redirect('/');
-					
+
           return res.status(200).send({message:"success",id:result.id,email:result.email});
           
         } else {
-          return res.status(403).send("Username and password does not match");
+          return res.status(403).send({message:"Username and password does not match"});
         }
       })
 
@@ -66,7 +60,7 @@ module.exports = (db) => {
   });
 
   router.post("/register", (req, res) => {
-    console.log("hello", req.body);
+    console.log(req.body)
     const {
       first_name,
       last_name,
@@ -78,7 +72,6 @@ module.exports = (db) => {
       postal,
       password
     } = req.body;
-    // console.log("hello",req.body.values);
     const passwordhash = bcrypt.hashSync(password, 8);
 
     db.query(
@@ -89,7 +82,13 @@ module.exports = (db) => {
 			`,
       [email, passwordhash, first_name, last_name, phone, street, city, province, postal]
     )
-      .then(res => console.log(res.rows));
+    .then(data => {
+      let user = data.rows[0];
+      return res.status(200).send({message:"success",id:user.id,email:user.email});
+    })
+    .catch(error => {
+      return res.status(409).send({message: "Email already exists!"});
+    });
   })
   return router;
 };

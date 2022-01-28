@@ -1,0 +1,7 @@
+.products {
+  display: flex;
+}
+
+.goods-image {
+  width: 30%;
+}
