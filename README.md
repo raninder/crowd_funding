@@ -30,8 +30,8 @@ A website that help Special needs families to start fund-raising and request goo
 - stripe
  
 # Final Product
-(screenshots/About.png)
-(screenshots/fund-raising.png)
-(screenshots/fundraisers.png)
-(screenshots/goods.png)
-(screenshots/form.png)
+!["About Project"](screenshots/About.png)
+!["FundRaising"](screenshots/fund-raising.png)
+!["Fundraisers"](screenshots/fundraisers.png)
+!["Goods"](screenshots/goods.png)
+!["Form"](screenshots/form.png)
