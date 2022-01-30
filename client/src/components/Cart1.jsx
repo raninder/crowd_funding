@@ -68,15 +68,13 @@ export default function Cart1(props) {
 
 			<div className='container'>
 				
-      	<img
+      				<img
 					className= "image"
-          src={result.img}
-          alt={"Donated Goods"}
-        />	
+          				src={result.img}
+          				alt={"Donated Goods"}
+        			/>	
 				<div className="text">
-					{/* id:{result.id} <br/>
-					User id: {result.user_id} <br/>
-					Category id: {result.good_cat_id} <br/> */}
+					
 					Product Name: {result.goods_name} <br/>
 					{result.size &&
 					<span>Size: {result.size}<br/></span>}
@@ -87,12 +85,12 @@ export default function Cart1(props) {
 					{result.quantity >1 &&
 					<div>
 					<label> Request Quantity: </label>  
-           <input name="qty" value={qty} onChange={(e) => setQty(e.target.value)}/> 
+           				<input name="qty" value={qty} onChange={(e) => setQty(e.target.value)}/> 
 					 </div>
 					}
 					<button className="btn btn-primary" onClick={() => { if (window.confirm('Are you sure you wish to request this item?')) addRequest(qty) }}>Add Request</button> 
 
-			</div>
+				</div>
 		</div>
 	) 
 }
