@@ -15,7 +15,7 @@ A website that help Special needs families to start fund-raising and request goo
 2. Install dependencies using the npm install command.
 3. There are two folders within the root.
 
-- Server: The server is a PostgresSQL Database with express nodejs built ontop of it. Its purpose is to handle data, and export a JSON api. Start the web server using the npm run local command. The app will be served at http://localhost:3001/.
+- Server: The server is a PostgresSQL Database with express nodejs built ontop of it. Its purpose is to handle data, and export a JSON api. Start the web server using the npm run local command(nodemon index.js). The app will be served at http://localhost:3001/.
 
 - Client: The client folder is a react app built seperately from the server which run by command: npm start. It runs at http://localhost:3000
 
@@ -33,5 +33,6 @@ A website that help Special needs families to start fund-raising and request goo
 !["About Project"](screenshots/About.png)
 !["FundRaising"](screenshots/fund-raising.png)
 !["Fundraisers"](screenshots/fundraisers.png)
-!["Goods"](screenshots/goods.png)
+!["Goods"](screenshots/allgoods.png)
+!["Category"](screenshots/goods.png)
 !["Form"](screenshots/form.png)
